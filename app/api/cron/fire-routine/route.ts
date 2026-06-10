@@ -22,6 +22,17 @@ export async function GET(req: NextRequest) {
 
   const supabase = createServiceClient()
 
+  // Reaper: a topic goes in_progress at fire time, but if its essay never
+  // arrives (session cancelled/failed, draft never made), it would be stuck
+  // forever. Reset anything in_progress older than 6h back to queued so it
+  // retries on a future run. Nothing is silently lost.
+  const sixHoursAgo = new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString()
+  await supabase
+    .from('topics')
+    .update({ status: 'queued', started_at: null })
+    .eq('status', 'in_progress')
+    .lt('started_at', sixHoursAgo)
+
   const { data: topics } = await supabase
     .from('topics')
     .select('*')
@@ -82,8 +93,12 @@ Save the result to the delivery bridge as essay_${today}.json with this exact st
     )
   }
 
-  // Routine started successfully. Claim the topic so we don't fire it again.
-  await supabase.from('topics').update({ status: 'in_progress' }).eq('id', topic.id)
+  // Routine started successfully. Claim the topic (with a timestamp so the
+  // reaper can recover it if the essay never arrives).
+  await supabase
+    .from('topics')
+    .update({ status: 'in_progress', started_at: new Date().toISOString() })
+    .eq('id', topic.id)
 
   return NextResponse.json({
     fired: true,

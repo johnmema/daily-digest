@@ -68,6 +68,21 @@ export async function GET(req: NextRequest) {
         topicId = match?.[0]?.id ?? null
       }
 
+      // One essay per topic, ever: if this topic already has a paper, the draft
+      // is a duplicate (e.g. imported twice). Delete it and skip.
+      if (topicId) {
+        const { data: existing } = await supabase
+          .from('papers')
+          .select('id')
+          .eq('topic_id', topicId)
+          .limit(1)
+        if (existing && existing.length > 0) {
+          await gmail.users.drafts.delete({ userId: 'me', id: draftId })
+          results.push({ draft: draftId, status: 'skipped', detail: 'topic already has a paper' })
+          continue
+        }
+      }
+
       const { data: maxRow } = await supabase
         .from('papers')
         .select('edition_number')
