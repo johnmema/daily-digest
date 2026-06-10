@@ -1,16 +1,43 @@
-name: Nightly Essay
+name: Nightly Digest
+
+# Drives the nightly loop on a free, exact-time scheduler (Vercel Hobby crons
+# only run ~once/day at an unpredictable time, which breaks fire-then-import ordering).
+# Step 1 fires the Claude routine; the routine researches + writes the essay and
+# leaves it as a Gmail draft. Steps 2 and 3 import the draft (second run is a retry).
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # 2am ET (UTC-4)
-  workflow_dispatch:        # allow manual runs from GitHub Actions UI
+    - cron: '0 1 * * *'   # 9pm EDT — fire the routine
+    - cron: '0 3 * * *'   # 11pm EDT — import the draft
+    - cron: '0 4 * * *'   # 12am EDT — import retry
+  workflow_dispatch:
+    inputs:
+      step:
+        description: 'Which step to run manually'
+        required: true
+        default: 'import'
+        type: choice
+        options: [fire, import]
 
 jobs:
-  run-nightly:
+  fire:
+    # Runs on the 01:00 schedule, or manual dispatch with step=fire.
+    if: github.event.schedule == '0 1 * * *' || github.event.inputs.step == 'fire'
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger nightly job
+      - name: Fire the routine
         run: |
-          curl -sf -X POST \
+          curl -sf \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            "${{ secrets.APP_URL }}/api/jobs/run-nightly"
+            "${{ secrets.APP_URL }}/api/cron/fire-routine"
+
+  import:
+    # Runs on the 03:00 and 04:00 schedules, or manual dispatch with step=import.
+    if: github.event.schedule == '0 3 * * *' || github.event.schedule == '0 4 * * *' || github.event.inputs.step == 'import'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Import drafts
+        run: |
+          curl -sf \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            "${{ secrets.APP_URL }}/api/cron/import-drafts"
