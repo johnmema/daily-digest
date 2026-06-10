@@ -1,0 +1,51 @@
+# Daily Digest — Agent & Cursor Rules
+
+## Project type
+Next.js 14 App Router, TypeScript, Tailwind, Supabase, Anthropic API.
+
+## Component rules
+- There are exactly 4 components: Header, PaperCard, ReadingView, TopicQueue
+- Do NOT create new component files — add to existing ones or put logic in pages
+- Pages (app/**) do the assembly and data fetching
+- Server Components fetch data; Client Components handle interactivity
+
+## Design tokens (never change these)
+```
+bg:         #f9f7f4
+text:       #1a1a1a
+border:     #e8e5e0
+secondary:  #6b6b6b
+card-bg:    #ffffff
+font-serif: 'Playfair Display' (headings, pull quotes)
+font-sans:  'Inter' (UI, body text, metadata)
+```
+
+## Design rules (never violate)
+- NO drop shadows (`shadow-*`) on cards or any UI element
+- NO border-radius on cards (`rounded-*` is banned on PaperCard)
+- NO gradients anywhere
+- Section labels are lowercase, followed by a full-width `border-t` rule
+- "read more ›" links use `›` (›), not `>`
+
+## Supabase
+- Browser client: `lib/supabase.ts` → `createBrowserClient()`
+- Server client: `lib/supabase.ts` → `createServerClient()` (uses service role in API routes)
+- Never expose `SUPABASE_SERVICE_ROLE_KEY` to the browser
+
+## API routes
+- `/api/jobs/run-nightly` — protected by `Authorization: Bearer CRON_SECRET` header
+- `/api/suggest-topics` — no auth, called from queue page client-side
+
+## Anthropic
+- Model: `claude-sonnet-4-6`
+- Always use `web_search_20250305` tool for the nightly essay
+- Essay output must be parsed as JSON: { title, subtitle, pull_quote, content, sources }
+
+## Nightly job order
+1. Verify CRON_SECRET
+2. Pick top queued topic (priority desc, created_at asc)
+3. Mark in_progress
+4. generateEssay(topic)
+5. Compute word_count, read_time_minutes
+6. edition_number = MAX(edition_number) + 1
+7. Insert paper, mark topic done

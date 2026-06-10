@@ -1,0 +1,16 @@
+name: Nightly Essay
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 2am ET (UTC-4)
+  workflow_dispatch:        # allow manual runs from GitHub Actions UI
+
+jobs:
+  run-nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger nightly job
+        run: |
+          curl -sf -X POST \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            "${{ secrets.APP_URL }}/api/jobs/run-nightly"
