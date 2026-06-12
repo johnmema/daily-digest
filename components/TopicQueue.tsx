@@ -91,11 +91,13 @@ function SortableItem({
     <div
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={`relative flex items-center gap-5 p-5 bg-white border rounded-sm group transition-colors ${
-        isDragging ? 'opacity-60 border-[#c8c5c0]' : 'border-[#e8e5e0] hover:border-[#c8c5c0]'
+      className={`relative flex items-center gap-5 p-5 bg-white border rounded-sm group transition-all ${
+        isDragging
+          ? 'opacity-60 border-[#000000]'
+          : 'border-[#e8e5e0] hover:border-[#000000] hover:bg-[#fcfcfc]'
       }`}
     >
-      <span className="font-serif text-[22px] text-[#c8c5c0] group-hover:text-[#6b6b6b] tabular-nums shrink-0 w-6 text-center leading-none transition-colors">
+      <span className="font-serif text-[22px] text-[#c8c5c0] group-hover:text-[#000000] tabular-nums shrink-0 w-6 text-center leading-none -mt-1 self-center transition-colors">
         {index + 1}
       </span>
 
@@ -306,7 +308,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
             />
             <button
               onClick={addTopic}
-              className="flex items-center justify-center gap-1.5 bg-[#000000] text-white px-5 py-3 text-sm font-medium rounded-sm hover:bg-[#1a1a1a] active:scale-[0.98] transition-all shrink-0"
+              className="flex items-center justify-center gap-1.5 border border-[#000000] bg-[#000000] text-white px-5 py-3 text-sm font-medium rounded-sm hover:bg-white hover:text-[#000000] active:scale-[0.98] transition-colors shrink-0"
             >
               <span className="text-base leading-none">+</span> Add
             </button>
@@ -348,20 +350,20 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
                   key={s.id}
                   className="group/card bg-white border border-[#e8e5e0] rounded-sm p-5 hover:border-[#c8c5c0] transition-colors"
                 >
-                  <p className="font-serif text-[24px] font-semibold text-[#000000] leading-tight mb-2">
+                  <p className="font-serif text-[20px] text-[#000000] leading-tight mb-1">
                     {s.title}
                   </p>
                   <p className="text-sm text-[#6b6b6b] leading-snug mb-4">{s.reason}</p>
                   <div className="flex gap-2.5">
                     <button
                       onClick={() => addSuggestion(s)}
-                      className="flex items-center justify-center gap-2 flex-1 bg-[#000000] text-white px-4 py-2.5 text-[13px] font-medium rounded-sm hover:bg-[#1a1a1a] active:scale-[0.98] transition-all"
+                      className="flex items-center justify-center gap-2 flex-1 border border-[#000000] bg-[#000000] text-white px-4 py-2.5 text-[13px] font-medium rounded-sm hover:bg-white hover:text-[#000000] active:scale-[0.98] transition-colors"
                     >
                       <span className="text-base leading-none">+</span> Add to queue
                     </button>
                     <button
                       onClick={() => dismissSuggestion(s.id)}
-                      className="flex items-center justify-center gap-2 flex-1 border border-[#e8e5e0] bg-white text-[#6b6b6b] px-4 py-2.5 text-[13px] rounded-sm hover:text-[#000000] hover:border-[#c8c5c0] hover:bg-[#fafafa] active:scale-[0.98] transition-all"
+                      className="flex items-center justify-center gap-2 flex-1 border border-[#e8e5e0] bg-white text-[#6b6b6b] px-4 py-2.5 text-[13px] rounded-sm hover:text-[#000000] hover:border-[#000000] active:scale-[0.98] transition-colors"
                     >
                       <span className="leading-none">×</span> Dismiss
                     </button>
