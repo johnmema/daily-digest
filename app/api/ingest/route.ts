@@ -8,7 +8,11 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json()
-  const { topic_id, title, subtitle, pull_quote, content, sources, word_count, read_time_minutes } = body
+  const { topic_id, category, title, subtitle, pull_quote, content, sources, word_count, read_time_minutes } = body
+  const normalizedCategory =
+    typeof category === 'string' && ['essay', 'explainer', 'analysis'].includes(category.trim().toLowerCase())
+      ? category.trim().toLowerCase()
+      : null
 
   if (!title || !content) {
     return NextResponse.json({ error: 'title and content are required' }, { status: 400 })
@@ -30,6 +34,7 @@ export async function POST(req: NextRequest) {
     .insert({
       edition_number: editionNumber,
       topic_id: topic_id ?? null,
+      category: normalizedCategory,
       title,
       subtitle,
       pull_quote,

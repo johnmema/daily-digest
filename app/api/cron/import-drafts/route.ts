@@ -51,7 +51,7 @@ export async function GET(req: NextRequest) {
         continue
       }
 
-      const { topic, title, subtitle, pull_quote, content, sources, word_count, read_time_minutes, published_at } = essay
+      const { topic, category, title, subtitle, pull_quote, content, sources, word_count, read_time_minutes, published_at } = essay
       if (!title || !content) {
         results.push({ draft: draftId, status: 'error', detail: 'missing title/content' })
         continue
@@ -125,6 +125,7 @@ export async function GET(req: NextRequest) {
         .insert({
           edition_number: editionNumber,
           topic_id: topicId,
+          category: normalizeCategory(category),
           title,
           subtitle: subtitle ?? null,
           pull_quote: pull_quote ?? null,
@@ -157,6 +158,14 @@ export async function GET(req: NextRequest) {
 
   const imported = results.filter((r) => r.status === 'imported').length
   return NextResponse.json({ scanned: draftRefs.length, imported, results })
+}
+
+// The routine emits one of three modes; tolerate casing/whitespace drift and
+// store null for anything unrecognized rather than polluting the column.
+function normalizeCategory(value: unknown): string | null {
+  if (typeof value !== 'string') return null
+  const v = value.trim().toLowerCase()
+  return v === 'essay' || v === 'explainer' || v === 'analysis' ? v : null
 }
 
 // Gmail bodies are base64url-encoded and may be nested in multipart payloads.

@@ -14,10 +14,13 @@ export interface Source {
   snippet: string
 }
 
+export type PaperCategory = 'essay' | 'explainer' | 'analysis'
+
 export interface Paper {
   id: string
   edition_number: number
   topic_id: string | null
+  category: PaperCategory | null
   title: string
   subtitle: string | null
   pull_quote: string | null
