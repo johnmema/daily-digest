@@ -51,9 +51,11 @@ curl -X POST http://localhost:3000/api/jobs/run-nightly \
 ```
 
 ## Design rules (never violate)
-- Background: `#f9f7f4`, text: `#1a1a1a`, borders: `#e8e5e0`, secondary: `#6b6b6b`
+- Background: `#ffffff`, text: `#000000`, card surface: `#f8f8f8`, borders: `#e8e5e0`, secondary: `#6b6b6b`
 - Fonts: Playfair Display for headings/pull quotes, Inter for body/UI
 - No drop shadows on cards, no border-radius on cards, no gradients
-- Cards have `border border-[#e8e5e0]` and `bg-white`
-- Section dividers: lowercase label + `flex-1 border-t border-[#e8e5e0]` rule
+- Cards have `bg-[#f8f8f8]`, no border; gapped grid (`gap-8`), not a hairline grid
+- Section dividers: large serif lowercase header + `flex-1 border-t border-[#1a1a1a]` rule
+- "read more ›" link (bold, chevron) ends each card
+- Header: large serif "the news." logo + hamburger menu on the right at all breakpoints
 - Keep components minimal — 4 components total, pages do the assembly

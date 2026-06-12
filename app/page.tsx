@@ -4,9 +4,9 @@ import type { Paper } from '@/types'
 
 function SectionDivider({ label }: { label: string }) {
   return (
-    <div className="flex items-center gap-4 mb-8">
-      <span className="font-sans text-[11px] uppercase tracking-widest text-[#6b6b6b] shrink-0">{label}</span>
-      <div className="flex-1 border-t border-[#e8e5e0]" />
+    <div className="flex items-center gap-6 mb-8">
+      <h2 className="font-serif text-[34px] font-light text-[#000000] lowercase shrink-0 leading-none">{label}</h2>
+      <div className="flex-1 border-t border-[#1a1a1a] mt-2" />
     </div>
   )
 }
@@ -20,14 +20,13 @@ export default async function HomePage() {
     .limit(10)
 
   const all = (papers ?? []) as Paper[]
-  const [today, ...rest] = all
-  const recent = rest.slice(0, 6)
+  const recent = all.slice(0, 3)
 
   return (
     <div className="max-w-[1200px] mx-auto px-8 py-12">
       {all.length === 0 ? (
         <div className="py-32 text-center">
-          <p className="font-serif text-4xl font-bold text-[#1a1a1a] mb-4">No papers yet.</p>
+          <p className="font-serif text-4xl font-bold text-[#000000] mb-4">No papers yet.</p>
           <p className="font-sans text-[#6b6b6b] text-sm">
             Add topics to your{' '}
             <a href="/queue" className="underline underline-offset-2 hover:text-[#1a1a1a] transition-colors">queue</a>
@@ -37,20 +36,13 @@ export default async function HomePage() {
       ) : (
         <>
           <section className="mb-16">
-            <SectionDivider label="latest edition" />
-            {today && <PaperCard paper={today} featured />}
+            <SectionDivider label="recent" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recent.map(paper => (
+                <PaperCard key={paper.id} paper={paper} />
+              ))}
+            </div>
           </section>
-
-          {recent.length > 0 && (
-            <section className="mb-16">
-              <SectionDivider label="recent" />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[#e8e5e0]">
-                {recent.map(paper => (
-                  <PaperCard key={paper.id} paper={paper} />
-                ))}
-              </div>
-            </section>
-          )}
         </>
       )}
     </div>

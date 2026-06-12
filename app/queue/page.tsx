@@ -12,13 +12,10 @@ export default async function QueuePage() {
 
   return (
     <div className="max-w-[1200px] mx-auto px-8 py-12">
-      <div className="flex items-center gap-4 mb-4">
-        <span className="font-serif text-2xl text-[#1a1a1a] shrink-0">queue</span>
-        <div className="flex-1 border-t border-[#e8e5e0]" />
+      <div className="flex items-center gap-6 mb-12">
+        <h2 className="font-serif text-[34px] font-light text-[#000000] lowercase shrink-0 leading-none">queue</h2>
+        <div className="flex-1 border-t border-[#1a1a1a] mt-2" />
       </div>
-      <p className="text-sm text-[#6b6b6b] mb-10">
-        You&apos;re the commissioning editor. Add topics, set the order. The agent writes overnight.
-      </p>
 
       <div className="max-w-2xl">
         <TopicQueue initialTopics={(topics ?? []) as Topic[]} />

@@ -60,21 +60,32 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
   useEffect(() => { saveProgress(percent) }, [percent])
 
-  // Active heading via IntersectionObserver
+  // Active heading: the last heading scrolled past the top reading line.
+  // Tracked on scroll so the highlight is always set, even mid-section
+  // where no heading is currently within an observer band.
   useEffect(() => {
-    const els = contentRef.current?.querySelectorAll('h2, h3')
-    if (!els?.length) return
-    const obs = new IntersectionObserver(
-      entries => {
-        const visible = entries.filter(e => e.isIntersecting)
-        if (visible.length) {
-          setActiveHeading(visible[0].target.id)
-        }
-      },
-      { rootMargin: '-20% 0px -70% 0px' }
-    )
-    els.forEach(el => obs.observe(el))
-    return () => obs.disconnect()
+    const getHeadings = () =>
+      Array.from(contentRef.current?.querySelectorAll<HTMLElement>('h2, h3') ?? [])
+    if (!getHeadings().length) return
+
+    const LINE = 120 // px from top that counts as "currently reading"
+    const update = () => {
+      const els = getHeadings()
+      let current = els[0]?.id ?? ''
+      for (const el of els) {
+        if (el.getBoundingClientRect().top <= LINE) current = el.id
+        else break
+      }
+      setActiveHeading(prev => (prev === current ? prev : current))
+    }
+
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => {
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+    }
   }, [])
 
   // Resume scroll position
@@ -137,23 +148,23 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
   }
 
   return (
-    <div className="min-h-screen bg-[#f9f7f4]">
+    <div className="min-h-screen bg-white">
       {/* Progress bar */}
       <div
-        className="fixed top-0 left-0 h-[2px] bg-[#1a1a1a] z-50 transition-all duration-150"
+        className="fixed top-0 left-0 h-[2px] bg-[#000000] z-50 transition-all duration-150"
         style={{ width: `${percent}%` }}
       />
 
       {/* Top bar */}
-      <div className="sticky top-0 z-40 bg-[#f9f7f4] border-b border-[#e8e5e0]">
+      <div className="sticky top-0 z-40 bg-white border-b border-[#e8e5e0]">
         <div className="max-w-[1200px] mx-auto px-8 h-12 flex items-center justify-between text-sm text-[#6b6b6b]">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1.5 hover:text-[#1a1a1a] transition-colors"
+            className="flex items-center gap-1.5 hover:text-[#000000] transition-colors"
           >
             ← Back
           </button>
-          <span className="text-[#1a1a1a] font-medium">
+          <span className="text-[#000000] font-medium">
             No. {paper.edition_number} · {formatDateShort(paper.published_at)}
           </span>
           <div className="flex items-center gap-4">
@@ -166,7 +177,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
                   navigator.clipboard.writeText(window.location.href)
                 }
               }}
-              className="hover:text-[#1a1a1a] transition-colors"
+              className="hover:text-[#000000] transition-colors"
               aria-label="Share"
             >
               ⎋
@@ -177,20 +188,27 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
       <div className="max-w-[1200px] mx-auto px-8 py-12 flex gap-16">
         {/* Table of contents */}
-        <aside className="hidden lg:block w-52 shrink-0">
+        <aside className="hidden lg:block w-56 shrink-0">
           <div className="sticky top-20">
-            <p className="text-xs tracking-widest text-[#6b6b6b] mb-4 font-medium">CONTENTS</p>
-            <nav className="flex flex-col gap-1">
+            <p className="font-serif text-lg text-[#000000] lowercase mb-5">contents</p>
+            <nav className="flex flex-col">
               {headings.map(h => (
                 <a
                   key={h.id}
                   href={`#${h.id}`}
-                  className={`text-sm py-1 pl-3 border-l-2 transition-colors leading-snug ${
+                  className={`group flex items-center gap-3 py-1.5 text-[13px] leading-snug transition-colors ${
                     activeHeading === h.id
-                      ? 'border-[#1a1a1a] text-[#1a1a1a] font-medium'
-                      : 'border-transparent text-[#6b6b6b] hover:text-[#1a1a1a]'
+                      ? 'text-[#000000] font-medium'
+                      : 'text-[#6b6b6b] hover:text-[#000000]'
                   }`}
                 >
+                  <span
+                    className={`h-px shrink-0 transition-all duration-300 ${
+                      activeHeading === h.id
+                        ? 'w-6 bg-[#000000]'
+                        : 'w-3 bg-[#c8c5c0] group-hover:w-5 group-hover:bg-[#6b6b6b]'
+                    }`}
+                  />
                   {h.text}
                 </a>
               ))}
@@ -203,7 +221,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
           {/* Pull quote */}
           {paper.pull_quote && (
             <div className="border-t border-b border-[#e8e5e0] py-8 mb-10 text-center">
-              <p className="font-serif text-2xl italic text-[#1a1a1a] leading-relaxed">
+              <p className="font-serif text-2xl italic text-[#000000] leading-relaxed">
                 {paper.pull_quote}
               </p>
             </div>
@@ -213,11 +231,11 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
           <div
             ref={contentRef}
             className="relative prose prose-lg max-w-none
-              prose-headings:font-serif prose-headings:font-bold prose-headings:text-[#1a1a1a]
+              prose-headings:font-serif prose-headings:font-bold prose-headings:text-[#000000]
               prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
               prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-              prose-p:text-[#1a1a1a] prose-p:leading-[1.85] prose-p:text-[17px]
-              prose-a:text-[#1a1a1a] prose-a:underline
+              prose-p:text-[#000000] prose-p:leading-[1.85] prose-p:text-[17px]
+              prose-a:text-[#000000] prose-a:underline
               prose-strong:font-semibold
               prose-blockquote:border-l-2 prose-blockquote:border-[#e8e5e0] prose-blockquote:text-[#6b6b6b] prose-blockquote:not-italic"
           >
@@ -243,11 +261,11 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
           {/* Sources */}
           {paper.sources && paper.sources.length > 0 && (
             <div className="mt-16 pt-8 border-t border-[#e8e5e0]">
-              <h3 className="font-serif text-lg font-bold text-[#1a1a1a] mb-4">Sources</h3>
+              <h3 className="font-serif text-lg font-bold text-[#000000] mb-4">Sources</h3>
               <ol className="space-y-3">
                 {paper.sources.map((src, i) => (
                   <li key={i} className="text-sm text-[#6b6b6b] leading-relaxed">
-                    <span className="text-[#1a1a1a] font-medium">{src.title}</span>
+                    <span className="text-[#000000] font-medium">{src.title}</span>
                     {src.url && (
                       <>
                         {' '}—{' '}
@@ -255,7 +273,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
                           href={src.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="underline hover:text-[#1a1a1a] break-all"
+                          className="underline hover:text-[#000000] break-all"
                         >
                           {src.url}
                         </a>
@@ -271,7 +289,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
           {/* Saved annotations panel */}
           {annotations.length > 0 && (
             <div className="mt-12 pt-8 border-t border-[#e8e5e0]">
-              <h3 className="font-serif text-lg font-bold text-[#1a1a1a] mb-4">Your highlights</h3>
+              <h3 className="font-serif text-lg font-bold text-[#000000] mb-4">Your highlights</h3>
               <div className="space-y-3">
                 {annotations.map(ann => (
                   <div
@@ -283,12 +301,12 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
                       style={{ backgroundColor: ANNOTATION_COLORS[ann.color as AnnotationColor] }}
                     />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm text-[#1a1a1a] italic">"{ann.selected_text}"</p>
+                      <p className="text-sm text-[#000000] italic">"{ann.selected_text}"</p>
                       {ann.note && <p className="text-xs text-[#6b6b6b] mt-1">{ann.note}</p>}
                     </div>
                     <button
                       onClick={() => deleteAnnotation(ann.id)}
-                      className="text-xs text-[#6b6b6b] opacity-0 group-hover:opacity-100 transition-opacity hover:text-[#1a1a1a]"
+                      className="text-xs text-[#6b6b6b] opacity-0 group-hover:opacity-100 transition-opacity hover:text-[#000000]"
                     >
                       ×
                     </button>
@@ -312,7 +330,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
             placeholder="Add a note (optional)"
             value={noteText}
             onChange={e => setNoteText(e.target.value)}
-            className="text-xs border border-[#e8e5e0] px-2 py-1 outline-none focus:border-[#1a1a1a]"
+            className="text-xs border border-[#e8e5e0] px-2 py-1 outline-none focus:border-[#000000]"
           />
           <div className="flex gap-2">
             {(Object.entries(ANNOTATION_COLORS) as [AnnotationColor, string][]).map(([color, hex]) => (
@@ -326,7 +344,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
             ))}
             <button
               onClick={() => setPopover(null)}
-              className="ml-auto text-xs text-[#6b6b6b] hover:text-[#1a1a1a]"
+              className="ml-auto text-xs text-[#6b6b6b] hover:text-[#000000]"
             >
               ×
             </button>

@@ -57,15 +57,44 @@ export async function GET(req: NextRequest) {
         continue
       }
 
-      // Match the essay's topic string back to a topics row (best-effort).
+      // Match the essay's topic string back to a topics row. The essay's `topic`
+      // field can drift from the queue title (smart quotes, em-dashes, trailing
+      // space, the model rephrasing), so try progressively looser matches and
+      // finally fall back to the topic the fire claimed as in_progress.
       let topicId: string | null = null
       if (topic) {
-        const { data: match } = await supabase
+        const trimmed = String(topic).trim()
+        // 1. Exact (case-insensitive).
+        const { data: exact } = await supabase
           .from('topics')
           .select('id')
-          .ilike('title', topic)
+          .ilike('title', trimmed)
           .limit(1)
-        topicId = match?.[0]?.id ?? null
+        topicId = exact?.[0]?.id ?? null
+
+        // 2. Substring match either direction.
+        if (!topicId) {
+          const { data: fuzzy } = await supabase
+            .from('topics')
+            .select('id')
+            .ilike('title', `%${trimmed}%`)
+            .limit(1)
+          topicId = fuzzy?.[0]?.id ?? null
+        }
+      }
+
+      // 3. Fall back to the topic the fire claimed. When an essay arrives there is
+      // normally exactly one in_progress topic — the one written for. This is the
+      // safety net that keeps a topic from being stranded in the queue when the
+      // title string fails to match.
+      if (!topicId) {
+        const { data: inProgress } = await supabase
+          .from('topics')
+          .select('id')
+          .eq('status', 'in_progress')
+          .order('started_at', { ascending: true })
+          .limit(1)
+        topicId = inProgress?.[0]?.id ?? null
       }
 
       // One essay per topic, ever: if this topic already has a paper, the draft

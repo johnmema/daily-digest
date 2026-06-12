@@ -33,6 +33,31 @@ export async function GET(req: NextRequest) {
     .eq('status', 'in_progress')
     .lt('started_at', sixHoursAgo)
 
+  // Idempotency guard 1: if an essay was already published today, today's work
+  // is done — skip. This makes the endpoint safe to hit from multiple triggers
+  // (cron-job.org, retries, manual) without producing duplicate essays.
+  const startOfDay = new Date()
+  startOfDay.setUTCHours(0, 0, 0, 0)
+  const { data: todaysPapers } = await supabase
+    .from('papers')
+    .select('id')
+    .gte('published_at', startOfDay.toISOString())
+    .limit(1)
+  if (todaysPapers && todaysPapers.length > 0) {
+    return NextResponse.json({ fired: false, reason: 'Already published today' })
+  }
+
+  // Idempotency guard 2: if a topic is already in_progress and recent (< 6h),
+  // a fire is in flight — don't fire again. (Stale ones were reaped above.)
+  const { data: inFlight } = await supabase
+    .from('topics')
+    .select('id, title')
+    .eq('status', 'in_progress')
+    .limit(1)
+  if (inFlight && inFlight.length > 0) {
+    return NextResponse.json({ fired: false, reason: 'A fire is already in progress', topic: inFlight[0].title })
+  }
+
   const { data: topics } = await supabase
     .from('topics')
     .select('*')
@@ -49,7 +74,15 @@ export async function GET(req: NextRequest) {
   const today = new Date().toISOString().slice(0, 10)
   const text = `Tonight's topic: ${topic.title}
 
-Research this topic deeply with web search (at least 5-8 searches from multiple angles: recent data, academic perspectives, contrarian views, specific examples). Then write a 2,500-3,500 word essay with a compelling title, subtitle, a one-sentence pull quote, 5-7 sections with ## headers, your own thesis, and inline citations (Author/Publication, Year).
+Research this topic deeply with web search (at least 5-8 searches from multiple angles: recent data, academic perspectives, contrarian views, specific examples). Then write a 2,500-3,500 word essay with a short scientific title, a subtitle, a one-sentence pull quote, 5-7 sections with ## headers, your own thesis, and inline citations (Author/Publication, Year).
+
+Title rules — this matters:
+- Keep the title SHORT: aim for 2-6 words, hard cap at roughly 60 characters.
+- Make it restrained and scientific, like a journal article or a serious magazine feature — not a marketing headline.
+- NO colons, NO "How X Does Y", NO "The [Adjective] [Noun]" clickbait constructions, no em-dash subtitle crammed into the title. Name the subject plainly.
+- Put any explanatory framing in the SUBTITLE (one descriptive sentence), never in the title.
+- Good: "The Energy Cost of AI", "Boredom and the Wandering Mind", "Atlantic Circulation in Decline".
+- Bad: "The Digital Carbon Spiral: How Artificial Intelligence Is Reshaping the Planet's Energy and Environmental Balance".
 
 Save the result to the delivery bridge as essay_${today}.json with this exact structure:
 {

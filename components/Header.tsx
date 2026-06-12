@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
 
 const navLinks = [
   { href: '/', label: 'Today' },
@@ -12,61 +11,36 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname()
-  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="border-b border-[#e8e5e0] bg-[#f9f7f4]">
-      <div className="max-w-[1200px] mx-auto px-8 py-5 flex items-center justify-between">
-        <Link href="/" className="font-serif text-[28px] font-bold text-[#1a1a1a] tracking-tight leading-none">
-          daily digest.
+    <header className="bg-white">
+      <div className="max-w-[1200px] mx-auto px-8 pt-10 pb-6 flex items-end justify-between">
+        <Link href="/" className="font-serif text-[44px] font-black text-[#000000] tracking-tight leading-none">
+          the news.
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`font-sans text-[13px] tracking-wide transition-colors ${
-                pathname === href
-                  ? 'text-[#1a1a1a]'
-                  : 'text-[#6b6b6b] hover:text-[#1a1a1a]'
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
+        <nav className="flex items-center gap-8 pb-1.5">
+          {navLinks.map(({ href, label }) => {
+            const active = pathname === href
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`group relative font-sans text-[15px] tracking-wide transition-colors duration-200 ${
+                  active ? 'text-[#000000]' : 'text-[#6b6b6b] hover:text-[#000000]'
+                }`}
+              >
+                {label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-[1.5px] bg-[#000000] transition-all duration-300 ease-out ${
+                    active ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                />
+              </Link>
+            )
+          })}
         </nav>
-
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden flex flex-col gap-[5px] p-1"
-          onClick={() => setMenuOpen(o => !o)}
-          aria-label="Menu"
-        >
-          <span className={`block w-5 h-px bg-[#1a1a1a] transition-all origin-center ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-          <span className={`block w-5 h-px bg-[#1a1a1a] transition-all ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-px bg-[#1a1a1a] transition-all origin-center ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
-        </button>
       </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
-        <nav className="md:hidden border-t border-[#e8e5e0] px-8 py-5 flex flex-col gap-5 bg-[#f9f7f4]">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-              className={`font-sans text-[13px] tracking-wide ${
-                pathname === href ? 'text-[#1a1a1a]' : 'text-[#6b6b6b]'
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-      )}
     </header>
   )
 }

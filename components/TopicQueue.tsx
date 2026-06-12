@@ -48,12 +48,12 @@ function SortableItem({
       </button>
 
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-[#1a1a1a] truncate">{topic.title}</p>
+        <p className="text-sm font-medium text-[#000000] truncate">{topic.title}</p>
       </div>
 
       <button
         onClick={() => onDelete(topic.id)}
-        className="text-[#c8c5c0] hover:text-[#1a1a1a] opacity-0 group-hover:opacity-100 transition-opacity shrink-0 text-lg leading-none"
+        className="text-[#c8c5c0] hover:text-[#000000] opacity-0 group-hover:opacity-100 transition-opacity shrink-0 text-lg leading-none"
         aria-label="Remove topic"
       >
         ×
@@ -149,11 +149,11 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
             onChange={e => setNewTitle(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && addTopic()}
             placeholder="e.g. the economics of open-source software"
-            className="flex-1 border border-[#e8e5e0] bg-white px-4 py-3 text-sm text-[#1a1a1a] placeholder:text-[#c8c5c0] outline-none focus:border-[#1a1a1a] transition-colors"
+            className="flex-1 border border-[#e8e5e0] bg-white px-4 py-3 text-sm text-[#000000] placeholder:text-[#c8c5c0] outline-none focus:border-[#000000] transition-colors"
           />
           <button
             onClick={addTopic}
-            className="border border-l-0 border-[#e8e5e0] bg-white px-5 py-3 text-sm text-[#1a1a1a] hover:bg-[#f9f7f4] transition-colors"
+            className="border border-l-0 border-[#e8e5e0] bg-white px-5 py-3 text-sm text-[#000000] hover:bg-[#f8f8f8] transition-colors"
           >
             Add
           </button>
@@ -185,7 +185,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
           <button
             onClick={loadSuggestions}
             disabled={loadingSuggestions}
-            className="text-xs text-[#1a1a1a] underline underline-offset-2 hover:no-underline disabled:text-[#6b6b6b]"
+            className="text-xs text-[#000000] underline underline-offset-2 hover:no-underline disabled:text-[#6b6b6b]"
           >
             {loadingSuggestions ? 'thinking…' : 'generate'}
           </button>
@@ -197,7 +197,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
                 <p className="text-sm text-[#6b6b6b]">{s}</p>
                 <button
                   onClick={() => addSuggestion(s)}
-                  className="text-xs text-[#1a1a1a] opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="text-xs text-[#000000] opacity-0 group-hover:opacity-100 transition-opacity"
                 >
                   + add
                 </button>
