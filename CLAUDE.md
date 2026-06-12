@@ -53,8 +53,9 @@ curl -X POST http://localhost:3000/api/jobs/run-nightly \
 ## Design rules (never violate)
 - Background: `#ffffff`, text: `#000000`, card surface: `#f8f8f8`, borders: `#e8e5e0`, secondary: `#6b6b6b`
 - Fonts: Playfair Display for headings/pull quotes, Inter for body/UI
-- No drop shadows on cards, no border-radius on cards, no gradients
-- Cards have `bg-[#f8f8f8]`, no border; gapped grid (`gap-8`), not a hairline grid
+- No drop shadows on cards, no gradients
+- Feed/archive cards (PaperCard): `bg-[#f8f8f8]`, no border, no radius; gapped grid (`gap-8`), not a hairline grid
+- Queue page cards (topic rows + suggestions): `bg-white` with `border-[#e8e5e0]` and slight `rounded-sm`; hover deepens border to `#c8c5c0`. Scoped exception to the no-border/no-radius rule, queue only.
 - Section dividers: large serif lowercase header + `flex-1 border-t border-[#1a1a1a]` rule
 - "read more ›" link (bold, chevron) ends each card
 - Header: large serif "the news." logo + hamburger menu on the right at all breakpoints

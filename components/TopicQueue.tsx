@@ -91,11 +91,11 @@ function SortableItem({
     <div
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={`flex items-center gap-4 p-4 bg-[#f8f8f8] group transition-colors ${
-        isDragging ? 'opacity-60 shadow-sm' : 'hover:bg-[#f1f1f1]'
+      className={`relative flex items-center gap-5 p-5 bg-white border rounded-sm group transition-colors ${
+        isDragging ? 'opacity-60 border-[#c8c5c0]' : 'border-[#e8e5e0] hover:border-[#c8c5c0]'
       }`}
     >
-      <span className="font-serif text-[22px] text-[#c8c5c0] tabular-nums shrink-0 w-6 text-center leading-none">
+      <span className="font-serif text-[22px] text-[#c8c5c0] group-hover:text-[#6b6b6b] tabular-nums shrink-0 w-6 text-center leading-none transition-colors">
         {index + 1}
       </span>
 
@@ -136,7 +136,7 @@ function SortableItem({
 
       <button
         onClick={() => onDelete(topic.id)}
-        className="text-[#c8c5c0] hover:text-[#000000] shrink-0 p-1 -mr-1 transition-colors"
+        className="text-[#c8c5c0] hover:text-[#000000] hover:scale-110 active:scale-95 shrink-0 p-1 -mr-1 transition-all"
         aria-label="Remove topic"
       >
         <TrashIcon />
@@ -148,7 +148,9 @@ function SortableItem({
 export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }) {
   const [topics, setTopics] = useState(initialTopics)
   const [newTitle, setNewTitle] = useState('')
-  const [suggestions, setSuggestions] = useState<string[]>([])
+  const [suggestions, setSuggestions] = useState<
+    { id: string; title: string; category: string; reason: string }[]
+  >([])
   const [loadingSuggestions, setLoadingSuggestions] = useState(false)
   const [eta, setEta] = useState('')
   const supabase = createClient()
@@ -224,27 +226,40 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
     try {
       const res = await fetch('/api/suggest-topics')
       const data = await res.json()
-      setSuggestions(data.suggestions ?? [])
+      const items: { title: string; category: string; reason: string }[] =
+        data.suggestions ?? []
+      setSuggestions(
+        items.map((item, i) => ({ id: `${Date.now()}-${i}`, ...item }))
+      )
     } finally {
       setLoadingSuggestions(false)
     }
   }
 
-  const addSuggestion = async (title: string) => {
+  const addSuggestion = async (suggestion: {
+    id: string
+    title: string
+    category: string
+    reason: string
+  }) => {
+    // Remove from the list immediately so the card doesn't linger while the
+    // insert is in flight; restore it if the insert fails.
+    setSuggestions(s => s.filter(sg => sg.id !== suggestion.id))
     const maxPriority = topics.length ? Math.max(...topics.map(t => t.priority)) + 1 : 0
     const { data } = await supabase
       .from('topics')
-      .insert({ title, priority: maxPriority, status: 'queued' })
+      .insert({ title: suggestion.title, priority: maxPriority, status: 'queued' })
       .select()
       .single()
     if (data) {
       setTopics(t => [...t, data])
-      setSuggestions(s => s.filter(sg => sg !== title))
+    } else {
+      setSuggestions(s => [suggestion, ...s])
     }
   }
 
-  const dismissSuggestion = (title: string) => {
-    setSuggestions(s => s.filter(sg => sg !== title))
+  const dismissSuggestion = (id: string) => {
+    setSuggestions(s => s.filter(sg => sg.id !== id))
   }
 
   const queued = topics.filter(t => t.status !== 'done')
@@ -257,8 +272,8 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
         {/* Left: tonight's paper + add + ranking */}
         <div>
           {/* Tonight's paper — clean banner */}
-          <div className="mb-10">
-            <div className="flex items-center gap-3 mb-3">
+          <div className="mb-4  ad">
+            <div className="flex items-center gap-3 mb-1">
               <p className="text-[11px] font-sans uppercase tracking-widest text-[#6b6b6b]">
                 Tonight&apos;s paper
               </p>
@@ -272,7 +287,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
               )}
             </div>
             <p
-              className={`font-serif text-[28px] sm:text-[32px] font-light leading-[1.1] tracking-tight ${
+              className={`font-serif text-[20px] sm:text-[24px] font-light leading-[1.1] tracking-tight ${
                 nextUp ? 'text-[#000000]' : 'text-[#c8c5c0]'
               }`}
             >
@@ -280,18 +295,18 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
             </p>
           </div>
 
-          <div className="flex gap-0 mb-3">
+          <div className="flex gap-2.5 mb-6">
             <input
               type="text"
               value={newTitle}
               onChange={e => setNewTitle(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && addTopic()}
               placeholder="Add a topic to research…"
-              className="flex-1 min-w-0 border border-[#e8e5e0] bg-white px-4 py-3 text-sm text-[#000000] placeholder:text-[#c8c5c0] outline-none focus:border-[#000000] transition-colors"
+              className="flex-1 min-w-0 border border-[#e8e5e0] rounded-sm bg-white px-4 py-3 text-sm text-[#000000] placeholder:text-[#c8c5c0] outline-none focus:border-[#000000] transition-colors"
             />
             <button
               onClick={addTopic}
-              className="flex items-center justify-center gap-1.5 bg-[#000000] text-white px-5 py-3 text-sm font-medium hover:bg-[#1a1a1a] transition-colors shrink-0"
+              className="flex items-center justify-center gap-1.5 bg-[#000000] text-white px-5 py-3 text-sm font-medium rounded-sm hover:bg-[#1a1a1a] active:scale-[0.98] transition-all shrink-0"
             >
               <span className="text-base leading-none">+</span> Add
             </button>
@@ -300,7 +315,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
           {queued.length > 0 ? (
             <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
               <SortableContext items={queued.map(t => t.id)} strategy={verticalListSortingStrategy}>
-                <div className="flex flex-col gap-px">
+                <div className="flex flex-col gap-3">
                   {queued.map((topic, i) => (
                     <SortableItem
                       key={topic.id}
@@ -316,7 +331,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
               </SortableContext>
             </DndContext>
           ) : (
-            <div className="bg-[#f8f8f8] px-4 py-10 text-center">
+            <div className="bg-white border border-[#e8e5e0] rounded-sm px-4 py-10 text-center">
               <p className="text-sm text-[#6b6b6b]">Queue is empty.</p>
               <p className="text-xs text-[#c8c5c0] mt-1">Add a topic or pull one from suggestions.</p>
             </div>
@@ -329,20 +344,24 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
           {suggestions.length > 0 ? (
             <div className="flex flex-col gap-3">
               {suggestions.map(s => (
-                <div key={s} className="bg-[#f8f8f8] p-5">
-                  <p className="font-serif text-[20px] font-light text-[#000000] leading-snug mb-5">
-                    {s}
+                <div
+                  key={s.id}
+                  className="group/card bg-white border border-[#e8e5e0] rounded-sm p-5 hover:border-[#c8c5c0] transition-colors"
+                >
+                  <p className="font-serif text-[24px] font-semibold text-[#000000] leading-tight mb-2">
+                    {s.title}
                   </p>
+                  <p className="text-sm text-[#6b6b6b] leading-snug mb-4">{s.reason}</p>
                   <div className="flex gap-2.5">
                     <button
                       onClick={() => addSuggestion(s)}
-                      className="flex items-center justify-center gap-2 flex-1 bg-[#000000] text-white px-4 py-2.5 text-[13px] font-medium hover:bg-[#1a1a1a] transition-colors"
+                      className="flex items-center justify-center gap-2 flex-1 bg-[#000000] text-white px-4 py-2.5 text-[13px] font-medium rounded-sm hover:bg-[#1a1a1a] active:scale-[0.98] transition-all"
                     >
                       <span className="text-base leading-none">+</span> Add to queue
                     </button>
                     <button
-                      onClick={() => dismissSuggestion(s)}
-                      className="flex items-center justify-center gap-2 flex-1 border border-[#e8e5e0] bg-white text-[#6b6b6b] px-4 py-2.5 text-[13px] hover:text-[#000000] hover:border-[#c8c5c0] transition-colors"
+                      onClick={() => dismissSuggestion(s.id)}
+                      className="flex items-center justify-center gap-2 flex-1 border border-[#e8e5e0] bg-white text-[#6b6b6b] px-4 py-2.5 text-[13px] rounded-sm hover:text-[#000000] hover:border-[#c8c5c0] hover:bg-[#fafafa] active:scale-[0.98] transition-all"
                     >
                       <span className="leading-none">×</span> Dismiss
                     </button>
@@ -351,7 +370,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
               ))}
             </div>
           ) : (
-            <div className="bg-[#f8f8f8] px-4 py-10 text-center">
+            <div className="bg-white border border-[#e8e5e0] rounded-sm px-4 py-10 text-center">
               <p className="text-xs text-[#c8c5c0]">
                 {loadingSuggestions ? 'Finding ideas for you…' : 'No suggestions right now.'}
               </p>
