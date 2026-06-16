@@ -91,7 +91,7 @@ function SortableItem({
     <div
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={`relative flex items-center gap-5 p-5 bg-white border rounded-sm group transition-all ${
+      className={`relative flex items-center gap-3 sm:gap-5 p-4 sm:p-5 bg-white border rounded-sm group transition-all ${
         isDragging
           ? 'opacity-60 border-[#000000]'
           : 'border-[#e8e5e0] hover:border-[#000000] hover:bg-[#fcfcfc]'
@@ -114,7 +114,7 @@ function SortableItem({
         </svg>
       </button>
 
-      <p className="flex-1 min-w-0 text-sm font-medium text-[#000000] truncate">{topic.title}</p>
+      <p className="flex-1 min-w-0 text-sm font-medium text-[#000000] break-words">{topic.title}</p>
 
       {/* Reorder arrows */}
       <div className="flex flex-col text-[#c8c5c0] shrink-0">
