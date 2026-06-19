@@ -26,9 +26,13 @@ jobs:
     steps:
       - name: Fire the routine
         run: |
-          curl -sf \
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            "${{ secrets.APP_URL }}/api/cron/fire-routine"
+            "${{ secrets.APP_URL }}/api/cron/fire-routine")
+          BODY=$(echo "$RESPONSE" | head -n -1)
+          STATUS=$(echo "$RESPONSE" | tail -n 1)
+          echo "HTTP $STATUS: $BODY"
+          [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 300 ]
 
   import:
     runs-on: ubuntu-latest
@@ -36,6 +40,10 @@ jobs:
     steps:
       - name: Import drafts
         run: |
-          curl -sf \
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            "${{ secrets.APP_URL }}/api/cron/import-drafts"
+            "${{ secrets.APP_URL }}/api/cron/import-drafts")
+          BODY=$(echo "$RESPONSE" | head -n -1)
+          STATUS=$(echo "$RESPONSE" | tail -n 1)
+          echo "HTTP $STATUS: $BODY"
+          [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 300 ]

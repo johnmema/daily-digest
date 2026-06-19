@@ -18,6 +18,21 @@ export async function GET(req: NextRequest) {
 
   const oauth = new google.auth.OAuth2(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET)
   oauth.setCredentials({ refresh_token: GOOGLE_REFRESH_TOKEN })
+
+  // Eagerly validate the token before doing any work. If the refresh token has
+  // expired (common when the OAuth app is in "Testing" mode — 7-day limit) this
+  // returns a clear error instead of an empty 500 crash mid-loop.
+  try {
+    await oauth.getAccessToken()
+  } catch (err: any) {
+    const detail = err?.message ?? String(err)
+    console.error('[import-drafts] Google OAuth token invalid:', detail)
+    return NextResponse.json(
+      { error: 'Google OAuth token invalid — re-run scripts/reauth-google.mjs to refresh', detail },
+      { status: 503 }
+    )
+  }
+
   const gmail = google.gmail({ version: 'v1', auth: oauth })
 
   // List draft ids (drafts.list returns lightweight refs; fetch each for content).
