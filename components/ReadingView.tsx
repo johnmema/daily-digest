@@ -156,7 +156,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
       />
 
       {/* Top bar */}
-      <div className="sticky top-0 z-40 bg-white border-b border-[#e8e5e0]">
+      <div className="sticky top-0 z-40 bg-white border-b border-[#e0e0e0]">
         <div className="max-w-[1200px] mx-auto px-8 h-12 flex items-center justify-between text-sm text-[#6b6b6b]">
           <button
             onClick={() => router.back()}
@@ -206,7 +206,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
                     className={`h-px shrink-0 transition-all duration-300 ${
                       activeHeading === h.id
                         ? 'w-6 bg-[#000000]'
-                        : 'w-3 bg-[#c8c5c0] group-hover:w-5 group-hover:bg-[#6b6b6b]'
+                        : 'w-3 bg-[#d1d1d1] group-hover:w-5 group-hover:bg-[#6b6b6b]'
                     }`}
                   />
                   {h.text}
@@ -220,7 +220,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
         <main className="flex-1 max-w-[680px]" onMouseUp={onMouseUp}>
           {/* Pull quote */}
           {paper.pull_quote && (
-            <div className="border-t border-b border-[#e8e5e0] py-8 mb-10 text-center">
+            <div className="border-t border-b border-[#e0e0e0] py-8 mb-10 text-center">
               <p className="font-serif text-2xl italic text-[#000000] leading-relaxed">
                 {paper.pull_quote}
               </p>
@@ -237,7 +237,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
               prose-p:text-[#000000] prose-p:leading-[1.85] prose-p:text-[17px]
               prose-a:text-[#000000] prose-a:underline
               prose-strong:font-semibold
-              prose-blockquote:border-l-2 prose-blockquote:border-[#e8e5e0] prose-blockquote:text-[#6b6b6b] prose-blockquote:not-italic"
+              prose-blockquote:border-l-2 prose-blockquote:border-[#e0e0e0] prose-blockquote:text-[#6b6b6b] prose-blockquote:not-italic"
           >
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
@@ -260,7 +260,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
           {/* Sources */}
           {paper.sources && paper.sources.length > 0 && (
-            <div className="mt-16 pt-8 border-t border-[#e8e5e0]">
+            <div className="mt-16 pt-8 border-t border-[#e0e0e0]">
               <h3 className="font-serif text-lg font-bold text-[#000000] mb-4">Sources</h3>
               <ol className="space-y-3">
                 {paper.sources.map((src, i) => (
@@ -288,13 +288,13 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
           {/* Saved annotations panel */}
           {annotations.length > 0 && (
-            <div className="mt-12 pt-8 border-t border-[#e8e5e0]">
+            <div className="mt-12 pt-8 border-t border-[#e0e0e0]">
               <h3 className="font-serif text-lg font-bold text-[#000000] mb-4">Your highlights</h3>
               <div className="space-y-3">
                 {annotations.map(ann => (
                   <div
                     key={ann.id}
-                    className="group flex items-start gap-3 p-3 border border-[#e8e5e0] bg-white"
+                    className="group flex items-start gap-3 p-3 border border-[#e0e0e0] bg-white"
                   >
                     <span
                       className="mt-1 w-3 h-3 shrink-0 rounded-full"
@@ -321,7 +321,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
       {/* Annotation popover */}
       {popover && (
         <div
-          className="fixed z-50 bg-white border border-[#e8e5e0] shadow-sm p-3 flex flex-col gap-2"
+          className="fixed z-50 bg-white border border-[#e0e0e0] shadow-sm p-3 flex flex-col gap-2"
           style={{ left: popover.x - 100, top: popover.y, width: 200 }}
         >
           <p className="text-xs text-[#6b6b6b] truncate">"{popover.text.slice(0, 40)}…"</p>
@@ -330,14 +330,14 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
             placeholder="Add a note (optional)"
             value={noteText}
             onChange={e => setNoteText(e.target.value)}
-            className="text-xs border border-[#e8e5e0] px-2 py-1 outline-none focus:border-[#000000]"
+            className="text-xs border border-[#e0e0e0] px-2 py-1 outline-none focus:border-[#000000]"
           />
           <div className="flex gap-2">
             {(Object.entries(ANNOTATION_COLORS) as [AnnotationColor, string][]).map(([color, hex]) => (
               <button
                 key={color}
                 onClick={() => saveAnnotation(color)}
-                className="w-6 h-6 border border-[#e8e5e0] hover:scale-110 transition-transform"
+                className="w-6 h-6 border border-[#e0e0e0] hover:scale-110 transition-transform"
                 style={{ backgroundColor: hex }}
                 title={color}
               />

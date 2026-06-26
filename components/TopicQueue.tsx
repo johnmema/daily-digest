@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   DndContext,
   closestCenter,
@@ -67,6 +67,73 @@ function TrashIcon() {
   )
 }
 
+const CATEGORY_DESCRIPTIONS: Record<TopicCategory, string> = {
+  teach_me:        'Explains the topic from scratch, like you\'ve never heard of it. Lots of analogies, no jargon left undefined.',
+  how_it_works:    'Gets straight to the mechanism. Written for someone technical who wants the real explanation, not the simplified one.',
+  big_picture:     'Pulls way back. Where did this come from, what forces are driving it, and where does it go over the next decade.',
+  debate_this:     'Lays out the strongest case for both sides without picking one. You decide.',
+  essay:           'Takes a position and defends it. One clear argument, built with evidence, tested against the best counterarguments.',
+  stock_deep_dive: 'Covers what the company does, the bull and bear cases, valuation, and ends with a clear buy, avoid, or watch call.',
+}
+
+function InfoPopover() {
+  const [open, setOpen] = useState(false)
+  const btnRef = useRef<HTMLButtonElement>(null)
+  const [coords, setCoords] = useState({ top: 0, left: 0, right: 0 })
+
+  const handleOpen = () => {
+    if (btnRef.current) {
+      const r = btnRef.current.getBoundingClientRect()
+      const vw = window.innerWidth
+      const popoverWidth = Math.min(288, vw - 32)
+      // Anchor to right edge of button, clamp so it never bleeds off left
+      const right = vw - r.right
+      const left = Math.max(16, r.right - popoverWidth)
+      setCoords({ top: r.bottom + 8, left, right })
+    }
+    setOpen(v => !v)
+  }
+
+  return (
+    <>
+      <button
+        ref={btnRef}
+        type="button"
+        onClick={handleOpen}
+        className="text-[#d1d1d1] hover:text-[#a0a0a0] transition-colors"
+        aria-label="What do these categories mean?"
+      >
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+          <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M7.5 6.5v4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+          <circle cx="7.5" cy="4.5" r="0.7" fill="currentColor" />
+        </svg>
+      </button>
+
+      {open && (
+        <>
+          <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
+          <div
+            className="fixed z-20 border border-[#e0e0e0] bg-white p-4 flex flex-col gap-3"
+            style={{ top: coords.top, left: coords.left, width: Math.min(288, window.innerWidth - 32) }}
+          >
+            {TOPIC_CATEGORY_ORDER.map((cat) => (
+              <div key={cat}>
+                <p className="text-[11px] font-sans uppercase tracking-widest text-[#000000] mb-0.5">
+                  {TOPIC_CATEGORY_LABELS[cat]}
+                </p>
+                <p className="text-xs text-[#6b6b6b] leading-relaxed">
+                  {CATEGORY_DESCRIPTIONS[cat]}
+                </p>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+    </>
+  )
+}
+
 function CategoryPills({
   value,
   onChange,
@@ -86,7 +153,7 @@ function CategoryPills({
             className={`text-[11px] font-sans uppercase tracking-widest px-3 py-1 rounded-sm border transition-colors ${
               selected
                 ? 'border-[#000000] text-[#000000] bg-white'
-                : 'border-[#e8e5e0] text-[#6b6b6b] bg-white hover:border-[#c8c5c0]'
+                : 'border-[#e0e0e0] text-[#6b6b6b] bg-white hover:border-[#d1d1d1]'
             }`}
           >
             {TOPIC_CATEGORY_LABELS[cat]}
@@ -132,17 +199,17 @@ function SortableItem({
       className={`relative flex items-center gap-3 sm:gap-5 p-4 sm:p-5 bg-white border rounded-sm group transition-all ${
         isDragging
           ? 'opacity-60 border-[#000000]'
-          : 'border-[#e8e5e0] hover:border-[#000000] hover:bg-[#fcfcfc]'
+          : 'border-[#e0e0e0] hover:border-[#000000] hover:bg-[#fcfcfc]'
       }`}
     >
-      <span className="font-serif text-[22px] text-[#c8c5c0] group-hover:text-[#000000] tabular-nums shrink-0 w-6 text-center leading-none -mt-1 self-center transition-colors">
+      <span className="font-serif text-[22px] text-[#d1d1d1] group-hover:text-[#000000] tabular-nums shrink-0 w-6 text-center leading-none -mt-1 self-center transition-colors">
         {index + 1}
       </span>
 
       <button
         {...attributes}
         {...listeners}
-        className="text-[#c8c5c0] hover:text-[#6b6b6b] cursor-grab active:cursor-grabbing shrink-0 touch-none hidden sm:block"
+        className="text-[#d1d1d1] hover:text-[#6b6b6b] cursor-grab active:cursor-grabbing shrink-0 touch-none hidden sm:block"
         aria-label="Drag to reorder"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
@@ -152,28 +219,29 @@ function SortableItem({
         </svg>
       </button>
 
-      <p className="flex-1 min-w-0 text-sm font-medium text-[#000000] wrap-break-word">{topic.title}</p>
-
-      {/* Category cycling pill */}
-      <button
-        onClick={() => onCategoryChange(topic.id, nextCategory(topic.category))}
-        className={`text-[11px] font-sans uppercase tracking-widest px-2.5 py-1 border rounded-xs shrink-0 whitespace-nowrap ${
-          topic.category
-            ? 'border-[#000000] text-[#000000] bg-white'
-            : 'border-[#e8e5e0] text-[#c8c5c0] bg-white'
-        }`}
-        aria-label="Change category"
-        title="Click to change type"
-      >
-        {topic.category ? TOPIC_CATEGORY_LABELS[topic.category] : 'set type'}
-      </button>
+      <div className="flex-1 min-w-0 flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-3">
+        <p className="flex-1 min-w-0 text-sm font-medium text-[#000000] wrap-break-word">{topic.title}</p>
+        {/* Category cycling pill */}
+        <button
+          onClick={() => onCategoryChange(topic.id, nextCategory(topic.category))}
+          className={`self-start sm:self-auto text-[11px] font-sans uppercase tracking-widest px-2.5 py-1 border rounded-xs whitespace-nowrap shrink-0 ${
+            topic.category
+              ? 'border-[#000000] text-[#000000] bg-white'
+              : 'border-[#e0e0e0] text-[#d1d1d1] bg-white'
+          }`}
+          aria-label="Change category"
+          title="Click to change type"
+        >
+          {topic.category ? TOPIC_CATEGORY_LABELS[topic.category] : 'set type'}
+        </button>
+      </div>
 
       {/* Reorder arrows */}
-      <div className="flex flex-col text-[#c8c5c0] shrink-0">
+      <div className="flex flex-col text-[#d1d1d1] shrink-0">
         <button
           onClick={() => onMove(index, -1)}
           disabled={isFirst}
-          className="hover:text-[#000000] disabled:opacity-30 disabled:hover:text-[#c8c5c0] transition-colors -my-0.5"
+          className="hover:text-[#000000] disabled:opacity-30 disabled:hover:text-[#d1d1d1] transition-colors -my-0.5"
           aria-label="Move up"
         >
           <Chevron dir="up" />
@@ -181,7 +249,7 @@ function SortableItem({
         <button
           onClick={() => onMove(index, 1)}
           disabled={isLast}
-          className="hover:text-[#000000] disabled:opacity-30 disabled:hover:text-[#c8c5c0] transition-colors -my-0.5"
+          className="hover:text-[#000000] disabled:opacity-30 disabled:hover:text-[#d1d1d1] transition-colors -my-0.5"
           aria-label="Move down"
         >
           <Chevron dir="down" />
@@ -190,7 +258,7 @@ function SortableItem({
 
       <button
         onClick={() => onDelete(topic.id)}
-        className="text-[#c8c5c0] hover:text-[#000000] hover:scale-110 active:scale-95 shrink-0 p-1 -mr-1 transition-all"
+        className="text-[#d1d1d1] hover:text-[#000000] hover:scale-110 active:scale-95 shrink-0 p-1 -mr-1 transition-all"
         aria-label="Remove topic"
       >
         <TrashIcon />
@@ -323,6 +391,11 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
 
   return (
     <div>
+      <div className="flex items-center gap-6 mb-10">
+        <h2 className="font-serif text-[34px] font-light text-[#000000] lowercase shrink-0 leading-none">queue</h2>
+        <div className="flex-1 border-t border-[#1a1a1a] mt-2" />
+      </div>
+
       {/* 50/50: ranking (with add bar) | suggested for you */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
         {/* Left: tonight's paper + add + ranking */}
@@ -335,16 +408,17 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
               </p>
               {eta && (
                 <>
-                  <span className="h-1 w-1 rounded-full bg-[#d8d5d0]" />
+                  <span className="h-1 w-1 rounded-full bg-[#d1d1d1]" />
                   <span className="text-[11px] font-sans text-[#6b6b6b] whitespace-nowrap">
                     {eta}
                   </span>
                 </>
               )}
+              <InfoPopover />
             </div>
             <p
               className={`font-serif text-[20px] sm:text-[24px] font-light leading-[1.1] tracking-tight ${
-                nextUp ? 'text-[#000000]' : 'text-[#c8c5c0]'
+                nextUp ? 'text-[#000000]' : 'text-[#d1d1d1]'
               }`}
             >
               {nextUp ? nextUp.title : 'Nothing queued — the agent will choose.'}
@@ -358,7 +432,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
               onChange={e => setNewTitle(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && addTopic()}
               placeholder="Add a topic to research…"
-              className="flex-1 min-w-0 border border-[#e8e5e0] rounded-sm bg-white px-4 py-3 text-sm text-[#000000] placeholder:text-[#c8c5c0] outline-none focus:border-[#000000] transition-colors"
+              className="flex-1 min-w-0 border border-[#e0e0e0] rounded-sm bg-white px-4 py-3 text-sm text-[#000000] placeholder:text-[#d1d1d1] outline-none focus:border-[#000000] transition-colors"
             />
             <button
               onClick={addTopic}
@@ -392,9 +466,9 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
               </SortableContext>
             </DndContext>
           ) : (
-            <div className="bg-white border border-[#e8e5e0] rounded-sm px-4 py-10 text-center">
+            <div className="bg-white border border-[#e0e0e0] rounded-sm px-4 py-10 text-center">
               <p className="text-sm text-[#6b6b6b]">Queue is empty.</p>
-              <p className="text-xs text-[#c8c5c0] mt-1">Add a topic or pull one from suggestions.</p>
+              <p className="text-xs text-[#d1d1d1] mt-1">Add a topic or pull one from suggestions.</p>
             </div>
           )}
         </div>
@@ -407,7 +481,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
               {suggestions.map(s => (
                 <div
                   key={s.id}
-                  className="group/card bg-white border border-[#e8e5e0] rounded-sm p-5 hover:border-[#c8c5c0] transition-colors"
+                  className="group/card bg-white border border-[#e0e0e0] rounded-sm p-5 hover:border-[#d1d1d1] transition-colors"
                 >
                   <p className="font-serif text-[20px] text-[#000000] leading-tight mb-1">
                     {s.title}
@@ -422,7 +496,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
                     </button>
                     <button
                       onClick={() => dismissSuggestion(s.id)}
-                      className="flex items-center justify-center gap-2 flex-1 border border-[#e8e5e0] bg-white text-[#6b6b6b] px-4 py-2.5 text-[13px] rounded-sm hover:text-[#000000] hover:border-[#000000] active:scale-[0.98] transition-colors"
+                      className="flex items-center justify-center gap-2 flex-1 border border-[#e0e0e0] bg-white text-[#6b6b6b] px-4 py-2.5 text-[13px] rounded-sm hover:text-[#000000] hover:border-[#000000] active:scale-[0.98] transition-colors"
                     >
                       <span className="leading-none">×</span> Dismiss
                     </button>
@@ -431,8 +505,8 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
               ))}
             </div>
           ) : (
-            <div className="bg-white border border-[#e8e5e0] rounded-sm px-4 py-10 text-center">
-              <p className="text-xs text-[#c8c5c0]">
+            <div className="bg-white border border-[#e0e0e0] rounded-sm px-4 py-10 text-center">
+              <p className="text-xs text-[#d1d1d1]">
                 {loadingSuggestions ? 'Finding ideas for you…' : 'No suggestions right now.'}
               </p>
             </div>
