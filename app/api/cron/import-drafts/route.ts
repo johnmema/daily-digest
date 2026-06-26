@@ -180,7 +180,13 @@ export async function GET(req: NextRequest) {
 function normalizeCategory(value: unknown): string | null {
   if (typeof value !== 'string') return null
   const v = value.trim().toLowerCase()
-  return v === 'essay' || v === 'explainer' || v === 'analysis' ? v : null
+  // Routine output modes (direct)
+  if (v === 'essay' || v === 'explainer' || v === 'analysis') return v
+  // Topic category values echoed back by the routine
+  if (v === 'teach_me' || v === 'how_it_works') return 'explainer'
+  if (v === 'big_picture' || v === 'debate_this') return 'essay'
+  if (v === 'stock_deep_dive') return 'analysis'
+  return null
 }
 
 // Gmail bodies are base64url-encoded and may be nested in multipart payloads.

@@ -18,7 +18,8 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import type { Topic } from '@/types'
+import type { Topic, TopicCategory } from '@/types'
+import { TOPIC_CATEGORY_LABELS, TOPIC_CATEGORY_ORDER } from '@/types'
 import { createClient } from '@/lib/supabase'
 
 function Label({ children }: { children: React.ReactNode }) {
@@ -27,8 +28,6 @@ function Label({ children }: { children: React.ReactNode }) {
   )
 }
 
-// The nightly job fires at 03:00 UTC. Show a rough countdown to the next run
-// so the banner reads "in ~9 hrs". Recomputed on the client after mount.
 function nextRunEta(): string {
   const now = new Date()
   const next = new Date(now)
@@ -68,6 +67,43 @@ function TrashIcon() {
   )
 }
 
+function CategoryPills({
+  value,
+  onChange,
+}: {
+  value: TopicCategory | null
+  onChange: (v: TopicCategory | null) => void
+}) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {TOPIC_CATEGORY_ORDER.map((cat) => {
+        const selected = value === cat
+        return (
+          <button
+            key={cat}
+            type="button"
+            onClick={() => onChange(selected ? null : cat)}
+            className={`text-[11px] font-sans uppercase tracking-widest px-3 py-1 rounded-sm border transition-colors ${
+              selected
+                ? 'border-[#000000] text-[#000000] bg-white'
+                : 'border-[#e8e5e0] text-[#6b6b6b] bg-white hover:border-[#c8c5c0]'
+            }`}
+          >
+            {TOPIC_CATEGORY_LABELS[cat]}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
+function nextCategory(current: TopicCategory | null): TopicCategory | null {
+  if (current === null) return TOPIC_CATEGORY_ORDER[0]
+  const i = TOPIC_CATEGORY_ORDER.indexOf(current)
+  if (i === TOPIC_CATEGORY_ORDER.length - 1) return null
+  return TOPIC_CATEGORY_ORDER[i + 1]
+}
+
 function SortableItem({
   topic,
   index,
@@ -75,6 +111,7 @@ function SortableItem({
   isLast,
   onDelete,
   onMove,
+  onCategoryChange,
 }: {
   topic: Topic
   index: number
@@ -82,6 +119,7 @@ function SortableItem({
   isLast: boolean
   onDelete: (id: string) => void
   onMove: (index: number, dir: -1 | 1) => void
+  onCategoryChange: (id: string, cat: TopicCategory | null) => void
 }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: topic.id,
@@ -114,7 +152,21 @@ function SortableItem({
         </svg>
       </button>
 
-      <p className="flex-1 min-w-0 text-sm font-medium text-[#000000] break-words">{topic.title}</p>
+      <p className="flex-1 min-w-0 text-sm font-medium text-[#000000] wrap-break-word">{topic.title}</p>
+
+      {/* Category cycling pill */}
+      <button
+        onClick={() => onCategoryChange(topic.id, nextCategory(topic.category))}
+        className={`text-[11px] font-sans uppercase tracking-widest px-2.5 py-1 border rounded-xs shrink-0 whitespace-nowrap ${
+          topic.category
+            ? 'border-[#000000] text-[#000000] bg-white'
+            : 'border-[#e8e5e0] text-[#c8c5c0] bg-white'
+        }`}
+        aria-label="Change category"
+        title="Click to change type"
+      >
+        {topic.category ? TOPIC_CATEGORY_LABELS[topic.category] : 'set type'}
+      </button>
 
       {/* Reorder arrows */}
       <div className="flex flex-col text-[#c8c5c0] shrink-0">
@@ -150,6 +202,7 @@ function SortableItem({
 export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }) {
   const [topics, setTopics] = useState(initialTopics)
   const [newTitle, setNewTitle] = useState('')
+  const [newCategory, setNewCategory] = useState<TopicCategory | null>(null)
   const [suggestions, setSuggestions] = useState<
     { id: string; title: string; category: string; reason: string }[]
   >([])
@@ -157,14 +210,12 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
   const [eta, setEta] = useState('')
   const supabase = createClient()
 
-  // Compute ETA only after mount so server and client markup match.
   useEffect(() => {
     setEta(nextRunEta())
     const id = setInterval(() => setEta(nextRunEta()), 60_000)
     return () => clearInterval(id)
   }, [])
 
-  // Suggestions load automatically — no manual generate step.
   useEffect(() => {
     loadSuggestions()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -181,12 +232,13 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
     const maxPriority = topics.length ? Math.max(...topics.map(t => t.priority)) + 1 : 0
     const { data } = await supabase
       .from('topics')
-      .insert({ title, priority: maxPriority, status: 'queued' })
+      .insert({ title, priority: maxPriority, status: 'queued', category: newCategory })
       .select()
       .single()
     if (data) {
       setTopics(t => [...t, data])
       setNewTitle('')
+      setNewCategory(null)
     }
   }
 
@@ -195,7 +247,11 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
     setTopics(t => t.filter(topic => topic.id !== id))
   }
 
-  // Persist a reordered queue: highest priority first. Done topics keep their rows.
+  const updateCategory = async (id: string, category: TopicCategory | null) => {
+    await supabase.from('topics').update({ category }).eq('id', id)
+    setTopics(t => t.map(topic => topic.id === id ? { ...topic, category } : topic))
+  }
+
   const persistOrder = async (reorderedQueued: Topic[]) => {
     const doneTopics = topics.filter(t => t.status === 'done')
     setTopics([...reorderedQueued, ...doneTopics])
@@ -244,8 +300,6 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
     category: string
     reason: string
   }) => {
-    // Remove from the list immediately so the card doesn't linger while the
-    // insert is in flight; restore it if the insert fails.
     setSuggestions(s => s.filter(sg => sg.id !== suggestion.id))
     const maxPriority = topics.length ? Math.max(...topics.map(t => t.priority)) + 1 : 0
     const { data } = await supabase
@@ -274,7 +328,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
         {/* Left: tonight's paper + add + ranking */}
         <div>
           {/* Tonight's paper — clean banner */}
-          <div className="mb-4  ad">
+          <div className="mb-4 ad">
             <div className="flex items-center gap-3 mb-1">
               <p className="text-[11px] font-sans uppercase tracking-widest text-[#6b6b6b]">
                 Tonight&apos;s paper
@@ -297,7 +351,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
             </p>
           </div>
 
-          <div className="flex gap-2.5 mb-6">
+          <div className="flex gap-2.5 mb-2">
             <input
               type="text"
               value={newTitle}
@@ -314,6 +368,10 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
             </button>
           </div>
 
+          <div className="mb-6">
+            <CategoryPills value={newCategory} onChange={setNewCategory} />
+          </div>
+
           {queued.length > 0 ? (
             <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
               <SortableContext items={queued.map(t => t.id)} strategy={verticalListSortingStrategy}>
@@ -327,6 +385,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
                       isLast={i === queued.length - 1}
                       onDelete={deleteTopic}
                       onMove={moveTopic}
+                      onCategoryChange={updateCategory}
                     />
                   ))}
                 </div>

@@ -72,30 +72,20 @@ export async function GET(req: NextRequest) {
   }
 
   const today = new Date().toISOString().slice(0, 10)
-  const text = `Tonight's topic: ${topic.title}
 
-Research this topic deeply with web search (at least 5-8 searches from multiple angles: recent data, academic perspectives, contrarian views, specific examples). Then write a 2,500-3,500 word essay with a short scientific title, a subtitle, a one-sentence pull quote, 5-7 sections with ## headers, your own thesis, and inline citations (Author/Publication, Year).
+  const CATEGORY_MODE: Record<string, string> = {
+    teach_me:        'EXPLAINER — teach from first principles, assume no prior knowledge',
+    how_it_works:    'EXPLAINER — focus on the mechanism, precise and technical',
+    big_picture:     'ESSAY — historical context, macro forces, 10-year horizon',
+    debate_this:     'ESSAY — steelman both sides equally, no single thesis',
+    essay:           'ESSAY — analytical essay defending a clear thesis',
+    stock_deep_dive: 'ANALYSIS — investment analysis with a clear invest-or-pass verdict',
+  }
 
-Title rules — this matters:
-- Keep the title SHORT: aim for 2-6 words, hard cap at roughly 60 characters.
-- Make it restrained and scientific, like a journal article or a serious magazine feature — not a marketing headline.
-- NO colons, NO "How X Does Y", NO "The [Adjective] [Noun]" clickbait constructions, no em-dash subtitle crammed into the title. Name the subject plainly.
-- Put any explanatory framing in the SUBTITLE (one descriptive sentence), never in the title.
-- Good: "The Energy Cost of AI", "Boredom and the Wandering Mind", "Atlantic Circulation in Decline".
-- Bad: "The Digital Carbon Spiral: How Artificial Intelligence Is Reshaping the Planet's Energy and Environmental Balance".
-
-Save the result to the delivery bridge as essay_${today}.json with this exact structure:
-{
-  "topic": ${JSON.stringify(topic.title)},
-  "title": "...",
-  "subtitle": "...",
-  "pull_quote": "...",
-  "content": "...(full markdown with ## headers)...",
-  "sources": [{"title": "...", "url": "...", "snippet": "..."}],
-  "word_count": <number>,
-  "read_time_minutes": <number>,
-  "published_at": "${new Date().toISOString()}"
-}`
+  const modeLabel = topic.category ? CATEGORY_MODE[topic.category] : null
+  const text = modeLabel
+    ? `Tonight's topic: ${topic.title}\nMode: ${modeLabel}`
+    : `Tonight's topic: ${topic.title}`
 
   let fireRes: Response
   try {
