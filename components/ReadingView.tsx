@@ -9,6 +9,7 @@ import { parseHeadings, formatDateShort } from '@/lib/utils'
 import { createClient } from '@/lib/supabase'
 
 interface ReadingViewProps {
+  embedded?: boolean
   paper: Paper
   initialProgress?: ReadingProgress | null
   initialAnnotations?: Annotation[]
@@ -20,7 +21,7 @@ const ANNOTATION_COLORS: Record<AnnotationColor, string> = {
   pink: '#fbcfe8',
 }
 
-export default function ReadingView({ paper, initialProgress, initialAnnotations = [] }: ReadingViewProps) {
+export default function ReadingView({ paper, initialProgress, initialAnnotations = [], embedded = false }: ReadingViewProps) {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement>(null)
   const [percent, setPercent] = useState(initialProgress?.percent_read ?? 0)
@@ -148,7 +149,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={embedded ? "journal-essay" : "min-h-screen bg-white"}>
       {/* Progress bar */}
       <div
         className="fixed top-0 left-0 h-[2px] bg-[#000000] z-50 transition-all duration-150"
@@ -156,7 +157,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
       />
 
       {/* Top bar */}
-      <div className="sticky top-0 z-40 bg-white border-b border-[#e0e0e0]">
+      {!embedded && <div className="sticky top-0 z-40 bg-white border-b border-[#e0e0e0]">
         <div className="max-w-[1200px] mx-auto px-8 h-12 flex items-center justify-between text-sm text-[#6b6b6b]">
           <button
             onClick={() => router.back()}
@@ -186,7 +187,8 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
         </div>
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-8 py-12 flex gap-16">
+      }
+      <div className={embedded ? "journal-essay-layout" : "max-w-[1200px] mx-auto px-8 py-12 flex gap-16"}>
         {/* Table of contents */}
         <aside className="hidden lg:block w-56 shrink-0">
           <div className="sticky top-20">
@@ -218,7 +220,11 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
         {/* Essay */}
         <main className="flex-1 max-w-[680px]" onMouseUp={onMouseUp}>
-          {/* Pull quote */}
+          <header className="journal-essay-heading">
+          <h1>{paper.title}</h1>
+          {paper.subtitle && <p>{paper.subtitle}</p>}
+        </header>
+        {/* Pull quote */}
           {paper.pull_quote && (
             <div className="border-t border-b border-[#e0e0e0] py-8 mb-10 text-center">
               <p className="font-serif text-2xl italic text-[#000000] leading-relaxed">

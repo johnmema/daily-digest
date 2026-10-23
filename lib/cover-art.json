@@ -1,0 +1,58 @@
+{
+  "The Science of GLP-1": {
+    "image": "/covers/ed46.jpg",
+    "wash": "#b9dcd3",
+    "spine": "#123f33"
+  },
+  "The Three-Dollar Status Symbol": {
+    "image": "/covers/ed45.jpg",
+    "wash": "#f3d9dc",
+    "spine": "#6e1f2c",
+    "credit": "Cover photo: Lorena Cupcake, CC BY 2.0, via Flickr"
+  },
+  "Five Journeys to the Met": {
+    "image": "/covers/ed44.jpg",
+    "wash": "#e8dcc3",
+    "spine": "#453415"
+  },
+  "Engineered Geothermal Reservoirs": {
+    "image": "/covers/ed43.jpg",
+    "wash": "#d8d3c6",
+    "spine": "#333a45"
+  },
+  "Decision Fatigue": {
+    "image": "/covers/ed42.jpg",
+    "wash": "#cfdde8",
+    "spine": "#1f3a5f"
+  },
+  "Algorithmic Medicine": {
+    "image": "/covers/ed41.jpg",
+    "wash": "#dcd8ea",
+    "spine": "#3c2f5f"
+  },
+  "The Critical Minerals Scramble": {
+    "image": "/covers/ed40.jpg",
+    "wash": "#d3e0cf",
+    "spine": "#2d4a22"
+  },
+  "The Optical Supercycle Trade": {
+    "image": "/covers/ed39.jpg",
+    "wash": "#f0dcc8",
+    "spine": "#7a3a12"
+  },
+  "Photonic Data Movement": {
+    "image": "/covers/ed38.jpg",
+    "wash": "#c9dfe4",
+    "spine": "#0e4a56"
+  },
+  "Purposeless Persistence": {
+    "image": "/covers/ed37.jpg",
+    "wash": "#e6d7d0",
+    "spine": "#4f2c23"
+  },
+  "Programmable Living Medicines": {
+    "image": "/covers/ed36.jpg",
+    "wash": "#d5e3d8",
+    "spine": "#1d4d3a"
+  }
+}

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { createServerSupabaseClient } from '@/lib/supabase-server'
-import ReadingView from '@/components/ReadingView'
+import JournalReader from '@/components/JournalReader'
 import type { Paper, ReadingProgress, Annotation } from '@/types'
 
 export default async function PaperPage({ params }: { params: Promise<{ id: string }> }) {
@@ -15,11 +15,14 @@ export default async function PaperPage({ params }: { params: Promise<{ id: stri
 
   if (!paper) notFound()
 
+  const { data: following } = await supabase.from('papers').select('*').lt('published_at', paper.published_at).order('published_at', {ascending:false}).limit(1)
+
   return (
-    <ReadingView
+    <JournalReader
       paper={paper as Paper}
-      initialProgress={progress as ReadingProgress | null}
-      initialAnnotations={(annotations ?? []) as Annotation[]}
+      next={(following?.[0] as Paper) ?? null}
+      progress={progress as ReadingProgress | null}
+      annotations={(annotations ?? []) as Annotation[]}
     />
   )
 }
