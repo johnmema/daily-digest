@@ -2,8 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
+  --font-sans: var(--font-interface);
+  --font-serif: var(--font-editorial);
 }
 
 * {
@@ -22,12 +22,12 @@ html {
 
 /* Serif utility */
 .font-serif {
-  font-family: var(--font-serif), Georgia, 'Times New Roman', serif;
+  font-family: var(--font-editorial), Georgia, 'Times New Roman', serif;
 }
 
 /* Sans utility */
 .font-sans {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-interface), system-ui, sans-serif;
 }
 /* Editorial cover browser */
 html.cover-browsing { scroll-snap-type: y mandatory; }
@@ -40,20 +40,20 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 .journal-photo { position:absolute;inset:0 0 0 16px;width:calc(100% - 16px);height:100%;object-fit:cover; }
 .journal-spine { position:absolute;inset:0 auto 0 0;width:16px;z-index:2; }
 .journal-scrim { position:absolute;inset:0 0 0 16px;background:linear-gradient(180deg,#0002,transparent 32%,transparent 50%,#000a); }
-.journal-title { position:absolute;left:34px;right:18px;bottom:48px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(26px,7.5vw,36px);line-height:1.08;text-align:left;text-shadow:0 1px 16px #0008; }
-.journal-readout { position:absolute;bottom:24px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(18px,4.6vw,26px); }
+.journal-title { position:absolute;left:34px;right:18px;bottom:48px;font-family:var(--font-editorial),Georgia,serif;font-size:clamp(26px,7.5vw,36px);line-height:1.08;text-align:left;text-shadow:0 1px 16px #0008; }
+.journal-readout { position:absolute;bottom:24px;font-family:var(--font-editorial),Georgia,serif;font-size:clamp(18px,4.6vw,26px); }
 .journal-date {left:24px}.journal-number{right:24px}
 .journal-empty{padding:40vh 24px;text-align:center}
 .journal-essay,.journal-reader-footer{background:#faf8f3;color:#1a1a1a}
 .journal-essay-layout{max-width:1200px;margin:auto;padding:56px 24px;display:flex;gap:64px;}
 .journal-essay-layout>main{min-width:0;width:100%}
 .journal-essay-heading{margin-bottom:44px;text-align:center}
-.journal-essay-heading h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(32px,5vw,46px);font-weight:400;line-height:1.12;margin:0 0 22px}
-.journal-essay-heading p{font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.5;color:#333}
-.journal-essay .prose{font-family:Georgia,'Times New Roman',serif}.journal-essay .prose p{font-size:18px;line-height:1.85}
+.journal-essay-heading h1{font-family:var(--font-editorial),Georgia,serif;font-size:clamp(32px,5vw,46px);font-weight:400;line-height:1.12;margin:0 0 22px}
+.journal-essay-heading p{font-family:var(--font-editorial),Georgia,serif;font-size:20px;line-height:1.5;color:#333}
+.journal-essay .prose{font-family:var(--font-editorial),Georgia,serif}.journal-essay .prose p{font-size:18px;line-height:1.85}
 .journal-essay .prose table{display:block;max-width:100%;overflow-x:auto;font-family:var(--font-sans),sans-serif;font-size:14px;}
 .journal-reader-footer{padding:0 24px 96px}
-.journal-next{display:block;max-width:640px;margin:auto;border:1px solid #1a1a1a;padding:20px;text-align:center;font-family:Georgia,'Times New Roman',serif;}
+.journal-next{display:block;max-width:640px;margin:auto;border:1px solid #1a1a1a;padding:20px;text-align:center;font-family:var(--font-editorial),Georgia,serif;}
 .journal-credit{font-size:12px;color:#666;text-align:center;padding:12px 0 32px;}
 @media(min-width:768px){.journal-cover{width:min(32vw,430px);max-height:78dvh}.journal-title{font-size:clamp(28px,2.6vw,38px)}.journal-essay-layout{padding:64px 32px}.journal-essay-layout>main{margin:auto}}
 @media(max-height:680px){.journal-cover{width:min(68vw,280px)}.journal-panel{min-height:480px}.journal-title{font-size:26px}}
@@ -70,7 +70,7 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 .journal-sticky-hero{height:100lvh;position:sticky;top:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .journal-return-cover{display:block;border:0;background:none;padding:0;cursor:pointer;transform:translateY(-4.8%);animation:journal-cover-lift .8s cubic-bezier(.54,.01,.25,1.01) both;line-height:0}
 .journal-reveal-sheet{position:relative;z-index:2;margin-top:-40lvh;background:#faf8f3;min-height:40lvh;animation:journal-sheet-rise .8s cubic-bezier(.35,.25,.15,1) both}
-.journal-loading{height:40lvh;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
+.journal-loading{height:40lvh;display:flex;align-items:center;justify-content:center;font-family:var(--font-editorial),Georgia,serif}
 .journal-detail.is-closing .journal-return-cover{animation:journal-cover-settle .8s cubic-bezier(.54,.01,.25,1.01) forwards}
 .journal-detail.is-closing .journal-reveal-sheet{animation:journal-sheet-fall .8s cubic-bezier(.54,.01,.25,1.01) forwards}
 .journal-essay-layout{padding-top:64px}
@@ -89,3 +89,18 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 .journal-reveal-sheet{animation-duration:.6s;animation-delay:.2s;animation-timing-function:cubic-bezier(.54,.01,.25,1.01)}
 .journal-detail.is-closing .journal-return-cover,.journal-detail.is-closing .journal-reveal-sheet{animation-delay:0s;animation-duration:.8s}
 @media(prefers-reduced-motion:reduce){.journal-return-cover,.journal-reveal-sheet,.journal-detail.is-closing .journal-return-cover,.journal-detail.is-closing .journal-reveal-sheet{animation-delay:0s;animation-duration:0s}}
+
+/* One editorial family, one quiet interface family. Larger cover presence. */
+.journal-cover{width:min(82vw,62lvh);max-height:75lvh}
+.journal-title{font-family:var(--font-editorial),Georgia,serif;font-weight:400;font-size:clamp(26px,6.8vw,36px);line-height:1.04;letter-spacing:-.015em;bottom:8%}
+.journal-readout{font-family:var(--font-editorial),Georgia,serif;font-size:18px;line-height:1.15;font-variant-numeric:oldstyle-nums}
+.journal-nav,.journal-share,.journal-resume,.journal-credit{font-family:var(--font-interface),Arial,sans-serif;font-weight:400}
+.journal-essay-heading h1{font-family:var(--font-editorial),Georgia,serif;font-size:clamp(36px,4.2vw,52px);font-weight:400;line-height:1.06;letter-spacing:-.025em}
+.journal-essay-heading p{font-family:var(--font-editorial),Georgia,serif;font-size:22px;line-height:1.4}
+.journal-essay .prose{font-family:var(--font-editorial),Georgia,serif;font-size:20px;line-height:1.6}
+.journal-essay .prose p,.journal-essay .prose li{font-size:20px;line-height:1.6}
+.journal-essay .prose h2,.journal-essay .prose h3{font-family:var(--font-editorial),Georgia,serif;font-weight:400;letter-spacing:-.015em;line-height:1.15}
+.journal-essay .prose h2{font-size:30px}.journal-essay .prose h3{font-size:25px}
+.journal-essay .prose strong{font-weight:600}
+.journal-essay .font-serif,.journal-next{font-family:var(--font-editorial),Georgia,serif}
+@media(min-width:800px){.journal-cover{width:62lvh}.journal-title{font-size:36px}}
