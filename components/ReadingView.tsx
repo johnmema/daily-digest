@@ -24,7 +24,7 @@ const ANNOTATION_COLORS: Record<AnnotationColor, string> = {
 export default function ReadingView({ paper, initialProgress, initialAnnotations = [], embedded = false }: ReadingViewProps) {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement>(null)
-  const [percent, setPercent] = useState(initialProgress?.percent_read ?? 0)
+  const [percent, setPercent] = useState(embedded ? 0 : initialProgress?.percent_read ?? 0)
   const [activeHeading, setActiveHeading] = useState('')
   const [annotations, setAnnotations] = useState<Annotation[]>(initialAnnotations)
   const [popover, setPopover] = useState<{ x: number; y: number; text: string; start: number; end: number } | null>(null)
@@ -152,7 +152,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
     <div className={embedded ? "journal-essay" : "min-h-screen bg-white"}>
       {/* Progress bar */}
       <div
-        className="fixed top-0 left-0 h-[2px] bg-[#000000] z-50 transition-all duration-150"
+        className={`${embedded ? "sticky" : "fixed"} top-0 left-0 h-[2px] bg-[#000000] z-50 transition-all duration-150`}
         style={{ width: `${percent}%` }}
       />
 
