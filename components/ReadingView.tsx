@@ -221,7 +221,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
         {/* Essay */}
         <main className="flex-1 max-w-[680px]" onMouseUp={onMouseUp}>
           <header className="journal-essay-heading">
-          <h1>{paper.title}</h1>
+          <h1>{paper.title.split(/(GLP-1)/g).map((part,i)=>part==='GLP-1'?<span key={i} style={{whiteSpace:'nowrap'}}>{part}</span>:part)}</h1>
           {paper.subtitle && <p>{paper.subtitle}</p>}
           {embedded && !!initialProgress?.scroll_position && initialProgress.scroll_position > 200 && <button className="journal-resume" onClick={() => window.scrollTo({top:initialProgress.scroll_position,behavior:'smooth'})}>Resume reading</button>}
         </header>
