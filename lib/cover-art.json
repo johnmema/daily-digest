@@ -1,58 +1,63 @@
 {
-  "The Science of GLP-1": {
+  "c1fe604d-7b5c-471a-9cc9-f2627a28c495": {
     "image": "/covers/ed46.jpg",
     "wash": "#b9dcd3",
     "spine": "#123f33"
   },
-  "The Three-Dollar Status Symbol": {
+  "fa687ddc-76bf-4f64-964e-0423817d00a7": {
     "image": "/covers/ed45.jpg",
     "wash": "#f3d9dc",
     "spine": "#6e1f2c",
     "credit": "Cover photo: Lorena Cupcake, CC BY 2.0, via Flickr"
   },
-  "Five Journeys to the Met": {
+  "0c1033f8-6f13-430f-aea5-61a656a4b111": {
     "image": "/covers/ed44.jpg",
     "wash": "#e8dcc3",
     "spine": "#453415"
   },
-  "Engineered Geothermal Reservoirs": {
+  "6183db1e-1e34-4f10-9594-0d957ec25f3e": {
     "image": "/covers/ed43.jpg",
     "wash": "#d8d3c6",
     "spine": "#333a45"
   },
-  "Decision Fatigue": {
-    "image": "/covers/ed42.jpg",
-    "wash": "#cfdde8",
-    "spine": "#1f3a5f"
-  },
-  "Algorithmic Medicine": {
+  "d04c66b9-92b9-49ea-b13c-48388fa2298c": {
     "image": "/covers/ed41.jpg",
     "wash": "#dcd8ea",
     "spine": "#3c2f5f"
   },
-  "The Critical Minerals Scramble": {
+  "29482efb-7e23-4713-8088-de069e33d727": {
+    "image": "/covers/ed42.jpg",
+    "wash": "#cfdde8",
+    "spine": "#1f3a5f"
+  },
+  "c38fdbc6-8976-4611-875e-dbab3ac71984": {
     "image": "/covers/ed40.jpg",
     "wash": "#d3e0cf",
     "spine": "#2d4a22"
   },
-  "The Optical Supercycle Trade": {
+  "065d8541-0bbb-465f-a720-ac6875c99b22": {
     "image": "/covers/ed39.jpg",
     "wash": "#f0dcc8",
     "spine": "#7a3a12"
   },
-  "Photonic Data Movement": {
+  "7a6dd970-1814-427c-8a87-029dbbd5ec0b": {
     "image": "/covers/ed38.jpg",
     "wash": "#c9dfe4",
     "spine": "#0e4a56"
   },
-  "Purposeless Persistence": {
+  "7c5a6ea4-1f68-44fb-a7f5-fbf87234fd66": {
     "image": "/covers/ed37.jpg",
     "wash": "#e6d7d0",
     "spine": "#4f2c23"
   },
-  "Programmable Living Medicines": {
+  "bd0e8963-67b1-41cc-a482-5f50a9b67520": {
     "image": "/covers/ed36.jpg",
     "wash": "#d5e3d8",
     "spine": "#1d4d3a"
+  },
+  "a097b05c-c228-42d0-9dc6-d50b9d4cdcf1": {
+    "image": "/covers/ed38.jpg",
+    "wash": "#c9dfe4",
+    "spine": "#0e4a56"
   }
 }

@@ -9,7 +9,6 @@ export default async function HomePage() {
     .from('papers')
     .select('*')
     .order('published_at', { ascending: false })
-    .limit(50)
   const all = (papers ?? []) as Paper[]
 
   return <CoverFlow papers={all} />
