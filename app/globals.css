@@ -44,7 +44,7 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 .journal-readout { position:absolute;bottom:24px;font-family:var(--font-editorial),Georgia,serif;font-size:clamp(18px,4.6vw,26px); }
 .journal-date {left:24px}.journal-number{right:24px}
 .journal-empty{padding:40vh 24px;text-align:center}
-.journal-essay,.journal-reader-footer{background:#faf8f3;color:#1a1a1a}
+.journal-essay,.journal-reader-footer{background:#fff;color:#1a1a1a}
 .journal-essay-layout{max-width:1200px;margin:auto;padding:56px 24px;display:flex;gap:64px;}
 .journal-essay-layout>main{min-width:0;width:100%}
 .journal-essay-heading{margin-bottom:44px;text-align:center}
@@ -69,7 +69,7 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 .journal-detail{position:relative;min-height:100lvh}
 .journal-sticky-hero{height:100lvh;position:sticky;top:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .journal-return-cover{display:block;border:0;background:none;padding:0;cursor:pointer;transform:translateY(-4.8%);animation:journal-cover-lift .8s cubic-bezier(.54,.01,.25,1.01) both;line-height:0}
-.journal-reveal-sheet{position:relative;z-index:2;margin-top:-40lvh;background:#faf8f3;min-height:40lvh;animation:journal-sheet-rise .8s cubic-bezier(.35,.25,.15,1) both}
+.journal-reveal-sheet{position:relative;z-index:2;margin-top:-40lvh;background:#fff;min-height:40lvh;animation:journal-sheet-rise .8s cubic-bezier(.35,.25,.15,1) both}
 .journal-loading{height:40lvh;display:flex;align-items:center;justify-content:center;font-family:var(--font-editorial),Georgia,serif}
 .journal-detail.is-closing .journal-return-cover{animation:journal-cover-settle .8s cubic-bezier(.54,.01,.25,1.01) forwards}
 .journal-detail.is-closing .journal-reveal-sheet{animation:journal-sheet-fall .8s cubic-bezier(.54,.01,.25,1.01) forwards}
@@ -106,8 +106,10 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 @media(min-width:800px){.journal-cover{width:62lvh}.journal-title{font-size:36px}}
 
 /* Isolated photography comparison. Archive artwork is unchanged. */
-.photo-study-toolbar{position:fixed;z-index:45;top:0;left:0;right:0;padding:14px 20px 10px;background:#dfded6;font-family:var(--font-interface),Arial,sans-serif;font-size:11px;line-height:1.4}
+.photo-study-toolbar{position:fixed;z-index:45;top:0;left:0;right:0;padding:14px 20px 10px;background:#fff;font-family:var(--font-interface),Arial,sans-serif;font-size:11px;line-height:1.4}
 .photo-study-caption{display:flex;align-items:center;gap:12px;color:#42463e;margin-bottom:10px}.photo-study-caption>span{flex:1}.photo-study-caption>button{text-decoration:underline;min-height:24px}
 .photo-study-toolbar nav{display:flex;justify-content:center;gap:8px}.photo-study-toolbar nav button{padding:8px 12px;border:1px solid #b0b4a9;border-radius:24px;white-space:nowrap}.photo-study-toolbar nav button[aria-pressed=true]{background:#263a31;color:#fff;border-color:#263a31}
-.photo-study-notes{position:fixed;z-index:44;inset:102px 0 0;background:#faf8f3;overflow:auto;padding:20px max(24px,calc((100vw - 640px)/2));font-family:var(--font-interface),Arial,sans-serif;font-size:13px;line-height:1.6}.photo-study-notes p{margin-bottom:24px}.photo-study-notes a{text-decoration:underline}
+.photo-study-notes{position:fixed;z-index:44;inset:102px 0 0;background:#fff;overflow:auto;padding:20px max(24px,calc((100vw - 640px)/2));font-family:var(--font-interface),Arial,sans-serif;font-size:13px;line-height:1.6}.photo-study-notes p{margin-bottom:24px}.photo-study-notes a{text-decoration:underline}
 @media(min-width:800px){.photo-study-toolbar{padding:14px 28px;display:flex;align-items:center;justify-content:space-between}.photo-study-caption{margin:0;gap:20px}.photo-study-toolbar nav{gap:12px}.photo-study-notes{top:68px}}
+
+.journal-essay,.journal-reader-footer{background:#fff}

@@ -14,7 +14,7 @@ export default function JournalArticle({paper,next,onReturn,onNext,progress,anno
   Promise.all([db.from('reading_progress').select('*').eq('paper_id',paper.id).maybeSingle(),db.from('annotations').select('*').eq('paper_id',paper.id).order('created_at')]).then(([p,a])=>{if(alive)setData({progress:p.data,annotations:a.data??[]})})
   return()=>{alive=false}
  },[paper.id,annotations])
- return <div className={`journal-detail${closing?' is-closing':''}`} style={{background:art?.wash??'#dddcd3'}}>
+ return <div className={`journal-detail${closing?' is-closing':''}`} style={{background:'#fff'}}>
   <div className="journal-sticky-hero"><button className="journal-return-cover" onClick={onReturn} aria-label="Back to editions"><Cover paper={paper} artOverride={artOverride}/></button></div>
   <div className="journal-reveal-sheet">
    {data?<ReadingView key={paper.id} paper={paper} initialProgress={data.progress} initialAnnotations={data.annotations} embedded preview={preview}/>:<div className="journal-loading" aria-live="polite">Loading essay</div>}

@@ -50,7 +50,7 @@ export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[
   window.scrollTo({top:0,behavior:'instant'})
  }
  if(open!==null){const p=papers[open];return <JournalArticle paper={p} next={papers[open+1]??null} onReturn={()=>returnToBrowse(open)} onNext={()=>returnToBrowse(Math.min(open+1,papers.length-1))} closing={closing} artOverride={artOverrides?.[p.id]} preview={!!studyPath} annotations={studyPath?[]:undefined}/>}
- return <div className="journal-flow" style={{background:artFor(papers[active])?.wash??'#dddcd3'}}>
+ return <div className="journal-flow" style={{background:'#fff'}}>
   {!studyPath&&<nav className="journal-nav"><Link href="/library">Archive</Link><Link href="/queue">Queue</Link></nav>}
   {papers.map((p,i)=><section className="journal-panel" key={p.id} data-index={i} ref={e=>{refs.current[i]=e}}>
    <a className="journal-cover-link" href={articlePath(p)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&e.button===0){e.preventDefault();read(i)}}} aria-label={`Read ${p.title}`}><Cover paper={p} artOverride={artOverrides?.[p.id]}/></a>
