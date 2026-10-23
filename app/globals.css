@@ -127,3 +127,7 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 
 html.cover-browsing{scroll-snap-type:none}
 .journal-feed-info:after{content:'';position:absolute;inset:auto 0 0;height:62px;background:#fff;z-index:-1}
+
+/* Stable shuffled pastel per edition, shared by the stage and fixed labels. */
+.journal-feed-info:after{background:var(--cover-background,#fff);transition:background-color .7s ease}
+@media(prefers-reduced-motion:reduce){.journal-feed-info:after{transition:none}}

@@ -1,10 +1,12 @@
 'use client'
-import {useEffect,useRef,useState} from 'react'
+import {useEffect,useRef,useState,type CSSProperties} from 'react'
 import Link from 'next/link'
 import Cover,{coverArt,type CoverArt} from './Cover'
 import JournalArticle from './JournalArticle'
 import type {Paper} from '@/types'
 import {formatDateShort} from '@/lib/utils'
+const coverPalette=['#f1e9df','#e6edf1','#eee6ed','#e6ece0','#f2e5de','#e1ece8','#ece8f2','#f1edda']
+function coverBackground(id:string){let hash=2166136261;for(const char of id)hash=Math.imul(hash^char.charCodeAt(0),16777619);return coverPalette[(hash>>>0)%coverPalette.length]}
 export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[];artOverrides?:Record<string,CoverArt>;studyPath?:string}) {
  const artFor=(p:Paper)=>artOverrides?.[p.id]??coverArt(p)
  const browsePath=studyPath??'/'
@@ -75,7 +77,7 @@ export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[
   window.scrollTo({top:0,behavior:'instant'})
  }
  if(open!==null){const p=papers[open];return <JournalArticle paper={p} next={papers[open+1]??null} onReturn={()=>returnToBrowse(open)} onNext={()=>returnToBrowse(Math.min(open+1,papers.length-1))} closing={closing} artOverride={artOverrides?.[p.id]} preview={!!studyPath} annotations={studyPath?[]:undefined}/>}
- return <div className="journal-flow" style={{background:'#fff'}}>
+ return <div className="journal-flow" style={{background:coverBackground(papers[active]?.id??''),'--cover-background':coverBackground(papers[active]?.id??'')} as CSSProperties}>
   {!studyPath&&<nav className="journal-nav"><Link href="/library">Archive</Link><Link href="/queue">Queue</Link></nav>}
   {papers.map((p,i)=><section className="journal-panel" key={p.id} data-index={i} style={{zIndex:i+1}} ref={e=>{refs.current[i]=e}}>
    <a className="journal-cover-link" tabIndex={i===active?0:-1} href={articlePath(p)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&e.button===0){e.preventDefault();read(i)}}} aria-label={`Read ${p.title}`}><Cover paper={p} artOverride={artOverrides?.[p.id]}/></a>
