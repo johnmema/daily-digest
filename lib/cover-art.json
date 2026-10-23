@@ -1,22 +1,36 @@
 {
   "c1fe604d-7b5c-471a-9cc9-f2627a28c495": {
-    "image": "/covers/ed46.jpg",
-    "wash": "#b9dcd3",
-    "spine": "#123f33"
+    "image": "/photo-study/award/award-13.jpg",
+    "wash": "#ffffff",
+    "spine": "#ffffff",
+    "credit": "Cover photo: Rodney Ee. Cropped for this cover. Photo adaptation licensed CC BY 2.0; this license applies to the photo only, not the essay or app.",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Mud_Cow_Racing_-_Pacu_Jawi_-_West_Sumatra,_Indonesia.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "licenseLabel": "CC BY 2.0",
+    "award": "Wikimedia Commons Picture of the Year 2019 - Winner (1st place)",
+    "awardUrl": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2019/Results"
   },
   "fa687ddc-76bf-4f64-964e-0423817d00a7": {
-    "image": "/covers/ed45.jpg",
-    "wash": "#f3d9dc",
-    "spine": "#6e1f2c",
-    "credit": "Cover photo: Lorena Cupcake. Cropped for this cover.",
-    "creditUrl": "https://www.flickr.com/photos/22901150@N00/3905485341",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-    "licenseLabel": "CC BY 2.0"
+    "image": "/photo-study/award/award-14.jpg",
+    "wash": "#ffffff",
+    "spine": "#ffffff",
+    "credit": "Cover photo: Luca Casale. Cropped for this cover. Photo adaptation licensed CC BY-SA 4.0; this license applies to the photo only, not the essay or app.",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Alcedo_atthis_-_Riserve_naturali_e_aree_contigue_della_fascia_fluviale_del_Po.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "licenseLabel": "CC BY-SA 4.0",
+    "award": "Wikimedia Commons Picture of the Year 2020 - Winner (1st place)",
+    "awardUrl": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2020/Results"
   },
   "0c1033f8-6f13-430f-aea5-61a656a4b111": {
-    "image": "/covers/ed44.jpg",
-    "wash": "#e8dcc3",
-    "spine": "#453415"
+    "image": "/photo-study/award/award-15.jpg",
+    "wash": "#ffffff",
+    "spine": "#ffffff",
+    "credit": "Cover photo: Farzin Izaddoust dar. Cropped for this cover. Photo adaptation licensed CC BY-SA 4.0; this license applies to the photo only, not the essay or app.",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Holy_SURP_Hovhannes_Church.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "licenseLabel": "CC BY-SA 4.0",
+    "award": "Wikimedia Commons Picture of the Year 2021 - Winner (1st place)",
+    "awardUrl": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2021/Results"
   },
   "6183db1e-1e34-4f10-9594-0d957ec25f3e": {
     "image": "/covers/ed43.jpg",

@@ -20,7 +20,7 @@ export default function JournalArticle({paper,next,onReturn,onNext,progress,anno
    {data?<ReadingView key={paper.id} paper={paper} initialProgress={data.progress} initialAnnotations={data.annotations} embedded preview={preview}/>:<div className="journal-loading" aria-live="polite">Loading essay</div>}
    <footer className="journal-reader-footer">
     {!preview&&<button className="journal-share" onClick={()=>{const url=`${location.origin}/paper/${paper.id}`;if(navigator.share)navigator.share({title:paper.title,url}).catch(()=>{});else navigator.clipboard.writeText(url)}}>Share essay</button>}
-    {art?.credit&&<p className="journal-credit">{art?.credit} {art?.creditUrl&&<a href={art?.creditUrl} target="_blank" rel="noreferrer">Source</a>}{" · "}{art?.licenseUrl&&<a href={art?.licenseUrl} target="_blank" rel="noreferrer">{art?.licenseLabel}</a>}</p>}
+    {art?.credit&&<p className="journal-credit">{art?.credit} {art?.award&&<>{art.award}. </>}{art?.awardUrl&&<><a href={art.awardUrl} target="_blank" rel="noreferrer">Award results</a>{" · "}</>}{art?.creditUrl&&<a href={art?.creditUrl} target="_blank" rel="noreferrer">Source</a>}{" · "}{art?.licenseUrl&&<a href={art?.licenseUrl} target="_blank" rel="noreferrer">{art?.licenseLabel}</a>}</p>}
     <button className="journal-next" onClick={onNext}>{next?`Next: ${next.title}`:'Back to the editions'}</button>
    </footer>
   </div>
