@@ -1,0 +1,86 @@
+{
+  "nature": [
+    {
+      "image": "/photo-study/nature/nature-04.jpg",
+      "photographer": "Kuhnmi",
+      "title": "Golden sunbeams through November fog, bare trees",
+      "source": "https://commons.wikimedia.org/wiki/File:Baumsilhouetten_am_Uetliberg_mit_Novembernebel_und_Sonnenstrahlen.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "image": "/photo-study/nature/nature-05.jpg",
+      "photographer": "W.carter",
+      "title": "Lush beech-and-fern forest interior",
+      "source": "https://commons.wikimedia.org/wiki/File:Beech_and_ferns_in_Gullmarsskogen.jpg",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "image": "/photo-study/nature/nature-03.jpg",
+      "photographer": "Ximonic (Simo Räsänen)",
+      "title": "Snowy fjord at dusk, Lofoten",
+      "source": "https://commons.wikimedia.org/wiki/File:A_Late_evening_view_to_Austnesfjorden_at_Sildpollnes_Church,_Austv%C3%A5g%C3%B8ya,_Lofoten,_Norway,_2015_April.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ],
+  "monochrome": [
+    {
+      "image": "/photo-study/bw/bw-01.jpg",
+      "photographer": "Vita Vilcina",
+      "title": "City skyline at night",
+      "source": "https://unsplash.com/photos/city-building-during-night-time-photo-VMLGC5A3QTE",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license"
+    },
+    {
+      "image": "/photo-study/bw/bw-05.jpg",
+      "photographer": "Sebastian Schuster",
+      "title": "Rapids, white foam on dark water",
+      "source": "https://unsplash.com/photos/raging-river-rapids-with-white-foam-and-dark-water-0kWMQnmLSms",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license"
+    },
+    {
+      "image": "/photo-study/bw/bw-08.jpg",
+      "photographer": "Gian D.",
+      "title": "Rose in grayscale",
+      "source": "https://unsplash.com/photos/grayscale-photograph-of-petaled-flower-YE6iUShVcps",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license"
+    }
+  ],
+  "awarded": [
+    {
+      "image": "/photo-study/award/award-11.jpg",
+      "photographer": "Diego Delso",
+      "title": "Mundari herder among long-horned cattle in golden dust, South Sudan",
+      "source": "https://commons.wikimedia.org/wiki/File:Campamento_de_ganado_de_la_tribu_Mundari,_Terekeka,_Sud%C3%A1n_del_Sur,_2024-01-29,_DD_242.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "award": "Wikimedia Commons Picture of the Year 2024 - Winner (1st place)",
+      "awardUrl": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2024/Results"
+    },
+    {
+      "image": "/photo-study/award/award-07.jpg",
+      "photographer": "Trantuanviet",
+      "title": "Red incense bundles drying, Vietnam (aerial)",
+      "source": "https://commons.wikimedia.org/wiki/File:Incense_in_Vietnam.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "award": "Wikimedia Commons Picture of the Year 2023 - Winner (1st place)",
+      "awardUrl": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2023/Results"
+    },
+    {
+      "image": "/photo-study/award/award-12.jpg",
+      "photographer": "Prasan Shrestha",
+      "title": "Egret landing on golden misty lake water, Nepal",
+      "source": "https://commons.wikimedia.org/wiki/File:Phalacrocorax_carbo,_Egretta_garzetta_and_Mareca_strepera_in_Taudha_Lake.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "award": "Wikimedia Commons Picture of the Year 2022 - Winner (1st place)",
+      "awardUrl": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2022/Results"
+    }
+  ]
+}

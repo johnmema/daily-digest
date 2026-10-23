@@ -104,3 +104,10 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 .journal-essay .prose strong{font-weight:600}
 .journal-essay .font-serif,.journal-next{font-family:var(--font-editorial),Georgia,serif}
 @media(min-width:800px){.journal-cover{width:62lvh}.journal-title{font-size:36px}}
+
+/* Isolated photography comparison. Archive artwork is unchanged. */
+.photo-study-toolbar{position:fixed;z-index:45;top:0;left:0;right:0;padding:14px 20px 10px;background:#dfded6;font-family:var(--font-interface),Arial,sans-serif;font-size:11px;line-height:1.4}
+.photo-study-caption{display:flex;align-items:center;gap:12px;color:#42463e;margin-bottom:10px}.photo-study-caption>span{flex:1}.photo-study-caption>button{text-decoration:underline;min-height:24px}
+.photo-study-toolbar nav{display:flex;justify-content:center;gap:8px}.photo-study-toolbar nav button{padding:8px 12px;border:1px solid #b0b4a9;border-radius:24px;white-space:nowrap}.photo-study-toolbar nav button[aria-pressed=true]{background:#263a31;color:#fff;border-color:#263a31}
+.photo-study-notes{position:fixed;z-index:44;inset:102px 0 0;background:#faf8f3;overflow:auto;padding:20px max(24px,calc((100vw - 640px)/2));font-family:var(--font-interface),Arial,sans-serif;font-size:13px;line-height:1.6}.photo-study-notes p{margin-bottom:24px}.photo-study-notes a{text-decoration:underline}
+@media(min-width:800px){.photo-study-toolbar{padding:14px 28px;display:flex;align-items:center;justify-content:space-between}.photo-study-caption{margin:0;gap:20px}.photo-study-toolbar nav{gap:12px}.photo-study-notes{top:68px}}

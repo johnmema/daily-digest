@@ -11,7 +11,7 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname()
 
-  if (pathname === '/' || pathname.startsWith('/paper/')) return null
+  if (pathname === '/' || pathname.startsWith('/paper/') || pathname === '/photo-study') return null
 
   return (
     <header className="bg-white">
@@ -23,7 +23,7 @@ export default function Header() {
         <nav className="flex items-center gap-8 pb-1.5">
           {navLinks.map(({ href, label }) => {
             const active = pathname === href
-            if (pathname === '/' || pathname.startsWith('/paper/')) return null
+            if (pathname === '/' || pathname.startsWith('/paper/') || pathname === '/photo-study') return null
 
   return (
               <Link

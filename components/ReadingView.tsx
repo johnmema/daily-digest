@@ -10,6 +10,7 @@ import { createClient } from '@/lib/supabase'
 
 interface ReadingViewProps {
   embedded?: boolean
+  preview?: boolean
   paper: Paper
   initialProgress?: ReadingProgress | null
   initialAnnotations?: Annotation[]
@@ -21,7 +22,7 @@ const ANNOTATION_COLORS: Record<AnnotationColor, string> = {
   pink: '#fbcfe8',
 }
 
-export default function ReadingView({ paper, initialProgress, initialAnnotations = [], embedded = false }: ReadingViewProps) {
+export default function ReadingView({ paper, initialProgress, initialAnnotations = [], embedded = false, preview = false }: ReadingViewProps) {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement>(null)
   const [percent, setPercent] = useState(embedded ? 0 : initialProgress?.percent_read ?? 0)
@@ -48,6 +49,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
   // Save progress (debounced)
   const saveProgress = useCallback(
     debounce(async (pct: number) => {
+      if(preview)return
       await supabase.from('reading_progress').upsert({
         paper_id: paper.id,
         percent_read: pct,
@@ -56,7 +58,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
         updated_at: new Date().toISOString(),
       })
     }, 1500),
-    [paper.id]
+    [paper.id,preview]
   )
 
   useEffect(() => { saveProgress(percent) }, [percent])
@@ -98,6 +100,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
   // Text selection → annotation popover
   const onMouseUp = useCallback(() => {
+    if(preview)return
     const sel = window.getSelection()
     if (!sel || sel.isCollapsed || !sel.toString().trim()) {
       setPopover(null)

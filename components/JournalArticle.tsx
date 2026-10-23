@@ -1,10 +1,11 @@
 'use client'
 import {useEffect,useState} from 'react'
-import Cover,{coverArt} from './Cover'
+import Cover,{coverArt,type CoverArt} from './Cover'
 import ReadingView from './ReadingView'
 import type {Paper,ReadingProgress,Annotation} from '@/types'
 import {createClient} from '@/lib/supabase'
-export default function JournalArticle({paper,next,onReturn,onNext,progress,annotations,closing=false}:{paper:Paper;next:Paper|null;onReturn:()=>void;onNext:()=>void;progress?:ReadingProgress|null;annotations?:Annotation[];closing?:boolean}) {
+export default function JournalArticle({paper,next,onReturn,onNext,progress,annotations,closing=false,artOverride,preview=false}:{paper:Paper;next:Paper|null;onReturn:()=>void;onNext:()=>void;progress?:ReadingProgress|null;annotations?:Annotation[];closing?:boolean;artOverride?:CoverArt;preview?:boolean}) {
+ const art=artOverride??coverArt(paper)
  const [data,setData]=useState<{progress:ReadingProgress|null;annotations:Annotation[]}|null>(annotations?{progress:progress??null,annotations}:null)
  useEffect(()=>{
   if(annotations)return
@@ -13,13 +14,13 @@ export default function JournalArticle({paper,next,onReturn,onNext,progress,anno
   Promise.all([db.from('reading_progress').select('*').eq('paper_id',paper.id).maybeSingle(),db.from('annotations').select('*').eq('paper_id',paper.id).order('created_at')]).then(([p,a])=>{if(alive)setData({progress:p.data,annotations:a.data??[]})})
   return()=>{alive=false}
  },[paper.id,annotations])
- return <div className={`journal-detail${closing?' is-closing':''}`} style={{background:coverArt(paper)?.wash??'#dddcd3'}}>
-  <div className="journal-sticky-hero"><button className="journal-return-cover" onClick={onReturn} aria-label="Back to editions"><Cover paper={paper}/></button></div>
+ return <div className={`journal-detail${closing?' is-closing':''}`} style={{background:art?.wash??'#dddcd3'}}>
+  <div className="journal-sticky-hero"><button className="journal-return-cover" onClick={onReturn} aria-label="Back to editions"><Cover paper={paper} artOverride={artOverride}/></button></div>
   <div className="journal-reveal-sheet">
-   {data?<ReadingView key={paper.id} paper={paper} initialProgress={data.progress} initialAnnotations={data.annotations} embedded/>:<div className="journal-loading" aria-live="polite">Loading essay</div>}
+   {data?<ReadingView key={paper.id} paper={paper} initialProgress={data.progress} initialAnnotations={data.annotations} embedded preview={preview}/>:<div className="journal-loading" aria-live="polite">Loading essay</div>}
    <footer className="journal-reader-footer">
-    <button className="journal-share" onClick={()=>{const url=`${location.origin}/paper/${paper.id}`;if(navigator.share)navigator.share({title:paper.title,url}).catch(()=>{});else navigator.clipboard.writeText(url)}}>Share essay</button>
-    {coverArt(paper)?.credit&&<p className="journal-credit">{coverArt(paper)?.credit} {coverArt(paper)?.creditUrl&&<a href={coverArt(paper)?.creditUrl} target="_blank" rel="noreferrer">Source</a>}{" · "}{coverArt(paper)?.licenseUrl&&<a href={coverArt(paper)?.licenseUrl} target="_blank" rel="noreferrer">{coverArt(paper)?.licenseLabel}</a>}</p>}
+    {!preview&&<button className="journal-share" onClick={()=>{const url=`${location.origin}/paper/${paper.id}`;if(navigator.share)navigator.share({title:paper.title,url}).catch(()=>{});else navigator.clipboard.writeText(url)}}>Share essay</button>}
+    {art?.credit&&<p className="journal-credit">{art?.credit} {art?.creditUrl&&<a href={art?.creditUrl} target="_blank" rel="noreferrer">Source</a>}{" · "}{art?.licenseUrl&&<a href={art?.licenseUrl} target="_blank" rel="noreferrer">{art?.licenseLabel}</a>}</p>}
     <button className="journal-next" onClick={onNext}>{next?`Next: ${next.title}`:'Back to the editions'}</button>
    </footer>
   </div>

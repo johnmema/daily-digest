@@ -1,0 +1,401 @@
+{
+ "nature": [
+  {
+   "file": "nature/nature-01.jpg",
+   "description": "Lone tree on a heather moor track, open sky",
+   "source_page": "https://commons.wikimedia.org/wiki/File:2014_Track_on_Fremington_Edge.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/2014_Track_on_Fremington_Edge.jpg/1280px-2014_Track_on_Fremington_Edge.jpg",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+   "author": "Kreuzschnabel",
+   "credit_required": true,
+   "commons_title": "2014 Track on Fremington Edge.jpg"
+  },
+  {
+   "file": "nature/nature-02.jpg",
+   "description": "Autumn alpine valley, Pyrenees (Gavarnie)",
+   "source_page": "https://commons.wikimedia.org/wiki/File:2019_-_Parc_national_des_Pyrenees_-_Vall%C3%A9e_de_Gavarnie.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/2019_-_Parc_national_des_Pyrenees_-_Vall%C3%A9e_de_Gavarnie.jpg/1280px-2019_-_Parc_national_des_Pyrenees_-_Vall%C3%A9e_de_Gavarnie.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Moahim",
+   "credit_required": true,
+   "commons_title": "2019 - Parc national des Pyrenees - Vallée de Gavarnie.jpg"
+  },
+  {
+   "file": "nature/nature-03.jpg",
+   "description": "Snowy fjord at dusk, Lofoten",
+   "source_page": "https://commons.wikimedia.org/wiki/File:A_Late_evening_view_to_Austnesfjorden_at_Sildpollnes_Church,_Austv%C3%A5g%C3%B8ya,_Lofoten,_Norway,_2015_April.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/A_Late_evening_view_to_Austnesfjorden_at_Sildpollnes_Church%2C_Austv%C3%A5g%C3%B8ya%2C_Lofoten%2C_Norway%2C_2015_April.jpg/1280px-A_Late_evening_view_to_Austnesfjorden_at_Sildpollnes_Church%2C_Austv%C3%A5g%C3%B8ya%2C_Lofoten%2C_Norway%2C_2015_April.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Ximonic (Simo Räsänen)",
+   "credit_required": true,
+   "commons_title": "A Late evening view to Austnesfjorden at Sildpollnes Church, Austvågøya, Lofoten, Norway, 2015 April.jpg"
+  },
+  {
+   "file": "nature/nature-04.jpg",
+   "description": "Golden sunbeams through November fog, bare trees",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Baumsilhouetten_am_Uetliberg_mit_Novembernebel_und_Sonnenstrahlen.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Baumsilhouetten_am_Uetliberg_mit_Novembernebel_und_Sonnenstrahlen.jpg/1280px-Baumsilhouetten_am_Uetliberg_mit_Novembernebel_und_Sonnenstrahlen.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Kuhnmi",
+   "credit_required": true,
+   "commons_title": "Baumsilhouetten am Uetliberg mit Novembernebel und Sonnenstrahlen.jpg"
+  },
+  {
+   "file": "nature/nature-05.jpg",
+   "description": "Lush beech-and-fern forest interior",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Beech_and_ferns_in_Gullmarsskogen.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Beech_and_ferns_in_Gullmarsskogen.jpg/1280px-Beech_and_ferns_in_Gullmarsskogen.jpg",
+   "license": "CC0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "W.carter",
+   "credit_required": false,
+   "commons_title": "Beech and ferns in Gullmarsskogen.jpg"
+  },
+  {
+   "file": "nature/nature-06.jpg",
+   "description": "Waterfall in a mossy gorge, Aberfeldy birches",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Birks_of_Aberfeldy_(55085667062).jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Birks_of_Aberfeldy_%2855085667062%29.jpg/1280px-Birks_of_Aberfeldy_%2855085667062%29.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Eric Kilby from Somerville, MA, USA",
+   "credit_required": true,
+   "commons_title": "Birks of Aberfeldy (55085667062).jpg"
+  },
+  {
+   "file": "nature/nature-07.jpg",
+   "description": "Dark moss-draped forest, Napa",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Bothe-Napa_Valley_State_Park_(01811).jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Bothe-Napa_Valley_State_Park_%2801811%29.jpg/1280px-Bothe-Napa_Valley_State_Park_%2801811%29.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Rhododendrites",
+   "credit_required": true,
+   "commons_title": "Bothe-Napa Valley State Park (01811).jpg"
+  },
+  {
+   "file": "nature/nature-08.jpg",
+   "description": "Tall beech trunks in dense fog (portrait)",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Bruderwald_Nebel_286411.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Bruderwald_Nebel_286411.jpg/1280px-Bruderwald_Nebel_286411.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Ermell",
+   "credit_required": true,
+   "commons_title": "Bruderwald Nebel 286411.jpg"
+  },
+  {
+   "file": "nature/nature-09.jpg",
+   "description": "Alpine lake reflection, Lassen",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Cliff_Lake,_Lassen_Volcanic_National_Park-8179.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Cliff_Lake%2C_Lassen_Volcanic_National_Park-8179.jpg/1280px-Cliff_Lake%2C_Lassen_Volcanic_National_Park-8179.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Frank Schulenburg",
+   "credit_required": true,
+   "commons_title": "Cliff Lake, Lassen Volcanic National Park-8179.jpg"
+  }
+ ],
+ "bw": [
+  {
+   "file": "bw/bw-01.jpg",
+   "description": "City skyline at night",
+   "source_page": "https://unsplash.com/photos/city-building-during-night-time-photo-VMLGC5A3QTE",
+   "image_url": "https://images.unsplash.com/photo-1415889455891-23bbf19ee5c7",
+   "license": "Unsplash License",
+   "license_url": "https://unsplash.com/license",
+   "author": "Vita Vilcina",
+   "credit_required": false
+  },
+  {
+   "file": "bw/bw-02.jpg",
+   "description": "Still lake under dark cloudy sky",
+   "source_page": "https://unsplash.com/photos/body-of-water-near-trees-under-cloudy-sky-Flxl7OUuO1M",
+   "image_url": "https://images.unsplash.com/photo-1459278558918-f94278c0f022",
+   "license": "Unsplash License",
+   "license_url": "https://unsplash.com/license",
+   "author": "Tim Navis",
+   "credit_required": false
+  },
+  {
+   "file": "bw/bw-03.jpg",
+   "description": "Lone walker on a whiteout snowfield",
+   "source_page": "https://unsplash.com/photos/person-walking-on-snowfield-R9OueKOtGGU",
+   "image_url": "https://images.unsplash.com/photo-1487260211189-670c54da558d",
+   "license": "Unsplash License",
+   "license_url": "https://unsplash.com/license",
+   "author": "ÉMILE SÉGUIN",
+   "credit_required": false
+  },
+  {
+   "file": "bw/bw-04.jpg",
+   "description": "Silhouette behind frosted glass panels",
+   "source_page": "https://unsplash.com/photos/person-in-silhouette-behind-glass-panels-5GwLlb-_UYk",
+   "image_url": "https://images.unsplash.com/photo-1499428665502-503f6c608263",
+   "license": "Unsplash License",
+   "license_url": "https://unsplash.com/license",
+   "author": "David Werbrouck",
+   "credit_required": false
+  },
+  {
+   "file": "bw/bw-05.jpg",
+   "description": "Rapids, white foam on dark water",
+   "source_page": "https://unsplash.com/photos/raging-river-rapids-with-white-foam-and-dark-water-0kWMQnmLSms",
+   "image_url": "https://images.unsplash.com/photo-1772405545687-7b6ff09c4931",
+   "license": "Unsplash License",
+   "license_url": "https://unsplash.com/license",
+   "author": "Sebastian Schuster",
+   "credit_required": false
+  },
+  {
+   "file": "bw/bw-06.jpg",
+   "description": "Birds over a lone boat",
+   "source_page": "https://unsplash.com/photos/birds-flying-over-boat-hy8y0Wp_Lp0",
+   "image_url": "https://images.unsplash.com/photo-1571028634586-ae87c1a42432",
+   "license": "Unsplash License",
+   "license_url": "https://unsplash.com/license",
+   "author": "Esteban Amaro",
+   "credit_required": false
+  },
+  {
+   "file": "bw/bw-07.jpg",
+   "description": "Foggy walkway, lamps, lone silhouette",
+   "source_page": "https://unsplash.com/photos/silhouette-person-walking-at-walkway-Afqw8XrP1V8",
+   "image_url": "https://images.unsplash.com/photo-1471981172431-b1c4155be4b1",
+   "license": "Unsplash License",
+   "license_url": "https://unsplash.com/license",
+   "author": "Philippe Mignot",
+   "credit_required": false
+  },
+  {
+   "file": "bw/bw-08.jpg",
+   "description": "Rose in grayscale",
+   "source_page": "https://unsplash.com/photos/grayscale-photograph-of-petaled-flower-YE6iUShVcps",
+   "image_url": "https://images.unsplash.com/photo-1500412830877-c77d92c33203",
+   "license": "Unsplash License",
+   "license_url": "https://unsplash.com/license",
+   "author": "Gian D.",
+   "credit_required": false
+  },
+  {
+   "file": "bw/bw-09.jpg",
+   "description": "Bare lone tree in snow, minimal",
+   "source_page": "https://unsplash.com/photos/photography-of-tree-Jrl_UQcZqOc",
+   "image_url": "https://images.unsplash.com/photo-1520262494112-9fe481d36ec3",
+   "license": "Unsplash License",
+   "license_url": "https://unsplash.com/license",
+   "author": "Fabrice Villard",
+   "credit_required": false
+  }
+ ],
+ "award": [
+  {
+   "file": "award/award-01.jpg",
+   "description": "Dragon blood tree on Socotra plateau",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Dragonblood_tree_in_Socotra_2.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Dragonblood_tree_in_Socotra_2.jpg/1280px-Dragonblood_tree_in_Socotra_2.jpg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Alex38",
+   "credit_required": true,
+   "commons_title": "Dragonblood tree in Socotra 2.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2024",
+    "result": "finalist, rank 9",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2024/Results"
+   },
+   "status": "finalist (not a winner)"
+  },
+  {
+   "file": "award/award-02.jpg",
+   "description": "Foggy ancient laurel forest, Madeira",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Foggy_Fanal_forest_in_Seixal,_Porto_Moniz,_Madeira,_2023_May.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Foggy_Fanal_forest_in_Seixal%2C_Porto_Moniz%2C_Madeira%2C_2023_May.jpg/1280px-Foggy_Fanal_forest_in_Seixal%2C_Porto_Moniz%2C_Madeira%2C_2023_May.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Ximonic (Simo Räsänen)",
+   "credit_required": true,
+   "commons_title": "Foggy Fanal forest in Seixal, Porto Moniz, Madeira, 2023 May.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2023",
+    "result": "finalist, rank 7 (221 votes)",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2023/Results"
+   },
+   "status": "finalist (not a winner)"
+  },
+  {
+   "file": "award/award-03.jpg",
+   "description": "Puffin in flight, front-on, Iceland",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Fratercula_arctica_in_flight,_Borgarfj%C3%B6r%C3%B0ur_eystri,_Iceland,_20240717_1136_1678.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Fratercula_arctica_in_flight%2C_Borgarfj%C3%B6r%C3%B0ur_eystri%2C_Iceland%2C_20240717_1136_1678.jpg/1280px-Fratercula_arctica_in_flight%2C_Borgarfj%C3%B6r%C3%B0ur_eystri%2C_Iceland%2C_20240717_1136_1678.jpg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Jakub Hałun",
+   "credit_required": true,
+   "commons_title": "Fratercula arctica in flight, Borgarfjörður eystri, Iceland, 20240717 1136 1678.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2024",
+    "result": "finalist, rank 2",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2024/Results"
+   },
+   "status": "finalist (not a winner)"
+  },
+  {
+   "file": "award/award-04.jpg",
+   "description": "Match igniting, macro on black",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Friction_d%27une_allumette.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Friction_d%27une_allumette.jpg/1280px-Friction_d%27une_allumette.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Yann SEGALEN",
+   "credit_required": true,
+   "commons_title": "Friction d'une allumette.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2024",
+    "result": "finalist, rank 11",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2024/Results"
+   },
+   "status": "finalist (not a winner)"
+  },
+  {
+   "file": "award/award-05.jpg",
+   "description": "Frozen soap bubble on fir twigs",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Frozen_soap_bubble_behind_fir_twigs_(Unsplash_BojuZpqw4zM).jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Frozen_soap_bubble_behind_fir_twigs_%28Unsplash_BojuZpqw4zM%29.jpg/1280px-Frozen_soap_bubble_behind_fir_twigs_%28Unsplash_BojuZpqw4zM%29.jpg",
+   "license": "CC0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "aaronburden Aaron Burden from Baltimore, Maryland, USA.",
+   "credit_required": false,
+   "commons_title": "Frozen soap bubble behind fir twigs (Unsplash BojuZpqw4zM).jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2024",
+    "result": "finalist, rank 6",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2024/Results"
+   },
+   "status": "finalist (not a winner)"
+  },
+  {
+   "file": "award/award-06.jpg",
+   "description": "Baby chameleon hunting, macro",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Hunter_baby_chameleon.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Hunter_baby_chameleon.jpg/1280px-Hunter_baby_chameleon.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Mkrc85",
+   "credit_required": true,
+   "commons_title": "Hunter baby chameleon.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2023",
+    "result": "finalist, rank 3 (245 votes)",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2023/Results"
+   },
+   "status": "finalist (not a winner)"
+  },
+  {
+   "file": "award/award-07.jpg",
+   "description": "Red incense bundles drying, Vietnam (aerial)",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Incense_in_Vietnam.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Incense_in_Vietnam.jpg/1280px-Incense_in_Vietnam.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Trantuanviet",
+   "credit_required": true,
+   "commons_title": "Incense in Vietnam.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2023",
+    "result": "WINNER, rank 1 (514 votes)",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2023/Results"
+   },
+   "status": "winner (rank 1)"
+  },
+  {
+   "file": "award/award-08.jpg",
+   "description": "Comet NEOWISE over a stargazer",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Kom%C3%A9ta_C-2020_F3_(NEOWISE).jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Kom%C3%A9ta_C-2020_F3_%28NEOWISE%29.jpg/1280px-Kom%C3%A9ta_C-2020_F3_%28NEOWISE%29.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Palonitor",
+   "credit_required": true,
+   "commons_title": "Kométa C-2020 F3 (NEOWISE).jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2023",
+    "result": "finalist, rank 4 (237 votes)",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2023/Results"
+   },
+   "status": "finalist (not a winner)"
+  },
+  {
+   "file": "award/award-09.jpg",
+   "description": "JWST Cosmic Cliffs star-forming nebula",
+   "source_page": "https://commons.wikimedia.org/wiki/File:NASA%E2%80%99s_Webb_Reveals_Cosmic_Cliffs,_Glittering_Landscape_of_Star_Birth.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/NASA%E2%80%99s_Webb_Reveals_Cosmic_Cliffs%2C_Glittering_Landscape_of_Star_Birth.jpg/1280px-NASA%E2%80%99s_Webb_Reveals_Cosmic_Cliffs%2C_Glittering_Landscape_of_Star_Birth.jpg",
+   "license": "Public domain",
+   "license_url": "",
+   "author": "Image: \n\nNational Aeronautics and Space Administration  (a U.S. federal government agency; https://www.nasa.gov/)\nEuropean space agency (https://www.esa.int/), Canadian Space Agency (https://www.asc-csa.gc.ca/eng/)\nSpace Telescope Science Institute (https://www.stsci.edu/, science operations center for the Hubble Space Telescope)",
+   "credit_required": false,
+   "commons_title": "NASA’s Webb Reveals Cosmic Cliffs, Glittering Landscape of Star Birth.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2022",
+    "result": "finalist, rank 7",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2022/Results"
+   },
+   "status": "finalist (not a winner)"
+  },
+  {
+   "file": "award/award-10.jpg",
+   "description": "Aurora over abandoned polar meteo station",
+   "source_page": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BE%D0%BB%D1%8F%D1%80%D0%BD%D0%BE%D0%B5_%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5_%D0%BD%D0%B0%D0%B4_%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8B%D0%BC_%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC_%D0%BC%D0%B5%D1%82%D0%B5%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%B5%D0%B9.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/%D0%9F%D0%BE%D0%BB%D1%8F%D1%80%D0%BD%D0%BE%D0%B5_%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5_%D0%BD%D0%B0%D0%B4_%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8B%D0%BC_%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC_%D0%BC%D0%B5%D1%82%D0%B5%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%B5%D0%B9.jpg/1280px-%D0%9F%D0%BE%D0%BB%D1%8F%D1%80%D0%BD%D0%BE%D0%B5_%D1%81%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5_%D0%BD%D0%B0%D0%B4_%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8B%D0%BC_%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC_%D0%BC%D0%B5%D1%82%D0%B5%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%B5%D0%B9.jpg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Ted.ns",
+   "credit_required": true,
+   "commons_title": "Полярное сияние над заброшенным зданием метеостанцией.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2023",
+    "result": "finalist, rank 7 (221 votes)",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2023/Results"
+   },
+   "status": "finalist (not a winner)"
+  },
+  {
+   "file": "award/award-11.jpg",
+   "description": "Mundari herder among long-horned cattle in golden dust, South Sudan",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Campamento_de_ganado_de_la_tribu_Mundari,_Terekeka,_Sud%C3%A1n_del_Sur,_2024-01-29,_DD_242.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Campamento_de_ganado_de_la_tribu_Mundari%2C_Terekeka%2C_Sud%C3%A1n_del_Sur%2C_2024-01-29%2C_DD_242.jpg/1280px-Campamento_de_ganado_de_la_tribu_Mundari%2C_Terekeka%2C_Sud%C3%A1n_del_Sur%2C_2024-01-29%2C_DD_242.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Diego Delso",
+   "credit_required": true,
+   "commons_title": "Campamento de ganado de la tribu Mundari, Terekeka, Sudán del Sur, 2024-01-29, DD 242.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2024",
+    "result": "WINNER, rank 1 of 57 finalists, 265 votes",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2024/Results"
+   },
+   "status": "winner (rank 1)"
+  },
+  {
+   "file": "award/award-12.jpg",
+   "description": "Egret landing on golden misty lake water, Nepal",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Phalacrocorax_carbo,_Egretta_garzetta_and_Mareca_strepera_in_Taudha_Lake.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Phalacrocorax_carbo%2C_Egretta_garzetta_and_Mareca_strepera_in_Taudha_Lake.jpg/1280px-Phalacrocorax_carbo%2C_Egretta_garzetta_and_Mareca_strepera_in_Taudha_Lake.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Prasan Shrestha",
+   "credit_required": true,
+   "commons_title": "Phalacrocorax carbo, Egretta garzetta and Mareca strepera in Taudha Lake.jpg",
+   "award": {
+    "name": "Wikimedia Commons Picture of the Year 2022",
+    "result": "WINNER, rank 1, 335 votes",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2022/Results"
+   },
+   "status": "winner (rank 1)"
+  }
+ ]
+}
