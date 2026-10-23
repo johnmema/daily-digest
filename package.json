@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "node tests/run-tests.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.102.0",

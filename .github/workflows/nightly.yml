@@ -1,49 +1,10 @@
-name: Nightly Digest
-
-# Drives the nightly loop on a free, exact-time scheduler (Vercel Hobby crons
-# only run ~once/day at an unpredictable time, which breaks fire-then-import ordering).
-# Step "fire" starts the Claude routine; it researches + writes the essay and leaves
-# it as a Gmail draft. Step "import" pulls the draft into the site (run twice as retry).
-
+# Retired: daily research and direct publishing is owned by Instinct.
+# Manual diagnostics only; no legacy fire/import jobs.
+name: Daily Digest legacy scheduler retired
 on:
-  schedule:
-    - cron: '0 1 * * *'   # 9pm EDT — fire the routine
-    - cron: '0 3 * * *'   # 11pm EDT — import the draft
-    - cron: '0 4 * * *'   # 12am EDT — import retry
   workflow_dispatch:
-    inputs:
-      step:
-        description: 'Which step to run'
-        required: true
-        default: 'import'
-        type: choice
-        options: [fire, import]
-
 jobs:
-  fire:
+  retired:
     runs-on: ubuntu-latest
-    if: ${{ github.event.schedule == '0 1 * * *' || github.event.inputs.step == 'fire' }}
     steps:
-      - name: Fire the routine
-        run: |
-          RESPONSE=$(curl -s -w "\n%{http_code}" \
-            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            "${{ secrets.APP_URL }}/api/cron/fire-routine")
-          BODY=$(echo "$RESPONSE" | head -n -1)
-          STATUS=$(echo "$RESPONSE" | tail -n 1)
-          echo "HTTP $STATUS: $BODY"
-          [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 300 ]
-
-  import:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.schedule == '0 3 * * *' || github.event.schedule == '0 4 * * *' || github.event.inputs.step == 'import' }}
-    steps:
-      - name: Import drafts
-        run: |
-          RESPONSE=$(curl -s -w "\n%{http_code}" \
-            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            "${{ secrets.APP_URL }}/api/cron/import-drafts")
-          BODY=$(echo "$RESPONSE" | head -n -1)
-          STATUS=$(echo "$RESPONSE" | tail -n 1)
-          echo "HTTP $STATUS: $BODY"
-          [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 300 ]
+      - run: echo "Legacy scheduler retired. No content was generated or imported."
