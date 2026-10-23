@@ -376,7 +376,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
     <div className="queue-editorial">
       <nav className="queue-nav"><Link href="/" aria-label="Back to covers"><span aria-hidden="true">←</span> Editions</Link><span>{queued.length} in queue</span></nav>
       <header className="queue-heading">
-        <p className="queue-kicker">Daily Digest</p><h1>Reading ahead.</h1><p className="queue-intro">A place for your next questions.</p>
+        <p className="queue-kicker">Daily Digest</p><h1>Reading ahead.</h1>
       </header>
 
       {/* 50/50: ranking (with add bar) | suggested for you */}
