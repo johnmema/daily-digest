@@ -65,3 +65,25 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.journal-flow{transition:none}}
 .journal-share { display:block;margin:0 auto 32px;min-height:44px;padding:12px 20px;text-decoration:underline;font-size:13px;cursor:pointer }
 .journal-essay .prose h2,.journal-essay .prose h3{scroll-margin-top:72px}
+/* Reference-led continuous cover / sheet interaction. */
+.journal-cover{width:min(calc(100vw - 120px),53.768vh);aspect-ratio:.8272;max-height:65vh;box-shadow:0 10px 15px -3px #0000001a,0 4px 6px -4px #0000001a}
+.journal-photo{left:4.2%;width:95.8%}.journal-spine{width:4.2%}.journal-scrim{left:4.2%}
+.journal-title{left:8.5%;right:6%;bottom:9%;font-size:clamp(23px,2.6vw,34px)}
+.journal-panel{height:100lvh;min-height:0}
+.journal-readout{bottom:20px}
+.journal-detail{position:relative;min-height:100lvh}
+.journal-sticky-hero{height:100lvh;position:sticky;top:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.journal-return-cover{display:block;border:0;background:none;padding:0;cursor:pointer;transform:translateY(-4.8%);animation:journal-cover-lift .8s cubic-bezier(.54,.01,.25,1.01) both;line-height:0}
+.journal-reveal-sheet{position:relative;z-index:2;margin-top:-40lvh;background:#faf8f3;min-height:40lvh;animation:journal-sheet-rise .8s cubic-bezier(.35,.25,.15,1) both}
+.journal-loading{height:40lvh;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
+.journal-detail.is-closing .journal-return-cover{animation:journal-cover-settle .8s cubic-bezier(.54,.01,.25,1.01) forwards}
+.journal-detail.is-closing .journal-reveal-sheet{animation:journal-sheet-fall .8s cubic-bezier(.54,.01,.25,1.01) forwards}
+.journal-essay-layout{padding-top:64px}
+.journal-essay-layout aside{display:none}
+.journal-essay-layout>main{margin:auto}
+@keyframes journal-cover-lift{from{transform:translateY(0)}to{transform:translateY(-4.8%)}}
+@keyframes journal-sheet-rise{from{transform:translateY(40lvh)}to{transform:translateY(0)}}
+@keyframes journal-cover-settle{from{transform:translateY(-4.8%)}to{transform:translateY(0)}}
+@keyframes journal-sheet-fall{from{transform:translateY(0)}to{transform:translateY(40lvh)}}
+@media(min-width:800px){.journal-cover{width:53.768vh}.journal-title{font-size:clamp(26px,2.6vw,36px)}}
+@media(prefers-reduced-motion:reduce){.journal-return-cover,.journal-reveal-sheet,.journal-detail.is-closing .journal-return-cover,.journal-detail.is-closing .journal-reveal-sheet{animation-duration:0s}}
