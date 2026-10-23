@@ -1,0 +1,9 @@
+# Editorial cover reader
+
+Preview-only branch. No publishing, ingestion, queue mode, or database migration changes.
+
+The home page uses live paper records with native vertical scroll snap. Each cover opens the canonical paper route. Close returns to its cover, and Next advances to the next older paper's cover. The full library remains at /library. Reader markdown, sources, highlights, progress and sharing are retained.
+
+Artwork is keyed by paper ID in lib/cover-art.json; assets are local in public/covers. Photo provenance is recorded in docs/cover-photo-sources.txt. The No.45 CC BY2.0 photo credit is rendered at the essay footer. New publications without mapped artwork currently use a solid-color titled cover. A future artwork production workflow needs separate approval; this branch does not alter daily writing or publishing semantics.
+
+Before merging: complete remaining archive photography and inspect phone320px/390px and desktop, snap/close/next/deep links, source list, attribution and live archive completeness. Never mutate real articles or create test annotations solely for UI checks.
