@@ -91,7 +91,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
   // Resume scroll position
   useEffect(() => {
-    if (initialProgress?.scroll_position) {
+    if (!embedded && initialProgress?.scroll_position) {
       window.scrollTo({ top: initialProgress.scroll_position })
     }
   }, [])
@@ -223,6 +223,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
           <header className="journal-essay-heading">
           <h1>{paper.title}</h1>
           {paper.subtitle && <p>{paper.subtitle}</p>}
+          {embedded && !!initialProgress?.scroll_position && initialProgress.scroll_position > 200 && <button className="journal-resume" onClick={() => window.scrollTo({top:initialProgress.scroll_position,behavior:'smooth'})}>Resume reading</button>}
         </header>
         {/* Pull quote */}
           {paper.pull_quote && (

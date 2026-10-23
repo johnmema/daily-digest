@@ -6,4 +6,6 @@ The home page uses live paper records with native vertical scroll snap. Each cov
 
 Artwork is keyed by paper ID in lib/cover-art.json; assets are local in public/covers. Photo provenance is recorded in docs/cover-photo-sources.txt. The No.45 CC BY2.0 photo credit is rendered at the essay footer. New publications without mapped artwork currently use a solid-color titled cover. A future artwork production workflow needs separate approval; this branch does not alter daily writing or publishing semantics.
 
-Before merging: complete remaining archive photography and inspect phone320px/390px and desktop, snap/close/next/deep links, source list, attribution and live archive completeness. Never mutate real articles or create test annotations solely for UI checks.
+Before merging: complete remaining archive photography and inspect phone320px/390px and desktop, snap/cover-return/next/deep links, source list, attribution and live archive completeness. Never mutate real articles or create test annotations solely for UI checks.
+
+Opening always starts at the cover. A saved reading position is available through Resume reading rather than jumping past the reveal. Native snap is not claimed as an exact tactile match to the reference custom scroller.

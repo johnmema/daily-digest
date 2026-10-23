@@ -44,11 +44,6 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 .journal-readout { position:absolute;bottom:24px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(18px,4.6vw,26px); }
 .journal-date {left:24px}.journal-number{right:24px}
 .journal-empty{padding:40vh 24px;text-align:center}
-.journal-close{position:fixed;top:16px;right:18px;z-index:45;border-radius:100px;background:#1a1a1a;color:#faf8f3;padding:12px 22px;font-size:13px;}
-.journal-reader-cover{display:flex;align-items:center;justify-content:center;min-height:400px;padding:62px 0 44px}
-.journal-cover.small{width:min(52vw,220px);box-shadow:0 16px 36px #0002}
-.journal-cover.small .journal-title{font-size:23px;bottom:32px;left:26px;right:12px}
-.journal-cover.small .journal-spine{width:10px}.journal-cover.small .journal-photo{left:10px;width:calc(100% - 10px)}.journal-cover.small .journal-scrim{left:10px}
 .journal-essay,.journal-reader-footer{background:#faf8f3;color:#1a1a1a}
 .journal-essay-layout{max-width:1200px;margin:auto;padding:56px 24px;display:flex;gap:64px;}
 .journal-essay-layout>main{min-width:0;width:100%}
@@ -60,7 +55,7 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 .journal-reader-footer{padding:0 24px 96px}
 .journal-next{display:block;max-width:640px;margin:auto;border:1px solid #1a1a1a;padding:20px;text-align:center;font-family:Georgia,'Times New Roman',serif;}
 .journal-credit{font-size:12px;color:#666;text-align:center;padding:12px 0 32px;}
-@media(min-width:768px){.journal-cover{width:min(32vw,430px);max-height:78dvh}.journal-title{font-size:clamp(28px,2.6vw,38px)}.journal-reader-cover{min-height:460px}.journal-essay-layout{padding:64px 32px}.journal-essay-layout>main{margin:auto}}
+@media(min-width:768px){.journal-cover{width:min(32vw,430px);max-height:78dvh}.journal-title{font-size:clamp(28px,2.6vw,38px)}.journal-essay-layout{padding:64px 32px}.journal-essay-layout>main{margin:auto}}
 @media(max-height:680px){.journal-cover{width:min(68vw,280px)}.journal-panel{min-height:480px}.journal-title{font-size:26px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.journal-flow{transition:none}}
 .journal-share { display:block;margin:0 auto 32px;min-height:44px;padding:12px 20px;text-decoration:underline;font-size:13px;cursor:pointer }
@@ -87,3 +82,5 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 @keyframes journal-sheet-fall{from{transform:translateY(0)}to{transform:translateY(40lvh)}}
 @media(min-width:800px){.journal-cover{width:53.768vh}.journal-title{font-size:clamp(26px,2.6vw,36px)}}
 @media(prefers-reduced-motion:reduce){.journal-return-cover,.journal-reveal-sheet,.journal-detail.is-closing .journal-return-cover,.journal-detail.is-closing .journal-reveal-sheet{animation-duration:0s}}
+
+.journal-resume{font-size:12px;line-height:1.5;text-decoration:underline;margin-top:18px;cursor:pointer}
