@@ -63,3 +63,5 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 @media(min-width:768px){.journal-cover{width:min(32vw,430px);max-height:78dvh}.journal-title{font-size:clamp(28px,2.6vw,38px)}.journal-reader-cover{min-height:460px}.journal-essay-layout{padding:64px 32px}.journal-essay-layout>main{margin:auto}}
 @media(max-height:680px){.journal-cover{width:min(68vw,280px)}.journal-panel{min-height:480px}.journal-title{font-size:26px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.journal-flow{transition:none}}
+.journal-share { display:block;margin:0 auto 32px;min-height:44px;padding:12px 20px;text-decoration:underline;font-size:13px;cursor:pointer }
+.journal-essay .prose h2,.journal-essay .prose h3{scroll-margin-top:72px}

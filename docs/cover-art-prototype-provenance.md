@@ -12,8 +12,8 @@ Vite + React + TS app. `src/App.tsx` (all logic), `src/style.css` (all styling),
 - Corner readouts OUTSIDE the cover: `.readout.date` bottom-left, `.readout.num` bottom-right, per panel. John explicitly wants these; do NOT remove.
 - Cover = photo (`.ph`, object-fit cover, inset left by spine width) + `.spine` (left colored column, edition deep color) + `.scrim` (bottom gradient for text legibility) + `.ctitle` (bottom-left, white, text-shadow). Nothing else on the cover: John removed the masthead ("The Daily Digest"), the hint ("Scroll - tap a cover to read"), and the date/issue printed on the cover.
 - Tap cover -> open mode: only that panel renders (openIdx; others return null - prevents stale covers/pills after essay end). `.panel.open` grows to fit content: small cover (`.cover.small`) on its color band, then `.sheet` (ivory) with meta line, title, lede, body (h2/p/ol/ul/blockquote/tables), optional `.credit`, then `.next` button ("Next: No. N - Title") or "Back to the covers" on the last. Close via fixed `.closepill`, Escape key, or tapping the small cover.
-- `.closepill` is at top:76px on purpose: the Instinct File viewer's compact sticky header overlaps the top ~24-70px of the iframe viewport after the outer page scrolls. Do not move it back up.
-- Viewer constraint: the File renders in a cross-origin iframe with a ~264px host header on first phone view (collapses to compact bar after first scroll). App cannot remove it; `.stage` is min(580px,100%) so cover+readouts fit the first viewport. Keep key UI inside the top ~580px of each panel.
+- Prototype-only close offset was76px for its host. The actual app uses16px with no host overlay.
+- Prototype-only host constraints do not apply to the actual app. Its cover panels use the full100dvh viewport.
 - Desktop title sizing: ctitle clamp(28px,2.6vw,38px) - smaller cap chosen so "The Science of GLP-1" doesn't split after the hyphen at 1280px.
 
 ## Photo sources and licenses

@@ -12,6 +12,11 @@ export default function JournalReader({paper,next,progress,annotations}:{paper:P
   <div className="journal-reader-cover"><Link href={`/?edition=${paper.id}`} scroll={false} aria-label="Close essay"><Cover paper={paper} small/></Link></div>
   <ReadingView paper={paper} initialProgress={progress} initialAnnotations={annotations} embedded/>
   <footer className="journal-reader-footer">
+   <button className="journal-share" onClick={() => {
+    const url = `${location.origin}/paper/${paper.id}`
+    if (navigator.share) navigator.share({title:paper.title,url}).catch(()=>{})
+    else navigator.clipboard.writeText(url)
+   }}>Share essay</button>
    {art?.credit&&<p className="journal-credit">{art.credit}</p>}
    {next?<Link className="journal-next" href={`/?edition=${next.id}`}>Next: {next.title}</Link>:<Link className="journal-next" href={`/?edition=${paper.id}`}>Back to the covers</Link>}
   </footer>
