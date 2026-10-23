@@ -239,10 +239,11 @@
    "commons_title": "Fratercula arctica in flight, Borgarfjörður eystri, Iceland, 20240717 1136 1678.jpg",
    "award": {
     "name": "Wikimedia Commons Picture of the Year 2024",
-    "result": "finalist, rank 2",
+    "result": "2nd place",
     "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2024/Results"
    },
-   "status": "finalist (not a winner)"
+   "status": "placed winner (2nd place)",
+   "preview_note": "Reclassified: rank 2 is a placed award (2nd place), not a mere finalist. Reads plainly photographic; usable in an extended winner set. Same photo as award-17."
   },
   {
    "file": "award/award-04.jpg",
@@ -290,10 +291,11 @@
    "commons_title": "Hunter baby chameleon.jpg",
    "award": {
     "name": "Wikimedia Commons Picture of the Year 2023",
-    "result": "finalist, rank 3 (245 votes)",
+    "result": "3rd place",
     "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2023/Results"
    },
-   "status": "finalist (not a winner)"
+   "status": "placed winner (3rd place)",
+   "preview_note": "Reclassified: rank 3 is a placed award (3rd place). Reads plainly photographic; usable in an extended winner set. Same photo as award-18."
   },
   {
    "file": "award/award-07.jpg",
@@ -453,6 +455,662 @@
    },
    "status": "winner (rank 1)",
    "preview_note": "Recommended FOR the winner preview: straight daylight documentary photo, natural unprocessed look."
+  },
+  {
+   "file": "award/award-16.jpg",
+   "description": "Frogs jostling on a branch",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Perereca-macaco_-_Phyllomedusa_rohdei.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Perereca-macaco_-_Phyllomedusa_rohdei.jpg/1280px-Perereca-macaco_-_Phyllomedusa_rohdei.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Renato Augusto Martins",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2017",
+    "result": "1st place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2017/Results"
+   },
+   "status": "placed winner (1st place)"
+  },
+  {
+   "file": "award/award-17.jpg",
+   "description": "Puffin landing in its colony, Iceland",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Fratercula_arctica_in_flight,_Borgarfj%C3%B6r%C3%B0ur_eystri,_Iceland,_20240717_1136_1678.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Fratercula_arctica_in_flight%2C_Borgarfj%C3%B6r%C3%B0ur_eystri%2C_Iceland%2C_20240717_1136_1678.jpg/1280px-Fratercula_arctica_in_flight%2C_Borgarfj%C3%B6r%C3%B0ur_eystri%2C_Iceland%2C_20240717_1136_1678.jpg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Jakub Hałun",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2024",
+    "result": "2nd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2024/Results"
+   },
+   "status": "placed winner (2nd place)"
+  },
+  {
+   "file": "award/award-18.jpg",
+   "description": "Baby chameleon striking at prey",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Hunter_baby_chameleon.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Hunter_baby_chameleon.jpg/1280px-Hunter_baby_chameleon.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Mkrc85",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2023",
+    "result": "3rd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2023/Results"
+   },
+   "status": "placed winner (3rd place)"
+  },
+  {
+   "file": "award/award-19.jpg",
+   "description": "Baby cape fur seal sleeping on sand",
+   "source_page": "https://commons.wikimedia.org/wiki/File:014_Baby_cape_fur_seal_sleeping_at_Cape_cross_Photo_by_Giles_Laurent.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/014_Baby_cape_fur_seal_sleeping_at_Cape_cross_Photo_by_Giles_Laurent.jpg/1280px-014_Baby_cape_fur_seal_sleeping_at_Cape_cross_Photo_by_Giles_Laurent.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Giles Laurent",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2025",
+    "result": "2nd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2025/Results"
+   },
+   "status": "placed winner (2nd place)"
+  },
+  {
+   "file": "award/award-20.jpg",
+   "description": "Banna children on stilts, Ethiopia",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Ethiopia_Banna_tribe_kids.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Ethiopia_Banna_tribe_kids.jpg/1280px-Ethiopia_Banna_tribe_kids.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "WAVRIK",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2022",
+    "result": "2nd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2022/Results"
+   },
+   "status": "placed winner (2nd place)"
+  },
+  {
+   "file": "award/award-21.jpg",
+   "description": "Leaf beetle peeking through a leaf hole",
+   "source_page": "https://commons.wikimedia.org/wiki/File:The_Bug_Peek.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/The_Bug_Peek.jpg/1280px-The_Bug_Peek.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Mildeep",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2021",
+    "result": "2nd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2021/Results"
+   },
+   "status": "placed winner (2nd place)"
+  },
+  {
+   "file": "award/award-22.jpg",
+   "description": "Firefighter battling a veld fire",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Firefighter,_Ashton_Bay,_March_2017.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Firefighter%2C_Ashton_Bay%2C_March_2017.jpg/1280px-Firefighter%2C_Ashton_Bay%2C_March_2017.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "StevenTerblanche",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2021",
+    "result": "3rd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2021/Results"
+   },
+   "status": "placed winner (3rd place)"
+  },
+  {
+   "file": "award/award-23.jpg",
+   "description": "Village girl portrait, Kurdistan mountains",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Mountain_child.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Mountain_child.jpg/1280px-Mountain_child.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Salar Arkan - سالار ارکان",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2019",
+    "result": "3rd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2019/Results"
+   },
+   "status": "placed winner (3rd place)"
+  },
+  {
+   "file": "award/award-24.jpg",
+   "description": "Freight train crossing the Andes",
+   "source_page": "https://commons.wikimedia.org/wiki/File:FCAB_EMD_GT22CU-3_San_Pedro_-_Ascotan.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/FCAB_EMD_GT22CU-3_San_Pedro_-_Ascotan.jpg/1280px-FCAB_EMD_GT22CU-3_San_Pedro_-_Ascotan.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Kabelleger / David Gubler",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2018",
+    "result": "2nd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2018/Results"
+   },
+   "status": "placed winner (2nd place)"
+  },
+  {
+   "file": "award/award-25.jpg",
+   "description": "Royal pavilion inside Phraya Nakhon cave, light shafts",
+   "source_page": "https://commons.wikimedia.org/wiki/File:01-%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%99%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B8%84%E0%B8%B9%E0%B8%AB%E0%B8%B2%E0%B8%84%E0%B8%A4%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%99%E0%B9%8C.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/01-%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%99%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B8%84%E0%B8%B9%E0%B8%AB%E0%B8%B2%E0%B8%84%E0%B8%A4%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%99%E0%B9%8C.jpg/1280px-01-%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%99%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B8%84%E0%B8%B9%E0%B8%AB%E0%B8%B2%E0%B8%84%E0%B8%A4%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%99%E0%B9%8C.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "BerryJ",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2017",
+    "result": "2nd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2017/Results"
+   },
+   "status": "placed winner (2nd place)"
+  },
+  {
+   "file": "award/award-26.jpg",
+   "description": "Two ravens preening at the Tower of London",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Jubilee_and_Munin,_Ravens,_Tower_of_London_2016-04-30.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg/1280px-Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Colin",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2016",
+    "result": "1st place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2016/Results"
+   },
+   "status": "placed winner (1st place)"
+  },
+  {
+   "file": "award/award-27.jpg",
+   "description": "Elephant family crossing a forest road, Khao Yai",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Khaoyai_06.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Khaoyai_06.jpg/1280px-Khaoyai_06.jpg",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+   "author": "Khunkay",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2016",
+    "result": "2nd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2016/Results"
+   },
+   "status": "placed winner (2nd place)"
+  },
+  {
+   "file": "award/award-28.jpg",
+   "description": "Polar bear leaping between ice floes, Svalbard",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Polar_bear_(Ursus_maritimus)_in_the_drift_ice_region_north_of_Svalbard.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Polar_bear_%28Ursus_maritimus%29_in_the_drift_ice_region_north_of_Svalbard.jpg/1280px-Polar_bear_%28Ursus_maritimus%29_in_the_drift_ice_region_north_of_Svalbard.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Andreas Weith",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2016",
+    "result": "3rd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2016/Results"
+   },
+   "status": "placed winner (3rd place)"
+  },
+  {
+   "file": "award/award-29.jpg",
+   "description": "Stained-glass light inside Nasir al-Molk mosque",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Nasir-al_molk_-1.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Nasir-al_molk_-1.jpg/1280px-Nasir-al_molk_-1.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Ayyoubsabawiki",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2015",
+    "result": "2nd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2015/Results"
+   },
+   "status": "placed winner (2nd place)"
+  },
+  {
+   "file": "award/award-30.jpg",
+   "description": "Stargazer silhouette under the Milky Way",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Heavens_Above_Her.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Heavens_Above_Her.jpg/1280px-Heavens_Above_Her.jpg",
+   "license": "CC BY-SA 2.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+   "author": "Ian Norman (http://www.lonelyspeck.com)",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2015",
+    "result": "3rd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2015/Results"
+   },
+   "status": "placed winner (3rd place)"
+  },
+  {
+   "file": "award/award-31.jpg",
+   "description": "Butterfly drinking turtle tears, Ecuador",
+   "source_page": "https://commons.wikimedia.org/wiki/File:A_butterfly_feeding_on_the_tears_of_a_turtle_in_Ecuador.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/A_butterfly_feeding_on_the_tears_of_a_turtle_in_Ecuador.jpg/1280px-A_butterfly_feeding_on_the_tears_of_a_turtle_in_Ecuador.jpg",
+   "license": "CC BY-SA 2.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+   "author": "amalavida.tv (Dirección de Información Turística del Ministerio de Turismo del Ecuador)",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2014",
+    "result": "1st place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2014/Results"
+   },
+   "status": "placed winner (1st place)"
+  },
+  {
+   "file": "award/award-32.jpg",
+   "description": "Penguin bursting out of the water, Antarctica",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg/1280px-Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0/",
+   "author": "Christopher Michel",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2014",
+    "result": "2nd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2014/Results"
+   },
+   "status": "placed winner (2nd place)"
+  },
+  {
+   "file": "award/award-33.jpg",
+   "description": "Pair of bee-eaters exchanging food",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Merops_apiaster_04.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Merops_apiaster_04.jpg/1280px-Merops_apiaster_04.jpg",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+   "author": "Pierre Dalous",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2012",
+    "result": "1st place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2012/Results"
+   },
+   "status": "placed winner (1st place)"
+  },
+  {
+   "file": "award/award-34.jpg",
+   "description": "Horses in a misty Basque valley",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Biandintz_eta_zaldiak_-_modified2.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg",
+   "license": "CC BY-SA 2.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+   "author": "Mikel Ortega from Errenteria, Basque Country, Spain, with a retouche by Richard Bartz. See the original file here.",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2008",
+    "result": "1st place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2008/Results"
+   },
+   "status": "placed winner (1st place)"
+  },
+  {
+   "file": "award/award-35.jpg",
+   "description": "Red squirrel facing the camera",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Eichh%C3%B6rnchen_D%C3%BCsseldorf_Hofgarten_edit.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Eichh%C3%B6rnchen_D%C3%BCsseldorf_Hofgarten_edit.jpg/1280px-Eichh%C3%B6rnchen_D%C3%BCsseldorf_Hofgarten_edit.jpg",
+   "license": "CC BY-SA 2.0 de",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0/de/",
+   "author": "Ray eye",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2007",
+    "result": "3rd place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2007/Results"
+   },
+   "status": "placed winner (3rd place)"
+  },
+  {
+   "file": "award/award-36.jpg",
+   "description": "Observatory laser under the Milky Way",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Laser_Towards_Milky_Ways_Centre.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Laser_Towards_Milky_Ways_Centre.jpg/1280px-Laser_Towards_Milky_Ways_Centre.jpg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "ESO/Yuri Beletsky (ybialets at eso.org)",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons POTY 2010",
+    "result": "1st place",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2010/Results"
+   },
+   "status": "placed winner (1st place)"
+  },
+  {
+   "file": "award/award-37.jpg",
+   "description": "Aerial of a busy Lagos tomato market",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_a_busy_tomato_market_in_Lagos_Nigeria.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Aerial_view_of_a_busy_tomato_market_in_Lagos_Nigeria.jpg/1280px-Aerial_view_of_a_busy_tomato_market_in_Lagos_Nigeria.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Ayorinde Ogundele",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2025",
+    "result": "1st prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2025/Winners"
+   },
+   "status": "placed winner (1st prize)"
+  },
+  {
+   "file": "award/award-38.jpg",
+   "description": "Farmer carrying fodder home",
+   "source_page": "https://commons.wikimedia.org/wiki/File:At_the_very_beginning.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/At_the_very_beginning.jpg/1280px-At_the_very_beginning.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Aabdulazim",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2025",
+    "result": "2nd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2025/Winners"
+   },
+   "status": "placed winner (2nd prize)"
+  },
+  {
+   "file": "award/award-39.jpg",
+   "description": "Rice-mill worker winnowing grain",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Abakaliki_rice_mill_71.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Abakaliki_rice_mill_71.jpg/1280px-Abakaliki_rice_mill_71.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "MediaMOF",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2025",
+    "result": "3rd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2025/Winners"
+   },
+   "status": "placed winner (3rd prize)"
+  },
+  {
+   "file": "award/award-40.jpg",
+   "description": "Metal engraver at his bench",
+   "source_page": "https://commons.wikimedia.org/wiki/File:L%27artisan_graveur.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/L%27artisan_graveur.jpg/1280px-L%27artisan_graveur.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Fawzi Demmane",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2024",
+    "result": "1st prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2024/Winners"
+   },
+   "status": "placed winner (1st prize)"
+  },
+  {
+   "file": "award/award-41.jpg",
+   "description": "Woman drying moonflowers in a sea of red",
+   "source_page": "https://commons.wikimedia.org/wiki/File:%D8%AA%D8%AC%D9%81%D9%8A%D9%81_%D8%B2%D9%87%D9%88%D8%B1_%D8%B9%D8%A8%D8%A7%D8%AF_%D8%A7%D9%84%D9%82%D9%85%D8%B1.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/%D8%AA%D8%AC%D9%81%D9%8A%D9%81_%D8%B2%D9%87%D9%88%D8%B1_%D8%B9%D8%A8%D8%A7%D8%AF_%D8%A7%D9%84%D9%82%D9%85%D8%B1.jpg/1280px-%D8%AA%D8%AC%D9%81%D9%8A%D9%81_%D8%B2%D9%87%D9%88%D8%B1_%D8%B9%D8%A8%D8%A7%D8%AF_%D8%A7%D9%84%D9%82%D9%85%D8%B1.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Doaa Adel2023",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2024",
+    "result": "2nd prize (tied)",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2024/Winners"
+   },
+   "status": "placed winner (2nd prize (tied))"
+  },
+  {
+   "file": "award/award-42.jpg",
+   "description": "Tea harvester resting in green rows",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Gusarura_Icyayi.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Gusarura_Icyayi.jpg/1280px-Gusarura_Icyayi.jpg",
+   "license": "CC0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Germain92",
+   "credit_required": false,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2024",
+    "result": "2nd prize (tied)",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2024/Winners"
+   },
+   "status": "placed winner (2nd prize (tied))"
+  },
+  {
+   "file": "award/award-43.jpg",
+   "description": "Molten metal pouring in a craft foundry",
+   "source_page": "https://commons.wikimedia.org/wiki/File:MN004.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/MN004.jpg/1280px-MN004.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Negonasr",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2024",
+    "result": "3rd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2024/Winners"
+   },
+   "status": "placed winner (3rd prize)"
+  },
+  {
+   "file": "award/award-44.jpg",
+   "description": "Boy swimming beside a truck in flooded Auyo",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Auyo_village_flood_06.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Auyo_village_flood_06.jpg/1280px-Auyo_village_flood_06.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "SMMIMAGES",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2023",
+    "result": "1st prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2023/Winners"
+   },
+   "status": "placed winner (1st prize)"
+  },
+  {
+   "file": "award/award-45.jpg",
+   "description": "Woman outside her shelter, stormy sky, Somalia",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Stormy_day_in_somalia.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Stormy_day_in_somalia.jpg/1280px-Stormy_day_in_somalia.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Negonasr",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2023",
+    "result": "2nd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2023/Winners"
+   },
+   "status": "placed winner (2nd prize)"
+  },
+  {
+   "file": "award/award-46.jpg",
+   "description": "Blue-painted Nubian village street",
+   "source_page": "https://commons.wikimedia.org/wiki/File:A_Nubia.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/A_Nubia.jpg/1280px-A_Nubia.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Summering2018",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2022",
+    "result": "1st prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2022/Winners"
+   },
+   "status": "placed winner (1st prize)"
+  },
+  {
+   "file": "award/award-47.jpg",
+   "description": "Family working inside their home workshop",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Home_is_my_work_2.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Home_is_my_work_2.jpg/1280px-Home_is_my_work_2.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Mohamed Hozyen",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2022",
+    "result": "2nd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2022/Winners"
+   },
+   "status": "placed winner (2nd prize)"
+  },
+  {
+   "file": "award/award-48.jpg",
+   "description": "Girl studying on her bed",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Planning_Ahead.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Planning_Ahead.jpg/1280px-Planning_Ahead.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Ayorinde Ogundele",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2022",
+    "result": "3rd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2022/Winners"
+   },
+   "status": "placed winner (3rd prize)"
+  },
+  {
+   "file": "award/award-49.jpg",
+   "description": "Schoolgirl at a water tap",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Pupil_washes_hands_during_COVID-19_pandemic_in_Ghana.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Pupil_washes_hands_during_COVID-19_pandemic_in_Ghana.jpg/1280px-Pupil_washes_hands_during_COVID-19_pandemic_in_Ghana.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Amuzujoe",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2021",
+    "result": "3rd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2021/Winners"
+   },
+   "status": "placed winner (3rd prize)"
+  },
+  {
+   "file": "award/award-50.jpg",
+   "description": "Children playing beneath a relic aircraft, Nuba mountains",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Playing_in_the_Nuba_mountains.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Playing_in_the_Nuba_mountains.jpg/1280px-Playing_in_the_Nuba_mountains.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Marco Gualazzini",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2019",
+    "result": "1st prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2019/Winners"
+   },
+   "status": "placed winner (1st prize)"
+  },
+  {
+   "file": "award/award-51.jpg",
+   "description": "Child peeking around an alley corner",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Hide_from_each_other.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Hide_from_each_other.jpg/1280px-Hide_from_each_other.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Summering2018",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2019",
+    "result": "2nd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2019/Winners"
+   },
+   "status": "placed winner (2nd prize)"
+  },
+  {
+   "file": "award/award-52.jpg",
+   "description": "Street football, boy sliding for the ball",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Boys_playing_street_football_in_Egypt.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Boys_playing_street_football_in_Egypt.jpg/1280px-Boys_playing_street_football_in_Egypt.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Mohamed Hozyen Ahmed",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2019",
+    "result": "3rd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2019/Winners"
+   },
+   "status": "placed winner (3rd prize)"
+  },
+  {
+   "file": "award/award-53.jpg",
+   "description": "Women wrestlers mid-throw",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Filles_lutteuses%2B%2B%2B%2B.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Filles_lutteuses%2B%2B%2B%2B.jpg/1280px-Filles_lutteuses%2B%2B%2B%2B.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Yvonne youmbi",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2019",
+    "result": "Women in Sport prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2019/Winners"
+   },
+   "status": "placed winner (Women in Sport prize)"
+  },
+  {
+   "file": "award/award-54.jpg",
+   "description": "Fantasia horsemen charging, black and white",
+   "source_page": "https://commons.wikimedia.org/wiki/File:%D8%A3%D9%84%D8%B9%D8%A7%D8%A8_%D8%A7%D9%84%D9%81%D9%86%D8%AA%D8%A7%D8%B2%D9%8A%D8%A7_%D9%88_%D8%A7%D9%84%D9%81%D8%B1%D9%88%D8%B3%D9%8A%D8%A9_%D9%85%D9%86_%D8%A7%D9%84%D8%B4%D8%B1%D9%82_%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1%D9%8A_3.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/%D8%A3%D9%84%D8%B9%D8%A7%D8%A8_%D8%A7%D9%84%D9%81%D9%86%D8%AA%D8%A7%D8%B2%D9%8A%D8%A7_%D9%88_%D8%A7%D9%84%D9%81%D8%B1%D9%88%D8%B3%D9%8A%D8%A9_%D9%85%D9%86_%D8%A7%D9%84%D8%B4%D8%B1%D9%82_%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1%D9%8A_3.jpg/1280px-%D8%A3%D9%84%D8%B9%D8%A7%D8%A8_%D8%A7%D9%84%D9%81%D9%86%D8%AA%D8%A7%D8%B2%D9%8A%D8%A7_%D9%88_%D8%A7%D9%84%D9%81%D8%B1%D9%88%D8%B3%D9%8A%D8%A9_%D9%85%D9%86_%D8%A7%D9%84%D8%B4%D8%B1%D9%82_%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1%D9%8A_3.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Sofiane mohammed amri",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2019",
+    "result": "Culture and Tradition prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2019/Winners"
+   },
+   "status": "placed winner (Culture and Tradition prize)"
+  },
+  {
+   "file": "award/award-55.jpg",
+   "description": "Boy dancing in the mud, Kiduku dance",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Kiduku_dance.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Kiduku_dance.jpg/1280px-Kiduku_dance.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Rasheedhrasheed",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2016",
+    "result": "3rd prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2016/Winners"
+   },
+   "status": "placed winner (3rd prize)"
+  },
+  {
+   "file": "award/award-56.jpg",
+   "description": "Women sewing in traditional dress",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Ak55-Busy_afternoon.jpg",
+   "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Ak55-Busy_afternoon.jpg/1280px-Ak55-Busy_afternoon.jpg",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "author": "Zuraj studio",
+   "credit_required": true,
+   "award": {
+    "name": "Wikimedia Commons Wiki Loves Africa 2015",
+    "result": "1st prize",
+    "results_page": "https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Africa_2015/Winners"
+   },
+   "status": "placed winner (1st prize)"
   }
  ]
 }
