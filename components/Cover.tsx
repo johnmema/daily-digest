@@ -9,7 +9,5 @@ export default function Cover({paper, small = false, artOverride}: {paper:Paper;
   return <div className={`journal-cover${small ? ' small' : ''}`} style={{background:a?.spine ?? '#23483d'}}>
     {a && <img src={a.image} alt="" loading="lazy" className="journal-photo" />}
     <div className="journal-spine" style={{background:a?.spine ?? '#23483d'}} />
-    <div className="journal-scrim" />
-    <div className="journal-title">{paper.title.split(/(GLP-1)/g).map((s,i)=>s==='GLP-1'?<span key={i} style={{whiteSpace:'nowrap'}}>{s}</span>:s)}</div>
   </div>
 }
