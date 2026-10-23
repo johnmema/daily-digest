@@ -18,12 +18,37 @@ export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[
  useEffect(()=>{
   document.documentElement.classList.toggle('cover-browsing',open===null)
   if(open!==null)return
-  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(Number((e.target as HTMLElement).dataset.index))}),{threshold:.55})
-  refs.current.forEach(e=>e&&obs.observe(e))
+  let frame=0
+  let settle:ReturnType<typeof setTimeout>|null=null
+  const update=()=>{
+   frame=0
+   const height=refs.current[0]?.offsetHeight||innerHeight
+   const position=scrollY/height
+   refs.current.forEach((panel,i)=>{
+    if(!panel)return
+    const link=panel.querySelector<HTMLElement>('.journal-cover-link')
+    const progress=Math.max(0,Math.min(1,(position-i-.35)/.65))
+    if(link)link.style.transform=`translateY(${-12*progress}px)`
+    panel.style.visibility=i<Math.floor(position)-1?'hidden':'visible'
+   })
+  }
+  const onScroll=()=>{
+   if(!frame)frame=requestAnimationFrame(update)
+   if(settle)clearTimeout(settle)
+   settle=setTimeout(()=>{
+    const height=refs.current[0]?.offsetHeight||innerHeight
+    const index=Math.round(scrollY/height)
+    if(Math.abs(scrollY/height-index)<.006)setActive(Math.max(0,Math.min(papers.length-1,index)))
+    else window.scrollTo({top:index*height,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})
+   },200)
+  }
+  window.addEventListener('scroll',onScroll,{passive:true})
+  window.addEventListener('resize',onScroll)
+  update()
   const selected=new URLSearchParams(location.search).get('edition')
   const idx=restore.current??(selected?papers.findIndex(p=>p.id===selected):-1)
-  if(idx>=0)requestAnimationFrame(()=>{refs.current[idx]?.scrollIntoView({behavior:'instant'});setActive(idx);restore.current=null})
-  return()=>{obs.disconnect();document.documentElement.classList.remove('cover-browsing')}
+  if(idx>=0)requestAnimationFrame(()=>{window.scrollTo({top:idx*(refs.current[0]?.offsetHeight||innerHeight),behavior:'instant'});update();setActive(idx);restore.current=null})
+  return()=>{window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',onScroll);cancelAnimationFrame(frame);if(settle)clearTimeout(settle);document.documentElement.classList.remove('cover-browsing')}
  },[papers,open])
  useEffect(()=>()=>{if(closeTimer.current)clearTimeout(closeTimer.current)},[])
  const finishReturn=(idx:number)=>{restore.current=idx;setActive(idx);setOpen(null);setClosing(false);if(!studyPath)history.replaceState(null,'',`${browsePath}?edition=${papers[idx].id}`)}
@@ -52,10 +77,10 @@ export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[
  if(open!==null){const p=papers[open];return <JournalArticle paper={p} next={papers[open+1]??null} onReturn={()=>returnToBrowse(open)} onNext={()=>returnToBrowse(Math.min(open+1,papers.length-1))} closing={closing} artOverride={artOverrides?.[p.id]} preview={!!studyPath} annotations={studyPath?[]:undefined}/>}
  return <div className="journal-flow" style={{background:'#fff'}}>
   {!studyPath&&<nav className="journal-nav"><Link href="/library">Archive</Link><Link href="/queue">Queue</Link></nav>}
-  {papers.map((p,i)=><section className="journal-panel" key={p.id} data-index={i} ref={e=>{refs.current[i]=e}}>
-   <a className="journal-cover-link" href={articlePath(p)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&e.button===0){e.preventDefault();read(i)}}} aria-label={`Read ${p.title}`}><Cover paper={p} artOverride={artOverrides?.[p.id]}/></a>
-   <div className="journal-readout journal-date">{formatDateShort(p.published_at)}</div><div className="journal-readout journal-number">No. {p.edition_number}</div>
+  {papers.map((p,i)=><section className="journal-panel" key={p.id} data-index={i} style={{zIndex:i+1}} ref={e=>{refs.current[i]=e}}>
+   <a className="journal-cover-link" tabIndex={i===active?0:-1} href={articlePath(p)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&e.button===0){e.preventDefault();read(i)}}} aria-label={`Read ${p.title}`}><Cover paper={p} artOverride={artOverrides?.[p.id]}/></a>
   </section>)}
+  {!!papers.length&&<div className="journal-feed-info" aria-live="polite" aria-atomic="true"><div className="journal-readout journal-date">{formatDateShort(papers[active].published_at)}</div><div className="journal-readout journal-number">No. {papers[active].edition_number}</div></div>}
   {!papers.length&&<div className="journal-empty">No editions yet.</div>}
  </div>
 }

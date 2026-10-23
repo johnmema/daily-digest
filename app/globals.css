@@ -116,3 +116,14 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 
 /* Photo-only covers, no decorative spine. */
 .journal-photo{inset:0;width:100%;height:100%}.journal-spine{display:none}
+
+/* Covers stay on the stage while the next edition slides over them. */
+.journal-flow{position:relative;isolation:isolate}
+.journal-flow>.journal-panel{position:sticky;top:0;background:transparent}
+.journal-flow>.journal-nav{z-index:100}
+.journal-feed-info{position:fixed;inset:0;z-index:90;pointer-events:none}
+.journal-feed-info .journal-readout{position:absolute;bottom:20px}
+@media(prefers-reduced-motion:reduce){.journal-flow>.journal-panel{position:relative}.journal-cover-link{transform:none!important}}
+
+html.cover-browsing{scroll-snap-type:none}
+.journal-feed-info:after{content:'';position:absolute;inset:auto 0 0;height:62px;background:#fff;z-index:-1}
