@@ -11,7 +11,7 @@ export default async function QueuePage() {
     .order('created_at', { ascending: true })
 
   return (
-    <div className="max-w-[1200px] mx-auto px-8 py-12">
+    <div className="queue-page">
       <TopicQueue initialTopics={(topics ?? []) as Topic[]} />
     </div>
   )

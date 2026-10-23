@@ -11,7 +11,7 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname()
 
-  if (pathname === '/' || pathname.startsWith('/paper/') || pathname === '/photo-study') return null
+  if (pathname === '/queue' || pathname === '/' || pathname.startsWith('/paper/') || pathname === '/photo-study') return null
 
   return (
     <header className="bg-white">
