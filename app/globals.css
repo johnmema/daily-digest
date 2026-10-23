@@ -138,3 +138,10 @@ html.cover-browsing{scroll-snap-type:none}
 .journal-feed-info:after{display:none}
 /* Small glass backings keep fixed labels readable over moving photographs. */
 .journal-feed-info .journal-readout{padding:4px 7px;margin:-4px -7px;border-radius:3px;background:#ffffff80;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+
+/* Quiet bare labels and one accessible queue mark. */
+.journal-feed-info .journal-readout{padding:0;margin:0;border-radius:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.journal-nav a{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:10px}
+
+.journal-cover-link,.journal-return-cover{position:relative}
+.journal-photo-location{position:absolute;top:calc(100% + 15px);left:0;right:0;text-align:center;font-family:var(--font-interface),Arial,sans-serif;font-size:10px;font-weight:400;line-height:1.3;letter-spacing:.015em;color:#555;pointer-events:none}

@@ -77,9 +77,9 @@ export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[
  }
  if(open!==null){const p=papers[open];return <JournalArticle paper={p} next={papers[open+1]??null} onReturn={()=>returnToBrowse(open)} onNext={()=>returnToBrowse(Math.min(open+1,papers.length-1))} closing={closing} artOverride={artOverrides?.[p.id]} preview={!!studyPath} annotations={studyPath?[]:undefined}/>}
  return <div className="journal-flow" style={{background:coverBackground(papers[active]?.id??''),'--cover-background':coverBackground(papers[active]?.id??'')} as CSSProperties}>
-  {!studyPath&&<nav className="journal-nav"><Link href="/library">Archive</Link><Link href="/queue">Queue</Link></nav>}
+  {!studyPath&&<nav className="journal-nav"><Link href="/queue" aria-label="Queue" title="Queue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" aria-hidden="true"><path d="M7 6h13M7 12h13M7 18h13"/><circle cx="3" cy="6" r=".65" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r=".65" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r=".65" fill="currentColor" stroke="none"/></svg></Link></nav>}
   {papers.map((p,i)=><section className="journal-panel" key={p.id} data-index={i} style={{zIndex:i+1,background:coverBackground(p.id)}} ref={e=>{refs.current[i]=e}}>
-   <a className="journal-cover-link" tabIndex={i===active?0:-1} href={articlePath(p)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&e.button===0){e.preventDefault();read(i)}}} aria-label={`Read ${p.title}`}><Cover paper={p} artOverride={artOverrides?.[p.id]}/></a>
+   <a className="journal-cover-link" tabIndex={i===active?0:-1} href={articlePath(p)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&e.button===0){e.preventDefault();read(i)}}} aria-label={`Read ${p.title}`}><Cover paper={p} artOverride={artOverrides?.[p.id]}/>{artFor(p)?.location&&<span className="journal-photo-location">{artFor(p)?.location}</span>}</a>
   </section>)}
   {!!papers.length&&<div className="journal-feed-info" aria-live="polite" aria-atomic="true"><div className="journal-readout journal-date">{formatDateShort(papers[active].published_at)}</div><div className="journal-readout journal-number">No. {papers[active].edition_number}</div></div>}
   {!papers.length&&<div className="journal-empty">No editions yet.</div>}

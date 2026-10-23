@@ -16,7 +16,7 @@ export default function JournalArticle({paper,next,onReturn,onNext,progress,anno
   return()=>{alive=false}
  },[paper.id,annotations])
  return <div className={`journal-detail${closing?' is-closing':''}`} style={{background:coverBackground(paper.id)}}>
-  <div className="journal-sticky-hero"><button className="journal-return-cover" onClick={onReturn} aria-label="Back to editions"><Cover paper={paper} artOverride={artOverride}/></button></div>
+  <div className="journal-sticky-hero"><button className="journal-return-cover" onClick={onReturn} aria-label="Back to editions"><Cover paper={paper} artOverride={artOverride}/>{art?.location&&<span className="journal-photo-location">{art.location}</span>}</button></div>
   <div className="journal-reveal-sheet">
    {data?<ReadingView key={paper.id} paper={paper} initialProgress={data.progress} initialAnnotations={data.annotations} embedded preview={preview}/>:<div className="journal-loading" aria-live="polite">Loading essay</div>}
    <footer className="journal-reader-footer">
