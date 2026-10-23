@@ -18,7 +18,7 @@ The SQL function serializes publications and atomically inserts paper + edition 
 ## Deployment sequence and merge gate
 
 - The branch is review-only until John merges it. Do not merge main automatically.
-- Apply `supabase/migrations/20261023000000_direct_publishing.sql` through the verified project admin SQL route. New ledger and RPC are additive; do not consider merge equivalent to migration.
+- Apply `supabase/migrations/20261023000000_direct_publishing.sql` through the verified project admin SQL route. The ledger and RPC are additive. The migration also makes direct anonymous/authenticated papers access read-only while preserving service-role server publishing and the existing server delete action. Do not consider merge equivalent to migration.
 - Generate a fresh random `DIGEST_PUBLISH_TOKEN` (at least 32 characters), store securely outside this repo and set it in Vercel production and preview. Never use the old exposed scheduler secret. The publisher fails closed when the new token is absent.
 - Rotate `CRON_SECRET` in Vercel. The old value is compromised by public repository history. Updating an environment variable alone does not change a running deployment: verify a new deployment and actual rejection of the old credential.
 - Merge only by John, then verify deployment runs this commit, the migration is present, and authenticated read works. Legacy trigger/import/next-topic routes now return 410 regardless of credentials. Their GitHub scheduler is retired.
@@ -29,7 +29,7 @@ The SQL function serializes publications and atomically inserts paper + edition 
 
 Publisher credential permits reading queue/history and publishing daily editions only. It is not the database service key and does not enable legacy cron routes. Supabase service-role key remains server-only. Rotate publisher token if disclosed; do not log it. Current site is public: article publication is public. No new paid model/hosting service is required for this integration.
 
-Known pre-existing concern: legacy Supabase public client policies may allow anonymous writes. Inspect and restrict paper mutation policies in the verified project before claiming fully secured publishing; keep topic-entry and annotation behavior intentional. This branch does not silently change end-user authentication.
+Live inspection confirmed public ALL-command policies on papers, topics, annotations and reading_progress. This migration restricts direct paper writes while preserving public reading and service-role server operations. Queue/annotation/progress policies remain unchanged to avoid silently breaking their browser write actions. They need owner authentication as separate work. The existing unauthenticated server paper-delete route remains a separate security gap pending owner decision. The ledger retains a deleted paper ID so a same-day retry cannot recreate an owner-deleted edition. This branch does not add end-user authentication.
 
 ## Tests
 

@@ -1,8 +1,16 @@
 -- Apply once through the project SQL editor before deploying the publisher.
 -- Edition ledger is private. Only service_role can invoke the publishing function.
+-- Papers have no direct browser writes: server publishing and owner deletion use
+-- service_role. Keep public reading, and do not change queue/annotation behavior.
+alter table public.papers enable row level security;
+revoke insert, update, delete, truncate, references, trigger on public.papers from anon, authenticated;
+grant select on public.papers to anon, authenticated;
+drop policy if exists "allow all" on public.papers;
+drop policy if exists "papers_public_read" on public.papers;
+create policy "papers_public_read" on public.papers for select to anon, authenticated using (true);
 create table if not exists public.digest_editions (
   run_date date primary key,
-  paper_id uuid not null unique references public.papers(id),
+  paper_id uuid not null unique,
   topic text not null,
   created_at timestamptz not null default now()
 );

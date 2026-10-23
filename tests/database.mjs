@@ -4,6 +4,8 @@ import assert from 'node:assert/strict'
 export async function testDatabase(db, root) {
   await db.exec('create role anon; create role authenticated; create role service_role;')
   for (const f of ['20260609000000_initial_schema.sql','20260612000000_add_paper_category.sql','20260626000000_add_topic_category.sql','20261023000000_direct_publishing.sql']) await db.exec(readFileSync(root+'supabase/migrations/'+f,'utf8'))
+  await db.exec("grant all on public.papers to anon, authenticated; create policy \"allow all\" on public.papers for all to public using(true) with check(true);")
+  await db.exec(readFileSync(root+'supabase/migrations/20261023000000_direct_publishing.sql','utf8'))
   const topic=(await db.query("insert into topics(title) values('Test topic') returning id")).rows[0].id
   const payload={run_date:'2026-10-24',topic_id:topic,topic:'Test topic',category:'essay',title:'Test',content:'test',sources:[],word_count:2600,read_time_minutes:12}
   const publish=async p=>(await db.query('select publish_daily_digest($1::jsonb) as result',[JSON.stringify(p)])).rows[0].result
@@ -18,5 +20,12 @@ export async function testDatabase(db, root) {
   assert.equal((await db.query('select count(*)::int as n from papers')).rows[0].n,1)
   await db.exec('drop trigger test_failure on digest_editions; drop function test_fail(); set role anon;')
   await assert.rejects(()=>publish({...payload,run_date:'2026-10-26'}));await assert.rejects(()=>db.query('select * from digest_editions'))
+  assert.equal((await db.query('select count(*)::int as n from papers')).rows[0].n,1)
+  await assert.rejects(()=>db.query("insert into papers(edition_number,title,content) values(99,'Unauthorized','no')"))
+  await assert.rejects(()=>db.query("update papers set title='Unauthorized'"))
+  await assert.rejects(()=>db.query('delete from papers'))
   await db.exec('reset role;')
+  await db.query('delete from papers where id=$1',[a.paper_id])
+  const afterDelete=await publish(payload);assert.equal(afterDelete.replayed,true);assert.equal(afterDelete.paper_id,a.paper_id)
+  assert.equal((await db.query('select count(*)::int as n from papers')).rows[0].n,0)
 }
