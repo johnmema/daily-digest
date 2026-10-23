@@ -421,7 +421,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
                 nextUp ? 'text-[#000000]' : 'text-[#d1d1d1]'
               }`}
             >
-              {nextUp ? nextUp.title : 'Nothing queued — the agent will choose.'}
+              {nextUp ? nextUp.title : 'Nothing queued - a new related topic will be chosen for the next edition.'}
             </p>
           </div>
 
