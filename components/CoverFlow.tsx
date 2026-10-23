@@ -1,5 +1,5 @@
 'use client'
-import {useEffect,useRef,useState,type CSSProperties} from 'react'
+import {useEffect,useLayoutEffect,useRef,useState,type CSSProperties} from 'react'
 import Link from 'next/link'
 import Cover,{coverArt,type CoverArt} from './Cover'
 import JournalArticle from './JournalArticle'
@@ -16,7 +16,7 @@ export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[
  const refs=useRef<(HTMLElement|null)[]>([])
  const closeTimer=useRef<ReturnType<typeof setTimeout>|null>(null)
  const restore=useRef<number|null>(null)
- useEffect(()=>{
+ useLayoutEffect(()=>{
   document.documentElement.classList.toggle('cover-browsing',open===null)
   if(open!==null)return
   let frame=0
@@ -48,7 +48,7 @@ export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[
   update()
   const selected=new URLSearchParams(location.search).get('edition')
   const idx=restore.current??(selected?papers.findIndex(p=>p.id===selected):-1)
-  if(idx>=0)requestAnimationFrame(()=>{window.scrollTo({top:idx*(refs.current[0]?.offsetHeight||innerHeight),behavior:'instant'});update();setActive(idx);restore.current=null})
+  if(idx>=0){window.scrollTo({top:idx*(refs.current[0]?.offsetHeight||innerHeight),behavior:'instant'});update();setActive(idx);restore.current=null}
   return()=>{window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',onScroll);cancelAnimationFrame(frame);if(settle)clearTimeout(settle);document.documentElement.classList.remove('cover-browsing')}
  },[papers,open])
  useEffect(()=>()=>{if(closeTimer.current)clearTimeout(closeTimer.current)},[])

@@ -376,7 +376,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
     <div className="queue-editorial">
       <nav className="queue-nav"><Link href="/" aria-label="Back to covers"><span aria-hidden="true">←</span> Editions</Link><span>{queued.length} in queue</span></nav>
       <header className="queue-heading">
-        <p className="queue-kicker">Daily Digest</p><h1>Reading ahead.</h1>
+        <p className="queue-kicker">Daily Digest</p><h1>Queue</h1>
       </header>
 
       {/* 50/50: ranking (with add bar) | suggested for you */}
@@ -393,10 +393,10 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
             </div>
             <p
               className={`font-serif text-[20px] sm:text-[24px] font-light leading-[1.1] tracking-tight ${
-                nextUp ? 'text-[#000000]' : 'text-[#777368]'
+                nextUp ? 'text-[#000000]' : 'queue-next-empty text-[#777368]' 
               }`}
             >
-              {nextUp ? nextUp.title : 'Nothing queued - a new related topic will be chosen for the next edition.'}
+              {nextUp ? nextUp.title : 'A related topic will be selected when the queue is empty.'}
             </p>
           </div>
 
@@ -406,7 +406,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
               value={newTitle}
               onChange={e => setNewTitle(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && addTopic()}
-              aria-label="New topic" placeholder="Your next question..."
+              aria-label="New topic" placeholder="Add a topic"
               className="flex-1 min-w-0 border border-[#e0e0e0] rounded-sm bg-white px-4 py-3 text-sm text-[#000000] placeholder:text-[#d1d1d1] outline-none focus:border-[#000000] transition-colors"
             />
             <button
@@ -450,7 +450,7 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
 
         {/* Right: suggested for you (auto-loaded) */}
         <aside className="queue-suggestions">
-          <Label>Worth exploring</Label>
+          <Label>Suggested topics</Label>
           {suggestions.length > 0 ? (
             <div className="queue-list">
               {suggestions.map(s => (
