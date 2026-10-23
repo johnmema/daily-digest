@@ -136,3 +136,5 @@ html.cover-browsing{scroll-snap-type:none}
 .journal-flow{transition:none}
 
 .journal-feed-info:after{display:none}
+/* Small glass backings keep fixed labels readable over moving photographs. */
+.journal-feed-info .journal-readout{padding:4px 7px;margin:-4px -7px;border-radius:3px;background:#ffffff80;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
