@@ -84,3 +84,8 @@ html.cover-browsing { scroll-snap-type: y mandatory; }
 @media(prefers-reduced-motion:reduce){.journal-return-cover,.journal-reveal-sheet,.journal-detail.is-closing .journal-return-cover,.journal-detail.is-closing .journal-reveal-sheet{animation-duration:0s}}
 
 .journal-resume{font-size:12px;line-height:1.5;text-decoration:underline;margin-top:18px;cursor:pointer}
+/* Browsing opens after a short pause, then the sheet clears the cover. */
+.journal-return-cover{animation-delay:.2s}
+.journal-reveal-sheet{animation-duration:.6s;animation-delay:.2s;animation-timing-function:cubic-bezier(.54,.01,.25,1.01)}
+.journal-detail.is-closing .journal-return-cover,.journal-detail.is-closing .journal-reveal-sheet{animation-delay:0s;animation-duration:.8s}
+@media(prefers-reduced-motion:reduce){.journal-return-cover,.journal-reveal-sheet,.journal-detail.is-closing .journal-return-cover,.journal-detail.is-closing .journal-reveal-sheet{animation-delay:0s;animation-duration:0s}}
