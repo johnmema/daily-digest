@@ -8,7 +8,10 @@
     "image": "/covers/ed45.jpg",
     "wash": "#f3d9dc",
     "spine": "#6e1f2c",
-    "credit": "Cover photo: Lorena Cupcake, CC BY 2.0, via Flickr"
+    "credit": "Cover photo: Lorena Cupcake. Cropped and darkened for this cover.",
+    "creditUrl": "https://www.flickr.com/photos/22901150@N00/3905485341",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "licenseLabel": "CC BY 2.0"
   },
   "0c1033f8-6f13-430f-aea5-61a656a4b111": {
     "image": "/covers/ed44.jpg",
@@ -59,5 +62,159 @@
     "image": "/covers/ed38.jpg",
     "wash": "#c9dfe4",
     "spine": "#0e4a56"
+  },
+  "f9c1b625-9b20-43c2-ab05-55feb559a699": {
+    "image": "/covers/f9c1b625-9b20-43c2-ab05-55feb559a699.jpg",
+    "wash": "#e3ddd3",
+    "spine": "#483d2d"
+  },
+  "1540929e-dbed-4f16-847f-5e20efcf3fdc": {
+    "image": "/covers/1540929e-dbed-4f16-847f-5e20efcf3fdc.jpg",
+    "wash": "#e4d2d4",
+    "spine": "#522328"
+  },
+  "649fe4ea-1966-4d7d-a8c9-46ec0861852b": {
+    "image": "/covers/649fe4ea-1966-4d7d-a8c9-46ec0861852b.jpg",
+    "wash": "#dfdcd7",
+    "spine": "#413c34"
+  },
+  "7bda2912-befc-41c6-840e-32a89373740f": {
+    "image": "/covers/7bda2912-befc-41c6-840e-32a89373740f.jpg",
+    "wash": "#e4ddd3",
+    "spine": "#483d2d"
+  },
+  "ea953b17-2ec2-45ae-9d36-7777dda28cb6": {
+    "image": "/covers/ea953b17-2ec2-45ae-9d36-7777dda28cb6.jpg",
+    "wash": "#d9dddb",
+    "spine": "#373e3b"
+  },
+  "53c0948c-6c73-4fdc-af00-b618fe6933f9": {
+    "image": "/covers/53c0948c-6c73-4fdc-af00-b618fe6933f9.jpg",
+    "wash": "#d7dbdf",
+    "spine": "#343a41"
+  },
+  "d377d5f0-2bf1-4dba-851f-7f102388da93": {
+    "image": "/covers/d377d5f0-2bf1-4dba-851f-7f102388da93.jpg",
+    "wash": "#e2dcd5",
+    "spine": "#463c30"
+  },
+  "75df1082-13e6-4af5-841e-9e8e1b29bd87": {
+    "image": "/covers/75df1082-13e6-4af5-841e-9e8e1b29bd87.jpg",
+    "wash": "#dfddd8",
+    "spine": "#413d35"
+  },
+  "7fae2c67-6866-4273-a282-d8920107feab": {
+    "image": "/covers/7fae2c67-6866-4273-a282-d8920107feab.jpg",
+    "wash": "#ddd9db",
+    "spine": "#3e383a"
+  },
+  "cd58ac2e-4f4e-4bcd-8bcc-d16a0ec9a230": {
+    "image": "/covers/cd58ac2e-4f4e-4bcd-8bcc-d16a0ec9a230.jpg",
+    "wash": "#dddcd9",
+    "spine": "#3e3c37"
+  },
+  "539e9431-e07f-4486-a6db-6e9414cfe140": {
+    "image": "/covers/539e9431-e07f-4486-a6db-6e9414cfe140.jpg",
+    "wash": "#e4dbd2",
+    "spine": "#523923"
+  },
+  "65ebcd45-a025-4619-a82b-1f76d43fb971": {
+    "image": "/covers/65ebcd45-a025-4619-a82b-1f76d43fb971.jpg",
+    "wash": "#d3e4d4",
+    "spine": "#2d482f"
+  },
+  "2f42d0a6-4ced-4fa4-a78c-043d9af25e63": {
+    "image": "/covers/2f42d0a6-4ced-4fa4-a78c-043d9af25e63.jpg",
+    "wash": "#e4dcd2",
+    "spine": "#4c3c29"
+  },
+  "4a6b0f3b-f4fe-48b5-8c54-dd45b043dd32": {
+    "image": "/covers/4a6b0f3b-f4fe-48b5-8c54-dd45b043dd32.jpg",
+    "wash": "#dbdcdc",
+    "spine": "#393c3c"
+  },
+  "fd7196a4-ecfc-44b7-9b31-633bc1230da8": {
+    "image": "/covers/fd7196a4-ecfc-44b7-9b31-633bc1230da8.jpg",
+    "wash": "#e3e1d4",
+    "spine": "#47442e"
+  },
+  "3f4e7dfa-7c62-4f33-a124-8c20490d95af": {
+    "image": "/covers/3f4e7dfa-7c62-4f33-a124-8c20490d95af.jpg",
+    "wash": "#d2dbe4",
+    "spine": "#253a51"
+  },
+  "56efe40d-20e7-4e22-b731-a54b3354d669": {
+    "image": "/covers/56efe40d-20e7-4e22-b731-a54b3354d669.jpg",
+    "wash": "#d3d4e3",
+    "spine": "#2d2e48"
+  },
+  "4a81698c-8eb2-4fcc-bdf5-419cf33b39e5": {
+    "image": "/covers/4a81698c-8eb2-4fcc-bdf5-419cf33b39e5.jpg",
+    "wash": "#e0dfd7",
+    "spine": "#424134"
+  },
+  "3d104c86-4a29-4c28-8ebd-c6427dbd5424": {
+    "image": "/covers/3d104c86-4a29-4c28-8ebd-c6427dbd5424.jpg",
+    "wash": "#dcdcda",
+    "spine": "#3c3c39"
+  },
+  "6645567c-794e-4788-b65a-9b9667f8684a": {
+    "image": "/covers/6645567c-794e-4788-b65a-9b9667f8684a.jpg",
+    "wash": "#dcddda",
+    "spine": "#3c3d38"
+  },
+  "4ea43520-75ef-46e8-b62c-e37909ccfba1": {
+    "image": "/covers/4ea43520-75ef-46e8-b62c-e37909ccfba1.jpg",
+    "wash": "#d6dce0",
+    "spine": "#323b43"
+  },
+  "1513e212-c889-4863-abdf-67623ee995f8": {
+    "image": "/covers/1513e212-c889-4863-abdf-67623ee995f8.jpg",
+    "wash": "#e1e4d2",
+    "spine": "#495223"
+  },
+  "1e4110d5-8487-40a8-b885-a5fb04bd08e7": {
+    "image": "/covers/1e4110d5-8487-40a8-b885-a5fb04bd08e7.jpg",
+    "wash": "#dedad9",
+    "spine": "#3f3836"
+  },
+  "e18f5bfe-2982-4e15-afbd-674e36b996e1": {
+    "image": "/covers/e18f5bfe-2982-4e15-afbd-674e36b996e1.jpg",
+    "wash": "#d2dae4",
+    "spine": "#2a384c"
+  },
+  "b8821fa9-f3de-478b-8790-23bd9df70dcc": {
+    "image": "/covers/b8821fa9-f3de-478b-8790-23bd9df70dcc.jpg",
+    "wash": "#dcdada",
+    "spine": "#3c3939"
+  },
+  "e664b15e-9e42-4228-9371-375ed158acb3": {
+    "image": "/covers/e664b15e-9e42-4228-9371-375ed158acb3.jpg",
+    "wash": "#e4ded2",
+    "spine": "#514224"
+  },
+  "4b1755cf-0cde-4b82-9421-15d248196496": {
+    "image": "/covers/4b1755cf-0cde-4b82-9421-15d248196496.jpg",
+    "wash": "#dbdbdc",
+    "spine": "#3a3a3b"
+  },
+  "9d1db66c-0848-480a-b3d5-cb7102f4baa3": {
+    "image": "/covers/9d1db66c-0848-480a-b3d5-cb7102f4baa3.jpg",
+    "wash": "#e4dbd2",
+    "spine": "#4b3b2b",
+    "credit": "Cover photo: Ragsxl. Cropped and darkened for this cover. Photo adaptation licensed CC BY-SA 4.0; this license applies to the photo only, not the essay or app.",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:IQM_Quantum_Computer_Espoo_Finland.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "licenseLabel": "CC BY-SA 4.0"
+  },
+  "26645e45-a489-46d7-8483-d7bb72ca9d7b": {
+    "image": "/covers/26645e45-a489-46d7-8483-d7bb72ca9d7b.jpg",
+    "wash": "#e4dbd2",
+    "spine": "#4d3b28"
+  },
+  "71b3d6aa-0b85-4137-a179-67949ab2ec8e": {
+    "image": "/covers/71b3d6aa-0b85-4137-a179-67949ab2ec8e.jpg",
+    "wash": "#dbddda",
+    "spine": "#3b3d39"
   }
 }

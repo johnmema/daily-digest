@@ -1,7 +1,7 @@
 import art from '@/lib/cover-art.json'
 import type { Paper } from '@/types'
 export function coverArt(paper: Paper | undefined) {
-  return (art as Record<string, {image:string;wash:string;spine:string;credit?:string}>)[paper?.id ?? '']
+  return (art as Record<string, {image:string;wash:string;spine:string;credit?:string;creditUrl?:string;licenseUrl?:string;licenseLabel?:string}>)[paper?.id ?? '']
 }
 export default function Cover({paper, small = false}: {paper:Paper;small?:boolean}) {
   const a = coverArt(paper)

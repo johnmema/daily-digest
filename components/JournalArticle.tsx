@@ -19,7 +19,7 @@ export default function JournalArticle({paper,next,onReturn,onNext,progress,anno
    {data?<ReadingView key={paper.id} paper={paper} initialProgress={data.progress} initialAnnotations={data.annotations} embedded/>:<div className="journal-loading" aria-live="polite">Loading essay</div>}
    <footer className="journal-reader-footer">
     <button className="journal-share" onClick={()=>{const url=`${location.origin}/paper/${paper.id}`;if(navigator.share)navigator.share({title:paper.title,url}).catch(()=>{});else navigator.clipboard.writeText(url)}}>Share essay</button>
-    {coverArt(paper)?.credit&&<p className="journal-credit">{coverArt(paper)?.credit}</p>}
+    {coverArt(paper)?.credit&&<p className="journal-credit">{coverArt(paper)?.credit} {coverArt(paper)?.creditUrl&&<a href={coverArt(paper)?.creditUrl} target="_blank" rel="noreferrer">Source</a>}{" · "}{coverArt(paper)?.licenseUrl&&<a href={coverArt(paper)?.licenseUrl} target="_blank" rel="noreferrer">{coverArt(paper)?.licenseLabel}</a>}</p>}
     <button className="journal-next" onClick={onNext}>{next?`Next: ${next.title}`:'Back to the editions'}</button>
    </footer>
   </div>
