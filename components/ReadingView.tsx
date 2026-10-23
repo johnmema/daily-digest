@@ -218,6 +218,15 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
         {/* Essay */}
         <main className="flex-1 max-w-[680px]" onMouseUp={onMouseUp}>
+          <header className="mb-10">
+            <h1 className="font-serif text-4xl sm:text-5xl font-bold text-[#000000] leading-tight tracking-tight">
+              {paper.title}
+            </h1>
+            {paper.subtitle && (
+              <p className="mt-5 text-lg text-[#6b6b6b] leading-relaxed">{paper.subtitle}</p>
+            )}
+          </header>
+
           {/* Pull quote */}
           {paper.pull_quote && (
             <div className="border-t border-b border-[#e0e0e0] py-8 mb-10 text-center">
