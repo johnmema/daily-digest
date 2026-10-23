@@ -131,3 +131,8 @@ html.cover-browsing{scroll-snap-type:none}
 /* Stable shuffled pastel per edition, shared by the stage and fixed labels. */
 .journal-feed-info:after{background:var(--cover-background,#fff);transition:background-color .7s ease}
 @media(prefers-reduced-motion:reduce){.journal-feed-info:after{transition:none}}
+
+/* Each opaque colored page carries its own cover over the previous page. */
+.journal-flow{transition:none}
+
+.journal-feed-info:after{display:none}

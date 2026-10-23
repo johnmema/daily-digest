@@ -4,6 +4,7 @@ import Cover,{coverArt,type CoverArt} from './Cover'
 import ReadingView from './ReadingView'
 import type {Paper,ReadingProgress,Annotation} from '@/types'
 import {createClient} from '@/lib/supabase'
+import {coverBackground} from '@/lib/cover-background'
 export default function JournalArticle({paper,next,onReturn,onNext,progress,annotations,closing=false,artOverride,preview=false}:{paper:Paper;next:Paper|null;onReturn:()=>void;onNext:()=>void;progress?:ReadingProgress|null;annotations?:Annotation[];closing?:boolean;artOverride?:CoverArt;preview?:boolean}) {
  const art=artOverride??coverArt(paper)
  const [data,setData]=useState<{progress:ReadingProgress|null;annotations:Annotation[]}|null>(annotations?{progress:progress??null,annotations}:null)
@@ -14,7 +15,7 @@ export default function JournalArticle({paper,next,onReturn,onNext,progress,anno
   Promise.all([db.from('reading_progress').select('*').eq('paper_id',paper.id).maybeSingle(),db.from('annotations').select('*').eq('paper_id',paper.id).order('created_at')]).then(([p,a])=>{if(alive)setData({progress:p.data,annotations:a.data??[]})})
   return()=>{alive=false}
  },[paper.id,annotations])
- return <div className={`journal-detail${closing?' is-closing':''}`} style={{background:'#fff'}}>
+ return <div className={`journal-detail${closing?' is-closing':''}`} style={{background:coverBackground(paper.id)}}>
   <div className="journal-sticky-hero"><button className="journal-return-cover" onClick={onReturn} aria-label="Back to editions"><Cover paper={paper} artOverride={artOverride}/></button></div>
   <div className="journal-reveal-sheet">
    {data?<ReadingView key={paper.id} paper={paper} initialProgress={data.progress} initialAnnotations={data.annotations} embedded preview={preview}/>:<div className="journal-loading" aria-live="polite">Loading essay</div>}
