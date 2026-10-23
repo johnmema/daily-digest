@@ -1,6 +1,6 @@
 'use client'
 import {useEffect,useLayoutEffect,useRef,useState,type CSSProperties} from 'react'
-import Link from 'next/link'
+import TransitionLink from './TransitionLink'
 import Cover,{coverArt,type CoverArt} from './Cover'
 import JournalArticle from './JournalArticle'
 import type {Paper} from '@/types'
@@ -18,7 +18,7 @@ export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[
  const restore=useRef<number|null>(null)
  useLayoutEffect(()=>{
   document.documentElement.classList.toggle('cover-browsing',open===null)
-  if(open!==null)return
+  if(open!==null){window.scrollTo({top:0,behavior:'instant'});return}
   let frame=0
   let settle:ReturnType<typeof setTimeout>|null=null
   const update=()=>{
@@ -77,7 +77,7 @@ export default function CoverFlow({papers,artOverrides,studyPath}:{papers:Paper[
  }
  if(open!==null){const p=papers[open];return <JournalArticle paper={p} next={papers[open+1]??null} onReturn={()=>returnToBrowse(open)} onNext={()=>returnToBrowse(Math.min(open+1,papers.length-1))} closing={closing} artOverride={artOverrides?.[p.id]} preview={!!studyPath} annotations={studyPath?[]:undefined}/>}
  return <div className="journal-flow" style={{background:coverBackground(papers[active]?.id??''),'--cover-background':coverBackground(papers[active]?.id??'')} as CSSProperties}>
-  {!studyPath&&<nav className="journal-nav"><Link href="/queue" aria-label="Queue" title="Queue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" aria-hidden="true"><path d="M7 6h13M7 12h13M7 18h13"/><circle cx="3" cy="6" r=".65" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r=".65" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r=".65" fill="currentColor" stroke="none"/></svg></Link></nav>}
+  {!studyPath&&<nav className="journal-nav"><TransitionLink href="/queue" aria-label="Queue" title="Queue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" aria-hidden="true"><path d="M7 6h13M7 12h13M7 18h13"/><circle cx="3" cy="6" r=".65" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r=".65" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r=".65" fill="currentColor" stroke="none"/></svg></TransitionLink></nav>}
   {papers.map((p,i)=><section className="journal-panel" key={p.id} data-index={i} style={{zIndex:i+1,background:coverBackground(p.id)}} ref={e=>{refs.current[i]=e}}>
    <a className="journal-cover-link" tabIndex={i===active?0:-1} href={articlePath(p)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&e.button===0){e.preventDefault();read(i)}}} aria-label={`Read ${p.title}`}><Cover paper={p} artOverride={artOverrides?.[p.id]}/>{artFor(p)?.location&&<span className="journal-photo-location">{artFor(p)?.location}</span>}</a>
   </section>)}

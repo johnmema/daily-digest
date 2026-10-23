@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import TransitionLink from './TransitionLink'
 import { useState, useEffect, useRef } from 'react'
 import {
   DndContext,
@@ -374,9 +374,9 @@ export default function TopicQueue({ initialTopics }: { initialTopics: Topic[] }
 
   return (
     <div className="queue-editorial">
-      <nav className="queue-nav"><Link href="/" aria-label="Back to covers"><span aria-hidden="true">←</span> Editions</Link><span>{queued.length} in queue</span></nav>
+      <nav className="queue-nav"><TransitionLink href="/" aria-label="Back to covers"><span aria-hidden="true">←</span> Editions</TransitionLink><span>{queued.length} in queue</span></nav>
       <header className="queue-heading">
-        <p className="queue-kicker">Daily Digest</p><h1>Queue</h1>
+        <h1>Queue</h1>
       </header>
 
       {/* 50/50: ranking (with add bar) | suggested for you */}

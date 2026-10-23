@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Newsreader, Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
+import RouteTransition from '@/components/RouteTransition'
 
 const editorial = Newsreader({
   subsets: ['latin'],
@@ -24,8 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${editorial.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-white text-[#000000] font-sans antialiased">
-        <Header />
-        <main>{children}</main>
+        <RouteTransition><Header />
+        <main>{children}</main></RouteTransition>
       </body>
     </html>
   )
