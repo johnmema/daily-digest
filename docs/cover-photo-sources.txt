@@ -1,0 +1,11 @@
+No. 44: https://unsplash.com/photos/4mcirqpuDfI
+No. 43: https://unsplash.com/photos/wDmrjx5hIwY
+No. 42: https://unsplash.com/photos/Tmygr3GH5Es
+No. 41: https://unsplash.com/photos/BDk7RqP0-qQ
+No. 40: https://unsplash.com/photos/zYy-IEUHWEI
+No. 39: https://unsplash.com/photos/eMoMpSKE8eE
+No. 37: https://unsplash.com/photos/l-w96bIRnVA
+No. 36: https://unsplash.com/photos/JqfxntbYPms
+No. 45: https://www.flickr.com/photos/22901150@N00/3905485341 (Lorena Cupcake, CC BY 2.0; required credit displayed in essay footer)
+No. 46: https://unsplash.com/photos/dWYMhAZ5wos
+No. 38 and archive additions: exact paperID, source page, photographer and license are recorded in lib/cover-art-sources.json. No. 38 fiber-optic photograph replaces the prior unverified concrete-paver image.

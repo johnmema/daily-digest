@@ -9,6 +9,8 @@ import { parseHeadings, formatDateShort } from '@/lib/utils'
 import { createClient } from '@/lib/supabase'
 
 interface ReadingViewProps {
+  embedded?: boolean
+  preview?: boolean
   paper: Paper
   initialProgress?: ReadingProgress | null
   initialAnnotations?: Annotation[]
@@ -20,10 +22,10 @@ const ANNOTATION_COLORS: Record<AnnotationColor, string> = {
   pink: '#fbcfe8',
 }
 
-export default function ReadingView({ paper, initialProgress, initialAnnotations = [] }: ReadingViewProps) {
+export default function ReadingView({ paper, initialProgress, initialAnnotations = [], embedded = false, preview = false }: ReadingViewProps) {
   const router = useRouter()
   const contentRef = useRef<HTMLDivElement>(null)
-  const [percent, setPercent] = useState(initialProgress?.percent_read ?? 0)
+  const [percent, setPercent] = useState(embedded ? 0 : initialProgress?.percent_read ?? 0)
   const [activeHeading, setActiveHeading] = useState('')
   const [annotations, setAnnotations] = useState<Annotation[]>(initialAnnotations)
   const [popover, setPopover] = useState<{ x: number; y: number; text: string; start: number; end: number } | null>(null)
@@ -47,6 +49,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
   // Save progress (debounced)
   const saveProgress = useCallback(
     debounce(async (pct: number) => {
+      if(preview)return
       await supabase.from('reading_progress').upsert({
         paper_id: paper.id,
         percent_read: pct,
@@ -55,7 +58,7 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
         updated_at: new Date().toISOString(),
       })
     }, 1500),
-    [paper.id]
+    [paper.id,preview]
   )
 
   useEffect(() => { saveProgress(percent) }, [percent])
@@ -90,13 +93,14 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
   // Resume scroll position
   useEffect(() => {
-    if (initialProgress?.scroll_position) {
+    if (!embedded && initialProgress?.scroll_position) {
       window.scrollTo({ top: initialProgress.scroll_position })
     }
   }, [])
 
   // Text selection → annotation popover
   const onMouseUp = useCallback(() => {
+    if(preview)return
     const sel = window.getSelection()
     if (!sel || sel.isCollapsed || !sel.toString().trim()) {
       setPopover(null)
@@ -148,15 +152,15 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={embedded ? "journal-essay" : "min-h-screen bg-white"}>
       {/* Progress bar */}
       <div
-        className="fixed top-0 left-0 h-[2px] bg-[#000000] z-50 transition-all duration-150"
+        className={`${embedded ? "sticky" : "fixed"} top-0 left-0 h-[2px] bg-[#000000] z-50 transition-all duration-150`}
         style={{ width: `${percent}%` }}
       />
 
       {/* Top bar */}
-      <div className="sticky top-0 z-40 bg-white border-b border-[#e0e0e0]">
+      {!embedded && <div className="sticky top-0 z-40 bg-white border-b border-[#e0e0e0]">
         <div className="max-w-[1200px] mx-auto px-8 h-12 flex items-center justify-between text-sm text-[#6b6b6b]">
           <button
             onClick={() => router.back()}
@@ -186,7 +190,8 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
         </div>
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-8 py-12 flex gap-16">
+      }
+      <div className={embedded ? "journal-essay-layout" : "max-w-[1200px] mx-auto px-8 py-12 flex gap-16"}>
         {/* Table of contents */}
         <aside className="hidden lg:block w-56 shrink-0">
           <div className="sticky top-20">
@@ -218,7 +223,12 @@ export default function ReadingView({ paper, initialProgress, initialAnnotations
 
         {/* Essay */}
         <main className="flex-1 max-w-[680px]" onMouseUp={onMouseUp}>
-          {/* Pull quote */}
+          <header className="journal-essay-heading">
+          <h1>{paper.title.split(/(GLP-1)/g).map((part,i)=>part==='GLP-1'?<span key={i} style={{whiteSpace:'nowrap'}}>{part}</span>:part)}</h1>
+          {paper.subtitle && <p>{paper.subtitle}</p>}
+          {embedded && !!initialProgress?.scroll_position && initialProgress.scroll_position > 200 && <button className="journal-resume" onClick={() => window.scrollTo({top:initialProgress.scroll_position,behavior:'smooth'})}>Resume reading</button>}
+        </header>
+        {/* Pull quote */}
           {paper.pull_quote && (
             <div className="border-t border-b border-[#e0e0e0] py-8 mb-10 text-center">
               <p className="font-serif text-2xl italic text-[#000000] leading-relaxed">

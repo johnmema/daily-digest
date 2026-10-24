@@ -1,0 +1,86 @@
+{
+  "nature": [
+    {
+      "image": "/photo-study/nature/nature-04.jpg",
+      "photographer": "Kuhnmi",
+      "title": "Golden sunbeams through November fog, bare trees",
+      "source": "https://commons.wikimedia.org/wiki/File:Baumsilhouetten_am_Uetliberg_mit_Novembernebel_und_Sonnenstrahlen.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "image": "/photo-study/nature/nature-05.jpg",
+      "photographer": "W.carter",
+      "title": "Lush beech-and-fern forest interior",
+      "source": "https://commons.wikimedia.org/wiki/File:Beech_and_ferns_in_Gullmarsskogen.jpg",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "image": "/photo-study/nature/nature-03.jpg",
+      "photographer": "Ximonic (Simo Räsänen)",
+      "title": "Snowy fjord at dusk, Lofoten",
+      "source": "https://commons.wikimedia.org/wiki/File:A_Late_evening_view_to_Austnesfjorden_at_Sildpollnes_Church,_Austv%C3%A5g%C3%B8ya,_Lofoten,_Norway,_2015_April.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ],
+  "monochrome": [
+    {
+      "image": "/photo-study/bw/bw-01.jpg",
+      "photographer": "Vita Vilcina",
+      "title": "City skyline at night",
+      "source": "https://unsplash.com/photos/city-building-during-night-time-photo-VMLGC5A3QTE",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license"
+    },
+    {
+      "image": "/photo-study/bw/bw-05.jpg",
+      "photographer": "Sebastian Schuster",
+      "title": "Rapids, white foam on dark water",
+      "source": "https://unsplash.com/photos/raging-river-rapids-with-white-foam-and-dark-water-0kWMQnmLSms",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license"
+    },
+    {
+      "image": "/photo-study/bw/bw-08.jpg",
+      "photographer": "Gian D.",
+      "title": "Rose in grayscale",
+      "source": "https://unsplash.com/photos/grayscale-photograph-of-petaled-flower-YE6iUShVcps",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license"
+    }
+  ],
+  "awarded": [
+    {
+      "image": "/photo-study/award/award-13.jpg",
+      "photographer": "Rodney Ee",
+      "title": "Jockey biting his tail grip, mud flying, Pacu Jawi bull race, Indonesia",
+      "source": "https://commons.wikimedia.org/wiki/File:Mud_Cow_Racing_-_Pacu_Jawi_-_West_Sumatra,_Indonesia.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "award": "Wikimedia Commons Picture of the Year 2019 - Winner (1st place)",
+      "awardUrl": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2019/Results"
+    },
+    {
+      "image": "/photo-study/award/award-14.jpg",
+      "photographer": "Luca Casale",
+      "title": "Kingfisher snatching a fish, water droplets frozen, Po river, Italy",
+      "source": "https://commons.wikimedia.org/wiki/File:Alcedo_atthis_-_Riserve_naturali_e_aree_contigue_della_fascia_fluviale_del_Po.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "award": "Wikimedia Commons Picture of the Year 2020 - Winner (1st place)",
+      "awardUrl": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2020/Results"
+    },
+    {
+      "image": "/photo-study/award/award-15.jpg",
+      "photographer": "Farzin Izaddoust dar",
+      "title": "Stone church in snow-covered hills with villagers and horses, Iran",
+      "source": "https://commons.wikimedia.org/wiki/File:Holy_SURP_Hovhannes_Church.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "award": "Wikimedia Commons Picture of the Year 2021 - Winner (1st place)",
+      "awardUrl": "https://commons.wikimedia.org/wiki/Commons:Picture_of_the_Year/2021/Results"
+    }
+  ]
+}
